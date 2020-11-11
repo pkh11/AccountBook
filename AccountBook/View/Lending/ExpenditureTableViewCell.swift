@@ -27,3 +27,16 @@ class ExpenditureTableViewCell: UITableViewCell {
         }
     }
 }
+
+class ExpenditureTableHeaderCell: UITableViewCell {
+    
+    @IBOutlet weak var remainCost: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func updateUI(_ account: String) {
+        remainCost.text = "잔여한도: \(account)"
+    }
+}

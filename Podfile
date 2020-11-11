@@ -8,5 +8,6 @@ target 'AccountBook' do
   # Pods for AccountBook
 
   pod 'VerticalSlider'
+  pod 'PanModal'
 
 end

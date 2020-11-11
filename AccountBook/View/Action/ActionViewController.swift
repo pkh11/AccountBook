@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import PanModal
 
 class ActionViewController: UIViewController {
 
     var storage = Storage.shared
+    @IBOutlet weak var spendTypeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +23,20 @@ class ActionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         storage.saveData()
+        
+    }
+    @IBAction func openModal(_ sender: Any) {
+        guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
+            return
+        }
+        presentPanModal(storyboard)
     }
 }
+
+extension ActionViewController: PanModalPresentable {
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+}
+
+

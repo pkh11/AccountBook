@@ -13,6 +13,9 @@
 		6B78C230254E7C3900C6A287 /* ExpenditureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78C22F254E7C3900C6A287 /* ExpenditureTableViewCell.swift */; };
 		6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78C233254E7E5400C6A287 /* ExpenditureTableHeaderView.swift */; };
 		6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B78C237254EF15000C6A287 /* ExpenditureTableHeaderView.xib */; };
+		6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B849042255A651300309ED7 /* SpendTypeViewController.swift */; };
+		6B849046255A6BBC00309ED7 /* SpendType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B849045255A6BBC00309ED7 /* SpendType.storyboard */; };
+		6B849049255A6C6F00309ED7 /* SpendTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */; };
 		6BB527A4255527160029DCEB /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527A3255527160029DCEB /* Commons.swift */; };
 		6BB527AF25552CB50029DCEB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527AD25552CB50029DCEB /* Model.xcdatamodeld */; };
 		6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527B225552DBF0029DCEB /* DataModel.xcdatamodeld */; };
@@ -36,6 +39,9 @@
 		6B78C22F254E7C3900C6A287 /* ExpenditureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureTableViewCell.swift; sourceTree = "<group>"; };
 		6B78C233254E7E5400C6A287 /* ExpenditureTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureTableHeaderView.swift; sourceTree = "<group>"; };
 		6B78C237254EF15000C6A287 /* ExpenditureTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenditureTableHeaderView.xib; sourceTree = "<group>"; };
+		6B849042255A651300309ED7 /* SpendTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendTypeViewController.swift; sourceTree = "<group>"; };
+		6B849045255A6BBC00309ED7 /* SpendType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpendType.storyboard; sourceTree = "<group>"; };
+		6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendTypeCell.swift; sourceTree = "<group>"; };
 		6BB527A3255527160029DCEB /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
 		6BB527AE25552CB50029DCEB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6BB527B325552DBF0029DCEB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -79,9 +85,9 @@
 		6B78C243254F91B600C6A287 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B84904B255A725900309ED7 /* Action */,
 				6B78C244254F91E100C6A287 /* Lending */,
 				6B78C245254F91E700C6A287 /* Setting */,
-				6B0658DE25494C08004A89A9 /* ActionViewController.swift */,
 				6CF7F15A24DAD6D30049175F /* CustomTabBarController.swift */,
 				6CF7F15C24DAD6D30049175F /* Main.storyboard */,
 			);
@@ -105,6 +111,17 @@
 				6B0658DB25494BC7004A89A9 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		6B84904B255A725900309ED7 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				6B0658DE25494C08004A89A9 /* ActionViewController.swift */,
+				6B849042255A651300309ED7 /* SpendTypeViewController.swift */,
+				6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */,
+				6B849045255A6BBC00309ED7 /* SpendType.storyboard */,
+			);
+			path = Action;
 			sourceTree = "<group>";
 		};
 		6BB527A2255526DD0029DCEB /* Utils */ = {
@@ -233,6 +250,7 @@
 				6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */,
 				6CF7F16324DAD6D50049175F /* LaunchScreen.storyboard in Resources */,
 				6CF7F16024DAD6D50049175F /* Assets.xcassets in Resources */,
+				6B849046255A6BBC00309ED7 /* SpendType.storyboard in Resources */,
 				6CF7F15E24DAD6D30049175F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,8 +307,10 @@
 				6BB527A4255527160029DCEB /* Commons.swift in Sources */,
 				6CF7F17024DADC7D0049175F /* TransactionDailyGroup.swift in Sources */,
 				6CF7F17224DADF360049175F /* Storage.swift in Sources */,
+				6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */,
 				6BB527AF25552CB50029DCEB /* Model.xcdatamodeld in Sources */,
 				6CF7F15B24DAD6D30049175F /* CustomTabBarController.swift in Sources */,
+				6B849049255A6C6F00309ED7 /* SpendTypeCell.swift in Sources */,
 				6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */,
 				6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */,
 				6CF7F15724DAD6D30049175F /* AppDelegate.swift in Sources */,

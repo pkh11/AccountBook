@@ -35,6 +35,15 @@ class HomeViewController: UIViewController {
     }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableHeaderCell") as? ExpenditureTableHeaderCell else {
+            return UITableViewCell()
+        }
+        headerCell.updateUI("990000")
+        return headerCell
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let dataCount = storage.transactions.count
         

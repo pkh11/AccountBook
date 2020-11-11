@@ -1,16 +1,20 @@
 PODS:
+  - PanModal (1.2.7)
   - VerticalSlider (2.0.0)
 
 DEPENDENCIES:
+  - PanModal
   - VerticalSlider
 
 SPEC REPOS:
   trunk:
+    - PanModal
     - VerticalSlider
 
 SPEC CHECKSUMS:
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
 
-PODFILE CHECKSUM: 89f928befd97ee43139ddd7dd2b5f3e23ca1dafb
+PODFILE CHECKSUM: 3c9de3539c37cedea4f2f4287644bea9a1a83f59
 
 COCOAPODS: 1.10.0

@@ -7,55 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110CFEC4703FF636655252F661527F29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		2064F67C8EA7CFCC99A5D2F94AB18E80 /* Pods-AccountBook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC064DCD73FA3C221DC4B638D6C50C6 /* Pods-AccountBook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		24F5F93C673F5DB9315398602D43A797 /* VerticalSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8062A745F9ECF5CA4EC0CB25E25C87BC /* VerticalSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24F5F93C673F5DB9315398602D43A797 /* VerticalSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DDFCCF2B144E89E0C741B9A43FAC16D /* VerticalSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E429C92AE2DC78C28DA149D8A1B1514 /* PanContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE0BEFFF3A6D79F41AC77BFCB3D285 /* PanContainerView.swift */; };
 		310A5A62EC2BB4528720B691007300AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		4B1B1EEC36C2CABC3BA84C240EF39093 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5595461D016B7167D88A773E2E5A0 /* VerticalSlider.swift */; };
-		AD91E0917298EB811AFEA9EE91BE3CF3 /* VerticalSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C545DC0B987337669966A38B19955F93 /* VerticalSlider-dummy.m */; };
-		D3A3167D4CE0E98FDA4B1CC17791F586 /* Pods-AccountBook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD906A8F1119C47FA797A49D4E05499 /* Pods-AccountBook-dummy.m */; };
+		3DB448A3E9B64E934BC76FE0FC7621FE /* PanModalPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC137805CE367F5BDE460590E055FD /* PanModalPresentationDelegate.swift */; };
+		4568EDD1163363300EAC0BA60D5CD7AB /* DimmedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D7B766752DA1B73EEF76BD3E745E7 /* DimmedView.swift */; };
+		45CF72ED3BCD237B440ACB19851A589A /* PanModalHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F4D138D203FBAEDFDDF198DC1E3709 /* PanModalHeight.swift */; };
+		4B1B1EEC36C2CABC3BA84C240EF39093 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93301C641268DEA641D958E7696EABB5 /* VerticalSlider.swift */; };
+		5197A27E56D90F5F035B186B1C17B03E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		5D55EB3EC082E70D15B02C607CF6440E /* PanModalPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9074333339AADF04FA8AFD33E7B62DD7 /* PanModalPresentationAnimator.swift */; };
+		6A88FBA7BC5D3D69E315F9AE2E0DEE3B /* PanModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A57E07572F6C0EC47B754D7F62284 /* PanModalPresenter.swift */; };
+		80212493C474B326F66876261FA57C65 /* UIViewController+PanModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ED204C318D968719BEEFA01A438B5D /* UIViewController+PanModalPresenter.swift */; };
+		8098DAF576BD71BF8514ECF921F96AA3 /* PanModalPresentable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F927E08D4E875C90C2D961FE18ADC2E1 /* PanModalPresentable+UIViewController.swift */; };
+		83444168FD31011F7217EFA2684AE936 /* PanModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153C956E409BF10641A38224160A46D4 /* PanModalAnimator.swift */; };
+		93C1556DDAED08BE604B2B685155F553 /* PanModalPresentable+LayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E789270DB601D6EEFFD67A2D981BE364 /* PanModalPresentable+LayoutHelpers.swift */; };
+		AD91E0917298EB811AFEA9EE91BE3CF3 /* VerticalSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAED072F1698988E8F01A29D9D82FE2 /* VerticalSlider-dummy.m */; };
+		B46152373E6CBC6791AAE85205C33F98 /* PanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F1E9F2567C10C8F28B5D142BE61766 /* PanModalPresentable.swift */; };
+		BD030684DB491453C175AA7F99C5DE13 /* PanModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 24878208B7EED6112CF59B2BEDC964B4 /* PanModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C7B5C62E4E6E07664FFD4B662898895B /* Pods-AccountBook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD906A8F1119C47FA797A49D4E05499 /* Pods-AccountBook-dummy.m */; };
+		CD79EE4BEA5E1267340F13CD3E951206 /* Pods-AccountBook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DC064DCD73FA3C221DC4B638D6C50C6 /* Pods-AccountBook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD7DC4E3DF9AD9EF9FD9E1C0C67C386B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		D1F413745F02F75C0D42753DCB9D79BC /* PanModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6195180510915AD497637DFB5C69E56 /* PanModalPresentationController.swift */; };
+		DC1A70CACD0B2ACA2A3FAA5EF320C15B /* PanModal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 258628DFC95B7DA48F3F70887FADDC06 /* PanModal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2021C557BAABC303255C299C768CBA8 /* PanModal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EFC61A147A13A8285BE83555EEC4DF /* PanModal-dummy.m */; };
+		F87BF668A74FAF0D05C057C5033DF52F /* PanModalPresentable+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4046167B2C23D15B1AA4024CF29C800 /* PanModalPresentable+Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C7DC79FEF9A3779658A73FE327C37A38 /* PBXContainerItemProxy */ = {
+		482B2DB79A51641C5D7BD58E98C481DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4962333466F9BDEDC52F2ACC5A5A9C79;
 			remoteInfo = VerticalSlider;
 		};
+		660A155DD6E7C0E671BFAE1B920B140D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD16B149CC82594F15860A512FDBB6B9;
+			remoteInfo = PanModal;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C1A83D3D0E00980F80740247FCA404F /* VerticalSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VerticalSlider.modulemap; sourceTree = "<group>"; };
+		0C73CF94B2539CB71F192B7831A40BC1 /* VerticalSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.release.xcconfig; sourceTree = "<group>"; };
+		0D3382E5545B210880B514A19AB61F62 /* VerticalSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VerticalSlider-Info.plist"; sourceTree = "<group>"; };
+		11F1E9F2567C10C8F28B5D142BE61766 /* PanModalPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentable.swift; path = PanModal/Presentable/PanModalPresentable.swift; sourceTree = "<group>"; };
+		153C956E409BF10641A38224160A46D4 /* PanModalAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalAnimator.swift; path = PanModal/Animator/PanModalAnimator.swift; sourceTree = "<group>"; };
+		161277983660BBB6908A635083708CFB /* PanModal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PanModal.framework; path = PanModal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18F4D138D203FBAEDFDDF198DC1E3709 /* PanModalHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalHeight.swift; path = PanModal/Presentable/PanModalHeight.swift; sourceTree = "<group>"; };
 		21F0D14211DB772143FF65C5F3EACCD6 /* Pods-AccountBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccountBook.release.xcconfig"; sourceTree = "<group>"; };
+		24878208B7EED6112CF59B2BEDC964B4 /* PanModal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PanModal.h; path = PanModal/PanModal.h; sourceTree = "<group>"; };
+		258628DFC95B7DA48F3F70887FADDC06 /* PanModal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PanModal-umbrella.h"; sourceTree = "<group>"; };
+		2BAED072F1698988E8F01A29D9D82FE2 /* VerticalSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VerticalSlider-dummy.m"; sourceTree = "<group>"; };
 		2DD906A8F1119C47FA797A49D4E05499 /* Pods-AccountBook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AccountBook-dummy.m"; sourceTree = "<group>"; };
 		34B9F06CEBFA775EE0E22C00FF85EF72 /* Pods-AccountBook-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AccountBook-Info.plist"; sourceTree = "<group>"; };
-		3BD5595461D016B7167D88A773E2E5A0 /* VerticalSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalSlider.swift; path = VerticalSlider/Classes/VerticalSlider.swift; sourceTree = "<group>"; };
-		45876F181904F0B3B990F9E7AE9EE3D7 /* VerticalSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-prefix.pch"; sourceTree = "<group>"; };
-		5C2A2F70D8440405872E63E5320CE9A0 /* VerticalSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VerticalSlider-Info.plist"; sourceTree = "<group>"; };
+		3AC03F4DEAE22772657703F3CEE283A3 /* PanModal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PanModal.debug.xcconfig; sourceTree = "<group>"; };
+		520A57E07572F6C0EC47B754D7F62284 /* PanModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresenter.swift; path = PanModal/Presenter/PanModalPresenter.swift; sourceTree = "<group>"; };
+		539D7B766752DA1B73EEF76BD3E745E7 /* DimmedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DimmedView.swift; path = PanModal/View/DimmedView.swift; sourceTree = "<group>"; };
+		5DDFCCF2B144E89E0C741B9A43FAC16D /* VerticalSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-umbrella.h"; sourceTree = "<group>"; };
 		6DC064DCD73FA3C221DC4B638D6C50C6 /* Pods-AccountBook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AccountBook-umbrella.h"; sourceTree = "<group>"; };
 		71854DACDD9424F359E4D18F7F2B827A /* Pods-AccountBook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AccountBook-acknowledgements.markdown"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8062A745F9ECF5CA4EC0CB25E25C87BC /* VerticalSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-umbrella.h"; sourceTree = "<group>"; };
+		88ED204C318D968719BEEFA01A438B5D /* UIViewController+PanModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+PanModalPresenter.swift"; path = "PanModal/Presenter/UIViewController+PanModalPresenter.swift"; sourceTree = "<group>"; };
+		8C4D707FEAE44E46518806D06398CC3E /* VerticalSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VerticalSlider-prefix.pch"; sourceTree = "<group>"; };
+		9074333339AADF04FA8AFD33E7B62DD7 /* PanModalPresentationAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationAnimator.swift; path = PanModal/Animator/PanModalPresentationAnimator.swift; sourceTree = "<group>"; };
+		93301C641268DEA641D958E7696EABB5 /* VerticalSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerticalSlider.swift; path = VerticalSlider/Classes/VerticalSlider.swift; sourceTree = "<group>"; };
+		9484D1B5D225576B0E12EE66BAE678F8 /* PanModal-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PanModal-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0EE0BEFFF3A6D79F41AC77BFCB3D285 /* PanContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanContainerView.swift; path = PanModal/View/PanContainerView.swift; sourceTree = "<group>"; };
 		A17E0DC895F68D4487DD43CCE1943F83 /* Pods_AccountBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AccountBook.framework; path = "Pods-AccountBook.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6195180510915AD497637DFB5C69E56 /* PanModalPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationController.swift; path = PanModal/Controller/PanModalPresentationController.swift; sourceTree = "<group>"; };
+		B6DC137805CE367F5BDE460590E055FD /* PanModalPresentationDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationDelegate.swift; path = PanModal/Delegate/PanModalPresentationDelegate.swift; sourceTree = "<group>"; };
 		B97E23410B239B7D88DD41ED01D8DAC2 /* Pods-AccountBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AccountBook.debug.xcconfig"; sourceTree = "<group>"; };
+		C24FCFB49B7CCDCA40C13959D0AC5837 /* PanModal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PanModal.release.xcconfig; sourceTree = "<group>"; };
 		C3C565E5640C616D88B2477538C692B5 /* Pods-AccountBook-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AccountBook-frameworks.sh"; sourceTree = "<group>"; };
-		C545DC0B987337669966A38B19955F93 /* VerticalSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VerticalSlider-dummy.m"; sourceTree = "<group>"; };
+		CA338BDE5A9B4B26F9CA4A7B6EFCA0F3 /* PanModal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PanModal.modulemap; sourceTree = "<group>"; };
 		D1019CF28B5D159C682D4E9E4E99CFD7 /* Pods-AccountBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AccountBook.modulemap"; sourceTree = "<group>"; };
 		D22880FC1EC9C698A1F5FBD2F23D2E3D /* VerticalSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VerticalSlider.framework; path = VerticalSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D66BAF803725B26AD615C66EBD5AAD43 /* Pods-AccountBook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AccountBook-acknowledgements.plist"; sourceTree = "<group>"; };
-		EDCF3D678E881FF0AF60CE2CD7D71972 /* VerticalSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.debug.xcconfig; sourceTree = "<group>"; };
-		F28D696E46CD8849F2FE291F3B71E85C /* VerticalSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.release.xcconfig; sourceTree = "<group>"; };
+		D7EFC61A147A13A8285BE83555EEC4DF /* PanModal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PanModal-dummy.m"; sourceTree = "<group>"; };
+		DBBC665697A8FEFF17646EB70F990089 /* VerticalSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VerticalSlider.debug.xcconfig; sourceTree = "<group>"; };
+		E4046167B2C23D15B1AA4024CF29C800 /* PanModalPresentable+Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+Defaults.swift"; path = "PanModal/Presentable/PanModalPresentable+Defaults.swift"; sourceTree = "<group>"; };
+		E789270DB601D6EEFFD67A2D981BE364 /* PanModalPresentable+LayoutHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+LayoutHelpers.swift"; path = "PanModal/Presentable/PanModalPresentable+LayoutHelpers.swift"; sourceTree = "<group>"; };
+		F8E1750C5271AB9C7118FD619842A431 /* VerticalSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VerticalSlider.modulemap; sourceTree = "<group>"; };
+		F927E08D4E875C90C2D961FE18ADC2E1 /* PanModalPresentable+UIViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+UIViewController.swift"; path = "PanModal/Presentable/PanModalPresentable+UIViewController.swift"; sourceTree = "<group>"; };
+		FD9F889E31A0A31DFD8A7D84C27242BE /* PanModal-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PanModal-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		744D96C8FB1DCA4CDF47A69DB791F856 /* Frameworks */ = {
+		7C3BCC674AF1CD81DBDD6396175BB108 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				110CFEC4703FF636655252F661527F29 /* Foundation.framework in Frameworks */,
+				CD7DC4E3DF9AD9EF9FD9E1C0C67C386B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E1C21640FE40E2B8C8C6A98AE510159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5197A27E56D90F5F035B186B1C17B03E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,19 +124,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A63DD7BF6286F13B26C389944FB5473 /* Support Files */ = {
+		46813FCF45FB72C8D6CCD34AA2C1B629 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1C1A83D3D0E00980F80740247FCA404F /* VerticalSlider.modulemap */,
-				C545DC0B987337669966A38B19955F93 /* VerticalSlider-dummy.m */,
-				5C2A2F70D8440405872E63E5320CE9A0 /* VerticalSlider-Info.plist */,
-				45876F181904F0B3B990F9E7AE9EE3D7 /* VerticalSlider-prefix.pch */,
-				8062A745F9ECF5CA4EC0CB25E25C87BC /* VerticalSlider-umbrella.h */,
-				EDCF3D678E881FF0AF60CE2CD7D71972 /* VerticalSlider.debug.xcconfig */,
-				F28D696E46CD8849F2FE291F3B71E85C /* VerticalSlider.release.xcconfig */,
+				6EB88B4C50DAF657C99D56CEA941CB75 /* PanModal */,
+				DE88684CF26609193BB6676926B814F4 /* VerticalSlider */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4DFE31356A1F5D3DD067C2543BB56F20 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA338BDE5A9B4B26F9CA4A7B6EFCA0F3 /* PanModal.modulemap */,
+				D7EFC61A147A13A8285BE83555EEC4DF /* PanModal-dummy.m */,
+				9484D1B5D225576B0E12EE66BAE678F8 /* PanModal-Info.plist */,
+				FD9F889E31A0A31DFD8A7D84C27242BE /* PanModal-prefix.pch */,
+				258628DFC95B7DA48F3F70887FADDC06 /* PanModal-umbrella.h */,
+				3AC03F4DEAE22772657703F3CEE283A3 /* PanModal.debug.xcconfig */,
+				C24FCFB49B7CCDCA40C13959D0AC5837 /* PanModal.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/VerticalSlider";
+			path = "../Target Support Files/PanModal";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -99,15 +162,6 @@
 				6D01A97F81F9A787E6955DFD6AAC7DC8 /* Pods-AccountBook */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		69BABA5C012F856108C12104EBE087FB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A17E0DC895F68D4487DD43CCE1943F83 /* Pods_AccountBook.framework */,
-				D22880FC1EC9C698A1F5FBD2F23D2E3D /* VerticalSlider.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		6D01A97F81F9A787E6955DFD6AAC7DC8 /* Pods-AccountBook */ = {
@@ -127,22 +181,52 @@
 			path = "Target Support Files/Pods-AccountBook";
 			sourceTree = "<group>";
 		};
-		99EEFE4F49B808C5D393E7E719FD8147 /* Pods */ = {
+		6EB88B4C50DAF657C99D56CEA941CB75 /* PanModal */ = {
 			isa = PBXGroup;
 			children = (
-				A1F46FC96AEB7EE037ABA92ABD5BEBA9 /* VerticalSlider */,
+				539D7B766752DA1B73EEF76BD3E745E7 /* DimmedView.swift */,
+				A0EE0BEFFF3A6D79F41AC77BFCB3D285 /* PanContainerView.swift */,
+				24878208B7EED6112CF59B2BEDC964B4 /* PanModal.h */,
+				153C956E409BF10641A38224160A46D4 /* PanModalAnimator.swift */,
+				18F4D138D203FBAEDFDDF198DC1E3709 /* PanModalHeight.swift */,
+				11F1E9F2567C10C8F28B5D142BE61766 /* PanModalPresentable.swift */,
+				E4046167B2C23D15B1AA4024CF29C800 /* PanModalPresentable+Defaults.swift */,
+				E789270DB601D6EEFFD67A2D981BE364 /* PanModalPresentable+LayoutHelpers.swift */,
+				F927E08D4E875C90C2D961FE18ADC2E1 /* PanModalPresentable+UIViewController.swift */,
+				9074333339AADF04FA8AFD33E7B62DD7 /* PanModalPresentationAnimator.swift */,
+				B6195180510915AD497637DFB5C69E56 /* PanModalPresentationController.swift */,
+				B6DC137805CE367F5BDE460590E055FD /* PanModalPresentationDelegate.swift */,
+				520A57E07572F6C0EC47B754D7F62284 /* PanModalPresenter.swift */,
+				88ED204C318D968719BEEFA01A438B5D /* UIViewController+PanModalPresenter.swift */,
+				4DFE31356A1F5D3DD067C2543BB56F20 /* Support Files */,
 			);
-			name = Pods;
+			name = PanModal;
+			path = PanModal;
 			sourceTree = "<group>";
 		};
-		A1F46FC96AEB7EE037ABA92ABD5BEBA9 /* VerticalSlider */ = {
+		829DD84666EF4E84E83D0DDF014F05DD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3BD5595461D016B7167D88A773E2E5A0 /* VerticalSlider.swift */,
-				4A63DD7BF6286F13B26C389944FB5473 /* Support Files */,
+				F8E1750C5271AB9C7118FD619842A431 /* VerticalSlider.modulemap */,
+				2BAED072F1698988E8F01A29D9D82FE2 /* VerticalSlider-dummy.m */,
+				0D3382E5545B210880B514A19AB61F62 /* VerticalSlider-Info.plist */,
+				8C4D707FEAE44E46518806D06398CC3E /* VerticalSlider-prefix.pch */,
+				5DDFCCF2B144E89E0C741B9A43FAC16D /* VerticalSlider-umbrella.h */,
+				DBBC665697A8FEFF17646EB70F990089 /* VerticalSlider.debug.xcconfig */,
+				0C73CF94B2539CB71F192B7831A40BC1 /* VerticalSlider.release.xcconfig */,
 			);
-			name = VerticalSlider;
-			path = VerticalSlider;
+			name = "Support Files";
+			path = "../Target Support Files/VerticalSlider";
+			sourceTree = "<group>";
+		};
+		8BE31CAED9D3E57A9FE828FDB526F101 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				161277983660BBB6908A635083708CFB /* PanModal.framework */,
+				A17E0DC895F68D4487DD43CCE1943F83 /* Pods_AccountBook.framework */,
+				D22880FC1EC9C698A1F5FBD2F23D2E3D /* VerticalSlider.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -150,8 +234,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				99EEFE4F49B808C5D393E7E719FD8147 /* Pods */,
-				69BABA5C012F856108C12104EBE087FB /* Products */,
+				46813FCF45FB72C8D6CCD34AA2C1B629 /* Pods */,
+				8BE31CAED9D3E57A9FE828FDB526F101 /* Products */,
 				64E74DA17EE6993B9FB7885E46DF06A3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -162,6 +246,16 @@
 				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE88684CF26609193BB6676926B814F4 /* VerticalSlider */ = {
+			isa = PBXGroup;
+			children = (
+				93301C641268DEA641D958E7696EABB5 /* VerticalSlider.swift */,
+				829DD84666EF4E84E83D0DDF014F05DD /* Support Files */,
+			);
+			name = VerticalSlider;
+			path = VerticalSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +269,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7659E685EFF6E5AC37146D7F78CD2658 /* Headers */ = {
+		8705DA2E5DC48F320712CA746DD1D402 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2064F67C8EA7CFCC99A5D2F94AB18E80 /* Pods-AccountBook-umbrella.h in Headers */,
+				DC1A70CACD0B2ACA2A3FAA5EF320C15B /* PanModal-umbrella.h in Headers */,
+				BD030684DB491453C175AA7F99C5DE13 /* PanModal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C618ECB81331CF7E5D3EDDA2F42F0A83 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD79EE4BEA5E1267340F13CD3E951206 /* Pods-AccountBook-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,17 +291,18 @@
 /* Begin PBXNativeTarget section */
 		22878C5F005D9CD54FCBC178FF1D6FF6 /* Pods-AccountBook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B791AEFEA07C2D9ACBD89CE7E7908768 /* Build configuration list for PBXNativeTarget "Pods-AccountBook" */;
+			buildConfigurationList = 5D3EF5F651B30F48D0146C7FFC2DB32D /* Build configuration list for PBXNativeTarget "Pods-AccountBook" */;
 			buildPhases = (
-				7659E685EFF6E5AC37146D7F78CD2658 /* Headers */,
-				0CC120835749AEF4C61633A2E9B9900F /* Sources */,
-				744D96C8FB1DCA4CDF47A69DB791F856 /* Frameworks */,
-				053F5E57BB8B153A352630D12825EEBC /* Resources */,
+				C618ECB81331CF7E5D3EDDA2F42F0A83 /* Headers */,
+				7B1A9B3FB371197DF2916E79014DB7EA /* Sources */,
+				7E1C21640FE40E2B8C8C6A98AE510159 /* Frameworks */,
+				FDCAEC235488F467D33B31DEC5235261 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				54D807658313464755E70B721D2F96FD /* PBXTargetDependency */,
+				1C7ADCFDFBC73FA2D1E35E84727DEFE6 /* PBXTargetDependency */,
+				2C1F502E77E91C05C229E35CEB3835B3 /* PBXTargetDependency */,
 			);
 			name = "Pods-AccountBook";
 			productName = "Pods-AccountBook";
@@ -223,6 +327,24 @@
 			productReference = D22880FC1EC9C698A1F5FBD2F23D2E3D /* VerticalSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AD16B149CC82594F15860A512FDBB6B9 /* PanModal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F38CE1990CDB1B358C6402136F744CE /* Build configuration list for PBXNativeTarget "PanModal" */;
+			buildPhases = (
+				8705DA2E5DC48F320712CA746DD1D402 /* Headers */,
+				6DF0C107B3EB308A3AD99D62CE074AAD /* Sources */,
+				7C3BCC674AF1CD81DBDD6396175BB108 /* Frameworks */,
+				BA98400A9FFE117837BA2A760AB6762C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PanModal;
+			productName = PanModal;
+			productReference = 161277983660BBB6908A635083708CFB /* PanModal.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -241,10 +363,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 69BABA5C012F856108C12104EBE087FB /* Products */;
+			productRefGroup = 8BE31CAED9D3E57A9FE828FDB526F101 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				AD16B149CC82594F15860A512FDBB6B9 /* PanModal */,
 				22878C5F005D9CD54FCBC178FF1D6FF6 /* Pods-AccountBook */,
 				4962333466F9BDEDC52F2ACC5A5A9C79 /* VerticalSlider */,
 			);
@@ -252,14 +375,21 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		053F5E57BB8B153A352630D12825EEBC /* Resources */ = {
+		8B3E6534369AFDF7BFFD1B204573378E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B3E6534369AFDF7BFFD1B204573378E /* Resources */ = {
+		BA98400A9FFE117837BA2A760AB6762C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDCAEC235488F467D33B31DEC5235261 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,11 +399,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0CC120835749AEF4C61633A2E9B9900F /* Sources */ = {
+		6DF0C107B3EB308A3AD99D62CE074AAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A3167D4CE0E98FDA4B1CC17791F586 /* Pods-AccountBook-dummy.m in Sources */,
+				4568EDD1163363300EAC0BA60D5CD7AB /* DimmedView.swift in Sources */,
+				2E429C92AE2DC78C28DA149D8A1B1514 /* PanContainerView.swift in Sources */,
+				F2021C557BAABC303255C299C768CBA8 /* PanModal-dummy.m in Sources */,
+				83444168FD31011F7217EFA2684AE936 /* PanModalAnimator.swift in Sources */,
+				45CF72ED3BCD237B440ACB19851A589A /* PanModalHeight.swift in Sources */,
+				F87BF668A74FAF0D05C057C5033DF52F /* PanModalPresentable+Defaults.swift in Sources */,
+				93C1556DDAED08BE604B2B685155F553 /* PanModalPresentable+LayoutHelpers.swift in Sources */,
+				8098DAF576BD71BF8514ECF921F96AA3 /* PanModalPresentable+UIViewController.swift in Sources */,
+				B46152373E6CBC6791AAE85205C33F98 /* PanModalPresentable.swift in Sources */,
+				5D55EB3EC082E70D15B02C607CF6440E /* PanModalPresentationAnimator.swift in Sources */,
+				D1F413745F02F75C0D42753DCB9D79BC /* PanModalPresentationController.swift in Sources */,
+				3DB448A3E9B64E934BC76FE0FC7621FE /* PanModalPresentationDelegate.swift in Sources */,
+				6A88FBA7BC5D3D69E315F9AE2E0DEE3B /* PanModalPresenter.swift in Sources */,
+				80212493C474B326F66876261FA57C65 /* UIViewController+PanModalPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B1A9B3FB371197DF2916E79014DB7EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7B5C62E4E6E07664FFD4B662898895B /* Pods-AccountBook-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,53 +440,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		54D807658313464755E70B721D2F96FD /* PBXTargetDependency */ = {
+		1C7ADCFDFBC73FA2D1E35E84727DEFE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PanModal;
+			target = AD16B149CC82594F15860A512FDBB6B9 /* PanModal */;
+			targetProxy = 660A155DD6E7C0E671BFAE1B920B140D /* PBXContainerItemProxy */;
+		};
+		2C1F502E77E91C05C229E35CEB3835B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VerticalSlider;
 			target = 4962333466F9BDEDC52F2ACC5A5A9C79 /* VerticalSlider */;
-			targetProxy = C7DC79FEF9A3779658A73FE327C37A38 /* PBXContainerItemProxy */;
+			targetProxy = 482B2DB79A51641C5D7BD58E98C481DE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		043BAF5C21033784094C4A48FF40CFF9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B97E23410B239B7D88DD41ED01D8DAC2 /* Pods-AccountBook.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AccountBook/Pods-AccountBook-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AccountBook/Pods-AccountBook.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6E2A0A1C08F338406BDB4B0B3DC96C17 /* Release */ = {
+		394D632FC43446FB79F746A836EB1108 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21F0D14211DB772143FF65C5F3EACCD6 /* Pods-AccountBook.release.xcconfig */;
 			buildSettings = {
@@ -372,6 +492,78 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		75130F8485AD2141BF95E2A3652EC5AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AC03F4DEAE22772657703F3CEE283A3 /* PanModal.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PanModal/PanModal-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PanModal/PanModal-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PanModal/PanModal.modulemap";
+				PRODUCT_MODULE_NAME = PanModal;
+				PRODUCT_NAME = PanModal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		85DE003136ACBF7B0E34B905C65E8AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B97E23410B239B7D88DD41ED01D8DAC2 /* Pods-AccountBook.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AccountBook/Pods-AccountBook-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AccountBook/Pods-AccountBook.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		A445D08D964FE9C6C05CEE2B0A948973 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -437,7 +629,7 @@
 		};
 		B718E7862229D0F69373DFB5A3666CAB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDCF3D678E881FF0AF60CE2CD7D71972 /* VerticalSlider.debug.xcconfig */;
+			baseConfigurationReference = DBBC665697A8FEFF17646EB70F990089 /* VerticalSlider.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -471,7 +663,7 @@
 		};
 		C0938A9D6B07D01D0D87E80B549CA9A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F28D696E46CD8849F2FE291F3B71E85C /* VerticalSlider.release.xcconfig */;
+			baseConfigurationReference = 0C73CF94B2539CB71F192B7831A40BC1 /* VerticalSlider.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -497,6 +689,42 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E3EFEB79558584C2D71F97C035C74761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C24FCFB49B7CCDCA40C13959D0AC5837 /* PanModal.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PanModal/PanModal-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PanModal/PanModal-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/PanModal/PanModal.modulemap";
+				PRODUCT_MODULE_NAME = PanModal;
+				PRODUCT_NAME = PanModal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -591,11 +819,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B791AEFEA07C2D9ACBD89CE7E7908768 /* Build configuration list for PBXNativeTarget "Pods-AccountBook" */ = {
+		5D3EF5F651B30F48D0146C7FFC2DB32D /* Build configuration list for PBXNativeTarget "Pods-AccountBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				043BAF5C21033784094C4A48FF40CFF9 /* Debug */,
-				6E2A0A1C08F338406BDB4B0B3DC96C17 /* Release */,
+				85DE003136ACBF7B0E34B905C65E8AE4 /* Debug */,
+				394D632FC43446FB79F746A836EB1108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F38CE1990CDB1B358C6402136F744CE /* Build configuration list for PBXNativeTarget "PanModal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75130F8485AD2141BF95E2A3652EC5AD /* Debug */,
+				E3EFEB79558584C2D71F97C035C74761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
