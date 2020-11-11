@@ -25,8 +25,8 @@ class SpendTypeViewController: UIViewController, PanModalPresentable {
         return .contentHeight(300)
     }
     
-    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.물건구입)", "\(SpendType.보험)"]
-    
+    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.물건구입)", "\(SpendType.보험)", "\(SpendType.술자리)", "\(SpendType.물건구입)", "\(SpendType.커피)", "\(SpendType.기타)"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
