@@ -27,12 +27,15 @@ struct Storage {
     mutating func deleteData() {
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: modelName)
-        do {
-            if let results = try? context.fetch(fetchRequest) {
-                for object in results {
-                    context.delete(object)
-                }
+        if let results = try? context.fetch(fetchRequest) {
+            for object in results {
+                context.delete(object)
             }
+        }
+        do {
+            try context.save()
+        } catch {
+            print("fail save")
         }
     }
     
@@ -57,14 +60,14 @@ struct Storage {
         }
     }
     
-    mutating func saveData() {
+    mutating func saveData(_ amount: Float, _ type: String, _ memo: String) {
         
         if let entity = entity {
             let transaction = NSManagedObject(entity: entity, insertInto: context)
-            transaction.setValue(15000, forKey: "amount")
+            transaction.setValue(amount, forKey: "amount")
             transaction.setValue(Date(), forKey: "date")
-            transaction.setValue("\(SpendType.기타)", forKey: "type")
-            transaction.setValue("기타 비용", forKey: "text")
+            transaction.setValue("\(type.convert(type))", forKey: "type")
+            transaction.setValue(memo, forKey: "text")
 
             do {
                 try context.save()

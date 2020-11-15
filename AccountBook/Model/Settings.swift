@@ -15,8 +15,8 @@ enum Settings: CaseIterable {
     
     var rightText: String? {
         switch self {
-            // TODO: settingViewController의 tableviewcell에서 보여줄 데이터를 넣어주세요.
-        default: return nil
+        case .limit: return "예산"
+        case .appVersion: return "버전 정보"
         }
     }
 }

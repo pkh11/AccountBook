@@ -1,20 +1,34 @@
 PODS:
   - PanModal (1.2.7)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - VerticalSlider (2.0.0)
 
 DEPENDENCIES:
   - PanModal
+  - RxCocoa
+  - RxSwift
   - VerticalSlider
 
 SPEC REPOS:
   trunk:
     - PanModal
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - VerticalSlider
 
 SPEC CHECKSUMS:
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
 
-PODFILE CHECKSUM: 3c9de3539c37cedea4f2f4287644bea9a1a83f59
+PODFILE CHECKSUM: be204b94d89646066af7e27feeecc97c1d122f6e
 
 COCOAPODS: 1.10.0

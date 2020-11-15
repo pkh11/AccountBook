@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
 //        print("storage.deleteData : \(storage.deleteData())")
     }
     override func viewWillAppear(_ animated: Bool) {
-//        print("view willappear storage.loadFromData : \(storage.loadFromData())")
+        print("view willappear storage.loadFromData : \(storage.loadFromData())")
     }
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -48,9 +48,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let dataCount = storage.transactions.count
         
         if dataCount == 0 {
-            
+            // data 없을때 표현
         } else {
-            
+            // 
         }
         return dataCount
     }

@@ -12,32 +12,44 @@
         <scene sceneID="ZA0-ua-fos">
             <objects>
                 <tableViewController storyboardIdentifier="SpendTypeViewController" id="zvo-Cp-Qgk" customClass="SpendTypeViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxU-R3-eie">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxU-R3-eie">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpendTypeTableViewCell" rowHeight="84" id="RFX-79-8vy" customClass="SpendTypeCell" customModule="AccountBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="84"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpendTypeTableViewCell" rowHeight="50" id="RFX-79-8vy" customClass="SpendTypeCell" customModule="AccountBook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFX-79-8vy" id="CCD-2k-RjA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m5Q-Mz-Vin">
+                                            <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="aaZ-mn-GHP"/>
+                                                <constraint firstAttribute="width" constant="40" id="zlp-2M-kPv"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대중교통" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhj-TM-MeH">
-                                            <rect key="frame" x="15" y="27.5" width="384" height="29"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <rect key="frame" x="60" y="14.5" width="339" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Rhj-TM-MeH" firstAttribute="centerY" secondItem="CCD-2k-RjA" secondAttribute="centerY" id="1gm-hH-F5m"/>
-                                        <constraint firstItem="Rhj-TM-MeH" firstAttribute="leading" secondItem="CCD-2k-RjA" secondAttribute="leading" constant="15" id="Gqk-ev-FBO"/>
                                         <constraint firstAttribute="trailing" secondItem="Rhj-TM-MeH" secondAttribute="trailing" constant="15" id="KMt-WP-UEc"/>
+                                        <constraint firstItem="m5Q-Mz-Vin" firstAttribute="leading" secondItem="CCD-2k-RjA" secondAttribute="leading" constant="5" id="Nxx-El-d5K"/>
+                                        <constraint firstItem="Rhj-TM-MeH" firstAttribute="leading" secondItem="m5Q-Mz-Vin" secondAttribute="trailing" constant="15" id="XzG-So-vfw"/>
+                                        <constraint firstItem="m5Q-Mz-Vin" firstAttribute="centerY" secondItem="CCD-2k-RjA" secondAttribute="centerY" id="hHO-DK-AwF"/>
+                                        <constraint firstAttribute="bottom" secondItem="m5Q-Mz-Vin" secondAttribute="bottom" constant="5" id="sC6-KO-rj5"/>
+                                        <constraint firstItem="m5Q-Mz-Vin" firstAttribute="top" secondItem="CCD-2k-RjA" secondAttribute="top" constant="5" id="x2l-XK-X8T"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iconImageView" destination="m5Q-Mz-Vin" id="8aS-bW-jPV"/>
                                     <outlet property="typeLabel" destination="Rhj-TM-MeH" id="hTj-73-1w2"/>
                                 </connections>
                             </tableViewCell>

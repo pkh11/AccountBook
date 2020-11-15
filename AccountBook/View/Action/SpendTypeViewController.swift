@@ -14,6 +14,7 @@ class SpendTypeViewController: UIViewController, PanModalPresentable {
     @IBOutlet var tableView: UITableView!
     
     var isShortFormEnabled = true
+    var selectedCompletion: ((SpendType) -> Void)?
     
     // MARK: - Pan Modal Presentable
 
@@ -25,13 +26,14 @@ class SpendTypeViewController: UIViewController, PanModalPresentable {
         return .contentHeight(300)
     }
     
-    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.물건구입)", "\(SpendType.보험)", "\(SpendType.술자리)", "\(SpendType.물건구입)", "\(SpendType.커피)", "\(SpendType.기타)"]
+    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.물건구입)", "\(SpendType.보험)", "\(SpendType.술자리)", "\(SpendType.커피)", "\(SpendType.기타)"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
+    
     }
     
 }
@@ -49,7 +51,8 @@ extension SpendTypeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected : \(types[indexPath.row])")
+        selectedCompletion?(SpendType(rawValue: types[indexPath.row]) ?? SpendType.기타)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

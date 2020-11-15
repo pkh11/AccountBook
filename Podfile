@@ -6,7 +6,10 @@ target 'AccountBook' do
   use_frameworks!
 
   # Pods for AccountBook
+  
 
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'VerticalSlider'
   pod 'PanModal'
 

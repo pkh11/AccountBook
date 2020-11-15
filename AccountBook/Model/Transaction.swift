@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SpendType {
+enum SpendType: String {
     case 대중교통
     case 식사
     case 보험
