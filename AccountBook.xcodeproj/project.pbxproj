@@ -20,6 +20,7 @@
 		6BB527AF25552CB50029DCEB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527AD25552CB50029DCEB /* Model.xcdatamodeld */; };
 		6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527B225552DBF0029DCEB /* DataModel.xcdatamodeld */; };
 		6BD5382B2560F47E001BC6A0 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD5382A2560F47E001BC6A0 /* SettingTableViewCell.swift */; };
+		6BD5386E2562AEBA001BC6A0 /* VersionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD5386D2562AEBA001BC6A0 /* VersionDetailViewController.swift */; };
 		6CF7F15724DAD6D30049175F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15624DAD6D30049175F /* AppDelegate.swift */; };
 		6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15824DAD6D30049175F /* SceneDelegate.swift */; };
 		6CF7F15B24DAD6D30049175F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15A24DAD6D30049175F /* CustomTabBarController.swift */; };
@@ -47,6 +48,7 @@
 		6BB527AE25552CB50029DCEB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		6BB527B325552DBF0029DCEB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6BD5382A2560F47E001BC6A0 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		6BD5386D2562AEBA001BC6A0 /* VersionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetailViewController.swift; sourceTree = "<group>"; };
 		6CF7F15324DAD6D30049175F /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF7F15624DAD6D30049175F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF7F15824DAD6D30049175F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				6B0658DB25494BC7004A89A9 /* SettingViewController.swift */,
 				6BD5382A2560F47E001BC6A0 /* SettingTableViewCell.swift */,
+				6BD5386D2562AEBA001BC6A0 /* VersionDetailViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */,
 				6BB527AF25552CB50029DCEB /* Model.xcdatamodeld in Sources */,
 				6CF7F15B24DAD6D30049175F /* CustomTabBarController.swift in Sources */,
+				6BD5386E2562AEBA001BC6A0 /* VersionDetailViewController.swift in Sources */,
 				6B849049255A6C6F00309ED7 /* SpendTypeCell.swift in Sources */,
 				6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */,
 				6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */,

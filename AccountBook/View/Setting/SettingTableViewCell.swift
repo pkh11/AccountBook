@@ -19,7 +19,12 @@ class SettingTableViewCell: UITableViewCell {
     
     func updateUI(_ settings: Settings) {
         title.text = settings.rightText
-        detail.isHidden = true
+        
+        if settings.hashValue == Settings.appVersion.hashValue {
+            detail.isHidden = false
+        } else {
+            detail.isHidden = true
+        }
     }
 }
 

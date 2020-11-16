@@ -8,26 +8,25 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UITableViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingTableView.delegate = self
         settingTableView.dataSource = self
-        
-        navigationBar.topItem?.title = "설정"
+//        self.navigationController?.navigationBar.topItem?.title = "설정"
     }
 }
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Settings.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") as? SettingTableViewCell else {
             return UITableViewCell()
         }
@@ -37,7 +36,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let cases = Settings.allCases[indexPath.row]
+        if cases == Settings.appVersion {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "VersionDetailViewController") as? VersionDetailViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+           
+        }
     }
 }
