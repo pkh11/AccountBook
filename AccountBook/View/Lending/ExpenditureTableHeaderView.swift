@@ -9,11 +9,18 @@
 import UIKit
 
 class ExpenditureTableHeaderView: UIView {
-    
-    @IBOutlet weak var expenditureCost: UILabel!
+
+    @IBOutlet weak var expenditureCost: UILabel! {
+        didSet {
+            let total = Storage.shared.trasactionDailyGroup.total
+            expenditureCost.text = "\(String(total))원"
+        }
+    }
     @IBOutlet weak var maxBudget: UILabel! {
         didSet {
-            maxBudget.text = "100000"
+            if let account = UserDefaults.standard.value(forKey: "myAccount") as? String {
+                maxBudget.text = account
+            }
         }
     }
     @IBOutlet weak var minBudget: UILabel! {

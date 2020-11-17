@@ -21,7 +21,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: lending data
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,7 +39,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableHeaderCell") as? ExpenditureTableHeaderCell else {
             return UITableViewCell()
         }
-        headerCell.updateUI("990000")
+        
+        if let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? String {
+            headerCell.updateUI(myAccount)
+        }
+
         return headerCell
     }
     
@@ -56,10 +59,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableViewCell") as? ExpenditureTableViewCell else {
             return UITableViewCell()
         }
         cell.updateUI(storage.transactions[indexPath.row])
+        
         return cell
     }
 }

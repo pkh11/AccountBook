@@ -2,7 +2,7 @@
 //  Storage.swift
 //  AccountBook
 //
-//  Created by James Kim on 8/5/20.
+//  Created by PKH on 8/5/20.
 //  Copyright © 2020 FastCampus. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ struct Storage {
 
     static var shared = Storage()
     var transactions: [Transaction] = []
+    var trasactionDailyGroup = TransactionDailyGroup(transactions: [], date: Date())
     
     init() {
         loadFromData()
@@ -48,13 +49,22 @@ struct Storage {
             transaction.forEach {
                 
                 // TODO: Casting
-                let amount = $0.value(forKey: "amount") as! Float
-                let date = $0.value(forKey: "date") as! Date
-                let type = $0.value(forKey: "type") as! String
-                let text = $0.value(forKey: "text") as! String
+                
+                guard let amount = $0.value(forKey: "amount") as? Float,
+                      let date = $0.value(forKey: "date") as? Date,
+                      let type = $0.value(forKey: "type") as? String,
+                      let text = $0.value(forKey: "text") as? String else {
+                    return
+                }
+                
+//                let amount = $0.value(forKey: "amount") as! Float
+//                let date = $0.value(forKey: "date") as! Date
+//                let type = $0.value(forKey: "type") as! String
+//                let text = $0.value(forKey: "text") as! String
                 
                 transactions.append(Transaction(amount: amount, date: date, type: type, text: text))
             }
+            trasactionDailyGroup.transactions = transactions
         } catch {
             print("could not fetch")
         }

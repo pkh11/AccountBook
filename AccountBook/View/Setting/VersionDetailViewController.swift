@@ -15,8 +15,8 @@ class VersionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // accIconImage setting
+        // version setting
     }
 
 }
