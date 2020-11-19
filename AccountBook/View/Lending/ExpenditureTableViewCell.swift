@@ -40,3 +40,9 @@ class ExpenditureTableHeaderCell: UITableViewCell {
         remainCost.text = "잔여한도: \(account)"
     }
 }
+
+class ExpenditureTableEmptyCell: UITableViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}

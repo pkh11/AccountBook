@@ -47,7 +47,7 @@ class ActionViewController: UIViewController {
         }
     }
     @IBAction func saveButtonClick(_ sender: Any) {
-        
+        /*
         if amountOfMoney.text == "" || memo.text == "" {
             print("필수값 입력")
             return
@@ -58,6 +58,8 @@ class ActionViewController: UIViewController {
             amount = nsString.floatValue
         }
         storage.saveData(amount, spendTypeLabel.text ?? "", memo.text ?? "")
+         */
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

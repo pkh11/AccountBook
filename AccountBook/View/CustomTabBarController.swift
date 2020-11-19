@@ -16,22 +16,7 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.delegate = self
-        
-//        homeViewController = storyboard?.instantiateViewController(identifier: "HomeViewController")
-//        actionViewController = storyboard?.instantiateViewController(identifier: "ActionViewController")
-//        settingViewController = storyboard?.instantiateViewController(identifier: "SettingViewController")
-//        
-//        homeViewController.tabBarItem.image = UIImage(named: "icons8-home-page-50")
-//        homeViewController.tabBarItem.selectedImage = UIImage(named: "icons8-home-page-50-filled")
-//        actionViewController.tabBarItem.image = UIImage(named: "icons8-add-50")
-//        actionViewController.tabBarItem.selectedImage = UIImage(named: "icons8-add-50-filled")
-//        settingViewController.tabBarItem.image = UIImage(named: "gear-icon")
-//        settingViewController.tabBarItem.selectedImage = UIImage(named: "gear-icon-filled")
-//        
-//        self.setViewControllers([homeViewController, actionViewController, settingViewController], animated: true)
-//        self.navigationController?.navigationBar.isHidden = false
+//        self.delegate = self
     }
 
 }
@@ -39,7 +24,7 @@ extension CustomTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if tabBarController.tabBar.selectedItem?.tag == 1 {
             if let storyboard = storyboard?.instantiateViewController(identifier: "ActionViewController") {
-                storyboard.modalPresentationStyle = .formSheet
+                storyboard.modalPresentationStyle = .fullScreen
                 self.present(storyboard, animated: true, completion: nil)
                 return false
             }
