@@ -12,5 +12,6 @@ target 'AccountBook' do
   pod 'RxCocoa'
   pod 'VerticalSlider'
   pod 'PanModal'
+  pod 'JGProgressHUD'
 
 end

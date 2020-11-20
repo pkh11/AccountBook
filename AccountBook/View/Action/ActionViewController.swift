@@ -23,10 +23,18 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
-        spendTypeLabel.addGestureRecognizer(tapGestureRecognizer)
-        
         amountOfMoney.delegate = self
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
+        let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        spendTypeLabel.addGestureRecognizer(tapGestureRecognizer)
+        view.addGestureRecognizer(dismissKeyboardRecognizer)
+//        amountOfMoney.addGestureRecognizer(dismissKeyboardRecognizer)
+//        memo.addGestureRecognizer(dismissKeyboardRecognizer)
+    }
+    
+    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
 
     @objc func openModal(sender: UITapGestureRecognizer) {
@@ -65,6 +73,8 @@ class ActionViewController: UIViewController {
             })
         }
     }
+    
+    
 }
 
 extension ActionViewController: PanModalPresentable {

@@ -22,7 +22,9 @@ struct Storage {
     var trasactionDailyGroup = TransactionDailyGroup(transactions: [], date: Date())
     
     init() {
-        loadFromData()
+//        loadFromData(completion: { success in
+//            print("success : \(success)")
+//        })
     }
     
     mutating func deleteData() {
@@ -40,7 +42,7 @@ struct Storage {
         }
     }
     
-    mutating func loadFromData() {
+    mutating func loadFromData(completion: @escaping ((Bool)->Void)) {
         // Json 파일에서 읽어오도록 해주세요. 아니면 코어데이터를 이용해주세요.
         transactions = []
         let fetchRequest =
@@ -61,8 +63,10 @@ struct Storage {
             print(transactions)
             transactions = transactions.sorted(by: { $0.date > $1.date })
             trasactionDailyGroup.transactions = transactions
+            completion(true)
         } catch {
             print("could not fetch")
+            completion(false)
         }
     }
     

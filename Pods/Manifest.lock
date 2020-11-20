@@ -1,4 +1,5 @@
 PODS:
+  - JGProgressHUD (2.2)
   - PanModal (1.2.7)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -9,6 +10,7 @@ PODS:
   - VerticalSlider (2.0.0)
 
 DEPENDENCIES:
+  - JGProgressHUD
   - PanModal
   - RxCocoa
   - RxSwift
@@ -16,6 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - JGProgressHUD
     - PanModal
     - RxCocoa
     - RxRelay
@@ -23,12 +26,13 @@ SPEC REPOS:
     - VerticalSlider
 
 SPEC CHECKSUMS:
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
 
-PODFILE CHECKSUM: be204b94d89646066af7e27feeecc97c1d122f6e
+PODFILE CHECKSUM: eaf293a2fa997baea57110ea42e4f7f889d443c0
 
 COCOAPODS: 1.10.0
