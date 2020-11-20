@@ -12,10 +12,11 @@ class ExpenditureTableHeaderView: UIView {
 
     @IBOutlet weak var expenditureCost: UILabel! {
         didSet {
-            let total = Storage.shared.trasactionDailyGroup.total
-            expenditureCost.text = "\(String(total))원"
+            let total = Storage.shared.trasactionDailyGroup.totalToInt.withComma
+            expenditureCost.text = "\(total) 원"
         }
     }
+    
     @IBOutlet weak var maxBudget: UILabel! {
         didSet {
             if let account = UserDefaults.standard.value(forKey: "myAccount") as? String {
@@ -23,11 +24,13 @@ class ExpenditureTableHeaderView: UIView {
             }
         }
     }
+    
     @IBOutlet weak var minBudget: UILabel! {
         didSet {
             minBudget.text = "0"
         }
     }
+    
     @IBOutlet weak var slider: UISlider! {
         didSet {
             slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))

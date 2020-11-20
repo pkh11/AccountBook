@@ -186,7 +186,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="메모를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yRD-kI-bpV">
                                                                 <rect key="frame" x="69.5" y="0.0" width="284.5" height="50"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no"/>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -238,13 +238,32 @@
                                                             <constraint firstItem="4cN-gZ-DQl" firstAttribute="top" secondItem="dd3-lr-dZo" secondAttribute="top" id="xXA-gm-TYG"/>
                                                         </constraints>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0j-2U-q4N">
+                                                        <rect key="frame" x="324" y="10" width="50" height="30"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="8ai-lE-lDW"/>
+                                                            <constraint firstAttribute="height" constant="30" id="ZyO-TS-wHs"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                        <color key="tintColor" red="0.1386229521" green="0.3165618201" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="닫기">
+                                                            <color key="titleColor" red="0.1386229521" green="0.3165618201" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="closeModal:" destination="H5O-YJ-u1b" eventType="touchUpInside" id="h2G-8b-01c"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Kfp-cU-28V" firstAttribute="top" secondItem="HSf-ks-Gdi" secondAttribute="top" constant="70" id="7ci-xd-Rdm"/>
+                                                    <constraint firstItem="M0j-2U-q4N" firstAttribute="top" secondItem="HSf-ks-Gdi" secondAttribute="top" constant="10" id="9KK-9x-ulo"/>
                                                     <constraint firstAttribute="trailing" secondItem="Kfp-cU-28V" secondAttribute="trailing" constant="10" id="Pa3-Yk-30t"/>
                                                     <constraint firstAttribute="trailing" secondItem="dd3-lr-dZo" secondAttribute="trailing" constant="10" id="Ty7-Aw-mci"/>
                                                     <constraint firstItem="dd3-lr-dZo" firstAttribute="top" secondItem="Kfp-cU-28V" secondAttribute="bottom" constant="40" id="gQd-yX-WT3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="M0j-2U-q4N" secondAttribute="trailing" id="hRs-HC-XZt"/>
                                                     <constraint firstItem="dd3-lr-dZo" firstAttribute="leading" secondItem="HSf-ks-Gdi" secondAttribute="leading" constant="10" id="l3I-ZK-GXl"/>
                                                     <constraint firstItem="MFJ-eK-cBa" firstAttribute="top" secondItem="dd3-lr-dZo" secondAttribute="bottom" constant="40" id="p8n-ee-41I"/>
                                                     <constraint firstItem="MFJ-eK-cBa" firstAttribute="leading" secondItem="HSf-ks-Gdi" secondAttribute="leading" constant="10" id="qIs-HG-ist"/>

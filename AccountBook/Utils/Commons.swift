@@ -18,6 +18,17 @@ extension Date {
     }
 }
 
+extension Int {
+    var withComma: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        
+        return formatter.string(from: self as NSNumber)!
+    }
+}
+
 extension String {
     func convert(_ value: String) -> SpendType.RawValue {
         switch value {

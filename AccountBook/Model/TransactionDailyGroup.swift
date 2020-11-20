@@ -18,4 +18,8 @@ struct TransactionDailyGroup {
         let totalSum = Storage.shared.transactions.map{ Int($0.amount) }.reduce(0){ $0 + $1 }
         return Float(totalSum)
     }
+    
+    var totalToInt: Int {
+        return Int(total)
+    }
 }

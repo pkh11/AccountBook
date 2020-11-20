@@ -93,11 +93,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if storage.transactions.isEmpty {
-//            return 177
-//        } else {
-//            return 44
-//        }
         return UITableView.automaticDimension
     }
 }

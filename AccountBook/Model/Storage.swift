@@ -42,13 +42,12 @@ struct Storage {
     
     mutating func loadFromData() {
         // Json 파일에서 읽어오도록 해주세요. 아니면 코어데이터를 이용해주세요.
+        transactions = []
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: modelName)
         do {
             let transaction =  try context.fetch(fetchRequest)
             transaction.forEach {
-                
-                // TODO: Casting
                 
                 guard let amount = $0.value(forKey: "amount") as? Float,
                       let date = $0.value(forKey: "date") as? Date,
@@ -57,20 +56,17 @@ struct Storage {
                     return
                 }
                 
-//                let amount = $0.value(forKey: "amount") as! Float
-//                let date = $0.value(forKey: "date") as! Date
-//                let type = $0.value(forKey: "type") as! String
-//                let text = $0.value(forKey: "text") as! String
-                
                 transactions.append(Transaction(amount: amount, date: date, type: type, text: text))
             }
+            print(transactions)
+            transactions = transactions.sorted(by: { $0.date > $1.date })
             trasactionDailyGroup.transactions = transactions
         } catch {
             print("could not fetch")
         }
     }
     
-    mutating func saveData(_ amount: Float, _ type: String, _ memo: String) {
+    mutating func saveData(_ amount: Float, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
         
         if let entity = entity {
             let transaction = NSManagedObject(entity: entity, insertInto: context)
@@ -81,8 +77,10 @@ struct Storage {
 
             do {
                 try context.save()
+                completion(true)
             } catch {
                 print("\(error.localizedDescription)")
+                completion(false)
             }
         }
     }

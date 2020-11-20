@@ -35,4 +35,8 @@ struct Transaction {
     var date: Date
     var type: String
     var text: String
+    
+    var amountFloatToInt: Int {
+        return Int(amount)
+    }
 }

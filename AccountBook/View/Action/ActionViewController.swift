@@ -27,13 +27,6 @@ class ActionViewController: UIViewController {
         spendTypeLabel.addGestureRecognizer(tapGestureRecognizer)
         
         amountOfMoney.delegate = self
-        
-//        storage.saveData()
-        // TODO: add transaction
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-//        storage.saveData()
     }
 
     @objc func openModal(sender: UITapGestureRecognizer) {
@@ -46,20 +39,31 @@ class ActionViewController: UIViewController {
             self.spendTypeLabel.text = type.rawValue
         }
     }
+    
+    @IBAction func closeModal(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func saveButtonClick(_ sender: Any) {
-        /*
-        if amountOfMoney.text == "" || memo.text == "" {
+        
+        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""), let memo = memo.text else {
+            return
+        }
+        
+        if money.isEmpty || memo.isEmpty {
             print("필수값 입력")
             return
         }
         
-        var amount: Float = 0
-        if let nsString = amountOfMoney.text?.replacingOccurrences(of: ",", with: "") as NSString? {
-            amount = nsString.floatValue
+        if let amount = Float(money) {
+            storage.saveData(amount, spendTypeLabel.text ?? "", memo, completion: { success in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("입력 오류")
+                }
+            })
         }
-        storage.saveData(amount, spendTypeLabel.text ?? "", memo.text ?? "")
-         */
-        self.dismiss(animated: true, completion: nil)
     }
 }
 

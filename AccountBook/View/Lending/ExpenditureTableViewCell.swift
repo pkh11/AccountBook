@@ -21,7 +21,7 @@ class ExpenditureTableViewCell: UITableViewCell {
     
     func updateUI(_ transaction: Transaction?) {
         if let _transaction = transaction {
-            cost.text = String("-\(_transaction.amount)")
+            cost.text = String("- \(_transaction.amountFloatToInt) 원")
             expenditureContents.text = _transaction.text
             date.text = _transaction.date.toString()
         }
