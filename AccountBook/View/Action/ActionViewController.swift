@@ -15,6 +15,7 @@ class ActionViewController: UIViewController {
 
     var storage = Storage.shared
     @IBOutlet weak var spendTypeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountOfMoney: UITextField!
     @IBOutlet weak var memo: UITextField!
     
@@ -25,9 +26,14 @@ class ActionViewController: UIViewController {
         
         amountOfMoney.delegate = self
         
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
+        tapGestureRecognizer.name = "Type"
+        let dateGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
+        dateGestureRecognizer.name = "Date"
         let dismissKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         spendTypeLabel.addGestureRecognizer(tapGestureRecognizer)
+        dateLabel.addGestureRecognizer(dateGestureRecognizer)
         view.addGestureRecognizer(dismissKeyboardRecognizer)
 //        amountOfMoney.addGestureRecognizer(dismissKeyboardRecognizer)
 //        memo.addGestureRecognizer(dismissKeyboardRecognizer)
@@ -38,13 +44,33 @@ class ActionViewController: UIViewController {
     }
 
     @objc func openModal(sender: UITapGestureRecognizer) {
-        guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
-            return
-        }
-        presentPanModal(storyboard)
         
-        storyboard.selectedCompletion = { type in
-            self.spendTypeLabel.text = type.rawValue
+        guard let senderName = sender.name else { return }
+        
+        switch senderName {
+        case "Type":
+            guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
+                return
+            }
+            presentPanModal(storyboard)
+            
+            storyboard.selectedCompletion = { type in
+                self.spendTypeLabel.text = type.rawValue
+            }
+            break
+        case "Date":
+            print("date type")
+//            guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
+//                return
+//            }
+//            presentPanModal(storyboard)
+//
+//            storyboard.selectedCompletion = { type in
+//                self.spendTypeLabel.text = type.rawValue
+//            }
+            break
+        default:
+            break
         }
     }
     
