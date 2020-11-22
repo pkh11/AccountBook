@@ -22,9 +22,7 @@ struct Storage {
     var trasactionDailyGroup = TransactionDailyGroup(transactions: [], date: Date())
     
     init() {
-//        loadFromData(completion: { success in
-//            print("success : \(success)")
-//        })
+
     }
     
     mutating func deleteData() {

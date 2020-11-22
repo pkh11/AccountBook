@@ -12,7 +12,7 @@ import RxCocoa
 import PanModal
 
 class ActionViewController: UIViewController {
-
+    
     var storage = Storage.shared
     @IBOutlet weak var spendTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,6 +23,7 @@ class ActionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         amountOfMoney.delegate = self
         
@@ -59,7 +60,15 @@ class ActionViewController: UIViewController {
             }
             break
         case "Date":
-            print("date type")
+            guard let storyboard = UIStoryboard(name: "AlertView", bundle: nil).instantiateViewController(identifier: "AlertViewController") as? AlertViewController else {
+                return
+            }
+            
+            presentPanModal(storyboard)
+            
+            storyboard.selectedCompletion = { time in
+//                print("time : \(dates)")
+            }
 //            guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
 //                return
 //            }
@@ -80,24 +89,27 @@ class ActionViewController: UIViewController {
     
     @IBAction func saveButtonClick(_ sender: Any) {
         
-        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""), let memo = memo.text else {
-            return
-        }
-        
-        if money.isEmpty || memo.isEmpty {
-            print("필수값 입력")
-            return
-        }
-        
-        if let amount = Float(money) {
-            storage.saveData(amount, spendTypeLabel.text ?? "", memo, completion: { success in
-                if success {
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    print("입력 오류")
-                }
-            })
-        }
+//        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""), let memo = memo.text else {
+//            return
+//        }
+//
+//        if money.isEmpty || memo.isEmpty {
+//            print("필수값 입력")
+//            return
+//        }
+//
+//        if let amount = Float(money) {
+//            storage.saveData(amount, spendTypeLabel.text ?? "", memo, completion: { success in
+//                if success {
+//                    self.delegate?.saveCompleted(success: true)
+//                    self.dismiss(animated: true, completion: nil)
+//                } else {
+//                    print("입력 오류")
+//                }
+//            })
+//        }
+//        self.delegate?.saveCompleted(success: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

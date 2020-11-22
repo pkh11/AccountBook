@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alert View Controller-->
+        <scene sceneID="rui-1H-Mmz">
+            <objects>
+                <viewController storyboardIdentifier="AlertViewController" id="QpT-kn-Qo5" customClass="AlertViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WLS-DN-8s4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZh-YL-wgk">
+                                <rect key="frame" x="364" y="54" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="K3I-A3-rEh"/>
+                                    <constraint firstAttribute="height" constant="50" id="MtR-5z-qAK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="선택"/>
+                                <connections>
+                                    <action selector="closeModal:" destination="QpT-kn-Qo5" eventType="touchUpInside" id="b2Q-So-njv"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="o5y-JZ-JnN">
+                                <rect key="frame" x="0.0" y="104" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="x0m-fl-zg5"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4t6-n5-7ud"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4t6-n5-7ud" firstAttribute="trailing" secondItem="OZh-YL-wgk" secondAttribute="trailing" id="5NS-Ix-na1"/>
+                            <constraint firstItem="o5y-JZ-JnN" firstAttribute="top" secondItem="OZh-YL-wgk" secondAttribute="bottom" id="LQQ-WD-CEo"/>
+                            <constraint firstItem="o5y-JZ-JnN" firstAttribute="trailing" secondItem="4t6-n5-7ud" secondAttribute="trailing" id="OOk-fb-5zh"/>
+                            <constraint firstItem="o5y-JZ-JnN" firstAttribute="leading" secondItem="4t6-n5-7ud" secondAttribute="leading" id="pB0-AE-NWH"/>
+                            <constraint firstItem="OZh-YL-wgk" firstAttribute="top" secondItem="4t6-n5-7ud" secondAttribute="top" constant="10" id="rPJ-av-xnF"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="500"/>
+                    <connections>
+                        <outlet property="datePicker" destination="o5y-JZ-JnN" id="Mlq-dv-Yl5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzB-w0-MEG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426.08695652173918" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

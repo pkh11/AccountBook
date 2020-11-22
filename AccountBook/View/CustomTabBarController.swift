@@ -23,8 +23,8 @@ class CustomTabBarController: UITabBarController {
 extension CustomTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if tabBarController.tabBar.selectedItem?.tag == 1 {
-            if let storyboard = storyboard?.instantiateViewController(identifier: "ActionViewController") {
-                storyboard.modalPresentationStyle = .formSheet
+            if let storyboard = storyboard?.instantiateViewController(identifier: "ActionViewController")  {
+                storyboard.modalPresentationStyle = .fullScreen
                 self.present(storyboard, animated: true, completion: nil)
                 return false
             }
