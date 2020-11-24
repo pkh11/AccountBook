@@ -34,6 +34,7 @@ class ExpenditureTableHeaderView: UIView {
     @IBOutlet weak var slider: UISlider! {
         didSet {
             slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
+            slider.minimumValue = 0
         }
     }
     

@@ -60,7 +60,7 @@ struct Storage {
                 
                 transactions.append(Account(amount: amount, date: date, type: type, text: text))
             }
-            print(transactions)
+//            print(transactions)
             transactions = transactions.sorted(by: { $0.date > $1.date })
             trasactionDailyGroup.transactions = transactions
             completion(transactions)

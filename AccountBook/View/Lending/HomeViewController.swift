@@ -34,7 +34,6 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         transactions = storage.transactions
-        print(transactions)
 //        print("storage.deleteData : \(storage.deleteData())")
     }
     
@@ -46,6 +45,16 @@ class HomeViewController: UIViewController {
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
             return
         }
+        let remain = Storage.shared.trasactionDailyGroup
+        headerView.slider.maximumValue = Float(myAccount)
+        print("remain : \(remain.total)")
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
+                       animations: { self.headerView.slider.setValue(Float(remain.totalToInt), animated: true) },
+                       completion: nil)
+        
+        headerView.expenditureCost.text = "\(remain.totalToInt.withComma) 원"
         headerView.maxBudget.text = String(myAccount.withComma)
 
         // 잔여 한도 설정
@@ -74,7 +83,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int {
-            headerCell.updateUI(myAccount.withComma)
+            let remainCost = myAccount - Storage.shared.trasactionDailyGroup.totalToInt
+            headerCell.updateUI(remainCost.withComma)
         }
 
         return headerCell
