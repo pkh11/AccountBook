@@ -48,6 +48,16 @@ extension String {
             return SpendType.기타.rawValue
         }
     }
+    
+    func toDate(_ time: String) -> Date {
+        let dateString:String = time
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+
+        return dateFormatter.date(from: dateString)!
+    }
 }
 
 extension UIView {

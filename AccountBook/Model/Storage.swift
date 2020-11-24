@@ -18,11 +18,13 @@ struct Storage {
     lazy var entity = NSEntityDescription.entity(forEntityName: modelName, in: context)
 
     static var shared = Storage()
-    var transactions: [Transaction] = []
+    var transactions: [Account] = []
     var trasactionDailyGroup = TransactionDailyGroup(transactions: [], date: Date())
     
     init() {
-
+        loadFromData(completion: { success in
+            print(success)
+        })
     }
     
     mutating func deleteData() {
@@ -40,7 +42,7 @@ struct Storage {
         }
     }
     
-    mutating func loadFromData(completion: @escaping ((Bool)->Void)) {
+    mutating func loadFromData(completion: @escaping (([Account])->Void)) {
         // Json 파일에서 읽어오도록 해주세요. 아니면 코어데이터를 이용해주세요.
         transactions = []
         let fetchRequest =
@@ -56,19 +58,19 @@ struct Storage {
                     return
                 }
                 
-                transactions.append(Transaction(amount: amount, date: date, type: type, text: text))
+                transactions.append(Account(amount: amount, date: date, type: type, text: text))
             }
             print(transactions)
             transactions = transactions.sorted(by: { $0.date > $1.date })
             trasactionDailyGroup.transactions = transactions
-            completion(true)
+            completion(transactions)
         } catch {
             print("could not fetch")
-            completion(false)
+            completion([])
         }
     }
     
-    mutating func saveData(_ amount: Float, _ date: String, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
+    mutating func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
         
         if let entity = entity {
             let transaction = NSManagedObject(entity: entity, insertInto: context)

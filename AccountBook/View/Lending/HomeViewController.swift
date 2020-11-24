@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var storage = Storage.shared
-    var transactions: [Transaction] = []
+    var transactions: [Account] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,13 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         transactions = storage.transactions
+        print(transactions)
 //        print("storage.deleteData : \(storage.deleteData())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("view will appear")
         fetchData()
         // 최대 예산 설정
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
@@ -51,10 +53,14 @@ class HomeViewController: UIViewController {
     
     func fetchData() {
         self.spinner.show(in: view)
-        storage.loadFromData(completion: { success in
-            if success {
+        storage.loadFromData(completion: { data in
+            
+            self.transactions = data
+            
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            
             self.spinner.dismiss()
         })
     }

@@ -10,7 +10,7 @@ import Foundation
 
 struct TransactionDailyGroup {
     // Transaction들을 day기준으로 모아놓은 것입니다.
-    var transactions: [Transaction]
+    var transactions: [Account]
     var date: Date
     
     var total: Float {

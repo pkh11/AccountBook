@@ -53,7 +53,6 @@ class ActionViewController: UIViewController {
             
             storyboard.selectedCompletion = { type in
                 self.spendTypeLabel.text = type.rawValue
-//                self.spendTypeLabel.textColor = UIColor(red: 17, green: 17, blue: 17, alpha: 1.0)
                 self.spendTypeLabel.textColor = UIColor.customBlack
             }
             break
@@ -91,13 +90,14 @@ class ActionViewController: UIViewController {
                else {
             return
         }
+        
 
         if money.isEmpty || memo.isEmpty {
             print("필수값 입력")
             return
         }
-
-        storage.saveData(amount, date, type, memo, completion: { success in
+        
+        storage.saveData(amount, date.toDate(date), type, memo, completion: { success in
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {

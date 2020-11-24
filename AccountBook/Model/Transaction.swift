@@ -30,7 +30,7 @@ enum SpendType: String {
     }
 }
 
-struct Transaction {
+struct Account {
     var amount: Float
     var date: Date
     var type: String
