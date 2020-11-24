@@ -15,6 +15,7 @@ class SpendTypeCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.typeLabel.tintColor = UIColor(red: 185, green: 185, blue: 187, alpha: 1.0)
     }
     
     func updateUI(_ str: String) {

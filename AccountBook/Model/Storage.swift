@@ -68,13 +68,13 @@ struct Storage {
         }
     }
     
-    mutating func saveData(_ amount: Float, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
+    mutating func saveData(_ amount: Float, _ date: String, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
         
         if let entity = entity {
             let transaction = NSManagedObject(entity: entity, insertInto: context)
             transaction.setValue(amount, forKey: "amount")
-            transaction.setValue(Date(), forKey: "date")
-            transaction.setValue("\(type.convert(type))", forKey: "type")
+            transaction.setValue(date, forKey: "date")
+            transaction.setValue(type.convert(type), forKey: "type")
             transaction.setValue(memo, forKey: "text")
 
             do {

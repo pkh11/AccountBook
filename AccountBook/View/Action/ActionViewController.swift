@@ -24,10 +24,8 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         amountOfMoney.delegate = self
         
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
         tapGestureRecognizer.name = "Type"
         let dateGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openModal))
@@ -36,8 +34,6 @@ class ActionViewController: UIViewController {
         spendTypeLabel.addGestureRecognizer(tapGestureRecognizer)
         dateLabel.addGestureRecognizer(dateGestureRecognizer)
         view.addGestureRecognizer(dismissKeyboardRecognizer)
-//        amountOfMoney.addGestureRecognizer(dismissKeyboardRecognizer)
-//        memo.addGestureRecognizer(dismissKeyboardRecognizer)
     }
     
     @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
@@ -57,6 +53,8 @@ class ActionViewController: UIViewController {
             
             storyboard.selectedCompletion = { type in
                 self.spendTypeLabel.text = type.rawValue
+//                self.spendTypeLabel.textColor = UIColor(red: 17, green: 17, blue: 17, alpha: 1.0)
+                self.spendTypeLabel.textColor = UIColor.customBlack
             }
             break
         case "Date":
@@ -67,16 +65,12 @@ class ActionViewController: UIViewController {
             presentPanModal(storyboard)
             
             storyboard.selectedCompletion = { time in
-//                print("time : \(dates)")
+                let times = time.split(separator: " ")
+                let dates = times[0]
+                self.dateLabel.text = String(dates)
+                self.dateLabel.textColor = UIColor.customBlack
             }
-//            guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
-//                return
-//            }
-//            presentPanModal(storyboard)
-//
-//            storyboard.selectedCompletion = { type in
-//                self.spendTypeLabel.text = type.rawValue
-//            }
+
             break
         default:
             break
@@ -89,27 +83,27 @@ class ActionViewController: UIViewController {
     
     @IBAction func saveButtonClick(_ sender: Any) {
         
-//        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""), let memo = memo.text else {
-//            return
-//        }
-//
-//        if money.isEmpty || memo.isEmpty {
-//            print("필수값 입력")
-//            return
-//        }
-//
-//        if let amount = Float(money) {
-//            storage.saveData(amount, spendTypeLabel.text ?? "", memo, completion: { success in
-//                if success {
-//                    self.delegate?.saveCompleted(success: true)
-//                    self.dismiss(animated: true, completion: nil)
-//                } else {
-//                    print("입력 오류")
-//                }
-//            })
-//        }
-//        self.delegate?.saveCompleted(success: true)
-        self.dismiss(animated: true, completion: nil)
+        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""),
+              let memo = memo.text,
+              let type = spendTypeLabel.text,
+              let amount = Float(money),
+              let date = dateLabel.text
+               else {
+            return
+        }
+
+        if money.isEmpty || memo.isEmpty {
+            print("필수값 입력")
+            return
+        }
+
+        storage.saveData(amount, date, type, memo, completion: { success in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("입력 오류")
+            }
+        })
     }
     
     

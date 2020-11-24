@@ -61,3 +61,13 @@ extension UIView {
         }
     }
 }
+
+extension UIColor {
+    static let customBlack: UIColor = UIColor(named: "Customblack")!
+    static let customBlue1: UIColor = UIColor(named: "Customblue1")!
+    static let customBlue2: UIColor = UIColor(named: "Customblue2")!
+    static let customBlue3: UIColor = UIColor(named: "Customblue3")!
+    static let customGray1: UIColor = UIColor(named: "Customgray1")!
+    static let customGray2: UIColor = UIColor(named: "Customgray2")!
+    static let customGray3: UIColor = UIColor(named: "Customgray3")!
+}
