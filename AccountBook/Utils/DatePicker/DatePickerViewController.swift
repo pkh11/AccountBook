@@ -9,7 +9,7 @@
 import UIKit
 import PanModal
 
-class AlertViewController: UIViewController, PanModalPresentable {
+class DatePickerViewController: UIViewController, PanModalPresentable {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     var selectedCompletion: ((String) -> Void)?

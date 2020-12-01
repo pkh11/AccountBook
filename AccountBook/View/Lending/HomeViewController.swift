@@ -45,19 +45,9 @@ class HomeViewController: UIViewController {
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
             return
         }
-        let remain = Storage.shared.trasactionDailyGroup
-        headerView.slider.maximumValue = Float(myAccount)
-        print("remain : \(remain.total)")
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.0,
-                       options: .curveEaseInOut,
-                       animations: { self.headerView.slider.setValue(Float(remain.totalToInt), animated: true) },
-                       completion: nil)
         
-        headerView.expenditureCost.text = "\(remain.totalToInt.withComma) 원"
+        headerView.slider.maximumValue = Float(myAccount)
         headerView.maxBudget.text = String(myAccount.withComma)
-
-        // 잔여 한도 설정
     }
     
     func fetchData() {
@@ -65,9 +55,17 @@ class HomeViewController: UIViewController {
         storage.loadFromData(completion: { data in
             
             self.transactions = data
+            let used = self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1})
+            print("\(used)")
+            self.headerView.expenditureCost.text = "\(used.withComma) 원"
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                UIView.animate(withDuration: 0.5,
+                               delay: 0.0,
+                               options: .curveEaseInOut,
+                               animations: { self.headerView.slider.setValue(Float(used), animated: true) },
+                               completion: nil)
             }
             
             self.spinner.dismiss()
@@ -83,7 +81,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int {
-            let remainCost = myAccount - Storage.shared.trasactionDailyGroup.totalToInt
+            let remainCost = myAccount - self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1})
             headerCell.updateUI(remainCost.withComma)
         }
 

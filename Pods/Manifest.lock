@@ -4,6 +4,9 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxGesture (3.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - PanModal
   - RxCocoa
+  - RxGesture
   - RxSwift
   - VerticalSlider
 
@@ -21,6 +25,7 @@ SPEC REPOS:
     - JGProgressHUD
     - PanModal
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - VerticalSlider
@@ -29,10 +34,11 @@ SPEC CHECKSUMS:
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
 
-PODFILE CHECKSUM: eaf293a2fa997baea57110ea42e4f7f889d443c0
+PODFILE CHECKSUM: 80f5b38de3f498eef716624c5ee754b960778221
 
 COCOAPODS: 1.10.0

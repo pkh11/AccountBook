@@ -23,17 +23,17 @@ class SpendTypeCell: UITableViewCell {
         
         switch str {
         case "대중교통":
-            iconImageView.image = UIImage(named: "bus")
+            iconImageView.image = "🚌".image()
         case "술자리":
-            iconImageView.image = UIImage(named: "beer")
+            iconImageView.image = "🍻".image()
         case "물건구입":
-            iconImageView.image = UIImage(named: "bag")
+            iconImageView.image = "👜".image()
         case "커피":
-            iconImageView.image = UIImage(named: "coffee")
+            iconImageView.image = "☕️".image()
         case "보험":
-            iconImageView.image = UIImage(named: "insurance")
+            iconImageView.image = "🛡".image()
         default:
-            iconImageView.image = UIImage(named: "bag")
+            iconImageView.image = "🎁".image()
         }
     }
 }

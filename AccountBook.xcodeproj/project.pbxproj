@@ -16,12 +16,16 @@
 		6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B849042255A651300309ED7 /* SpendTypeViewController.swift */; };
 		6B849046255A6BBC00309ED7 /* SpendType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B849045255A6BBC00309ED7 /* SpendType.storyboard */; };
 		6B849049255A6C6F00309ED7 /* SpendTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */; };
-		6BAF7083256AA33D001EFEE6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAF7082256AA33D001EFEE6 /* AlertViewController.swift */; };
-		6BAF7087256AA413001EFEE6 /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BAF7086256AA413001EFEE6 /* AlertView.storyboard */; };
-		6BB527A4255527160029DCEB /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527A3255527160029DCEB /* Commons.swift */; };
+		6BAF7083256AA33D001EFEE6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAF7082256AA33D001EFEE6 /* DatePickerViewController.swift */; };
+		6BAF7087256AA413001EFEE6 /* DatePickerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BAF7086256AA413001EFEE6 /* DatePickerView.storyboard */; };
+		6BB527A4255527160029DCEB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527A3255527160029DCEB /* Extension.swift */; };
 		6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BB527B225552DBF0029DCEB /* DataModel.xcdatamodeld */; };
 		6BD5382B2560F47E001BC6A0 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD5382A2560F47E001BC6A0 /* SettingTableViewCell.swift */; };
 		6BD5386E2562AEBA001BC6A0 /* VersionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD5386D2562AEBA001BC6A0 /* VersionDetailViewController.swift */; };
+		6BDEBF1F25752BCF00E418B1 /* TrasientAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDEBF1E25752BCF00E418B1 /* TrasientAlertViewController.swift */; };
+		6BDEBF2325752BEA00E418B1 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDEBF2225752BEA00E418B1 /* AlertViewController.swift */; };
+		6BDEBF2625752C5100E418B1 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDEBF2525752C5100E418B1 /* AlertView.swift */; };
+		6BDEBF292575394000E418B1 /* ActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDEBF282575394000E418B1 /* ActionViewModel.swift */; };
 		6CF7F15724DAD6D30049175F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15624DAD6D30049175F /* AppDelegate.swift */; };
 		6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15824DAD6D30049175F /* SceneDelegate.swift */; };
 		6CF7F15B24DAD6D30049175F /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7F15A24DAD6D30049175F /* CustomTabBarController.swift */; };
@@ -45,12 +49,16 @@
 		6B849042255A651300309ED7 /* SpendTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendTypeViewController.swift; sourceTree = "<group>"; };
 		6B849045255A6BBC00309ED7 /* SpendType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpendType.storyboard; sourceTree = "<group>"; };
 		6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendTypeCell.swift; sourceTree = "<group>"; };
-		6BAF7082256AA33D001EFEE6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		6BAF7086256AA413001EFEE6 /* AlertView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
-		6BB527A3255527160029DCEB /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
+		6BAF7082256AA33D001EFEE6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		6BAF7086256AA413001EFEE6 /* DatePickerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatePickerView.storyboard; sourceTree = "<group>"; };
+		6BB527A3255527160029DCEB /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		6BB527B325552DBF0029DCEB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6BD5382A2560F47E001BC6A0 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		6BD5386D2562AEBA001BC6A0 /* VersionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetailViewController.swift; sourceTree = "<group>"; };
+		6BDEBF1E25752BCF00E418B1 /* TrasientAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrasientAlertViewController.swift; sourceTree = "<group>"; };
+		6BDEBF2225752BEA00E418B1 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		6BDEBF2525752C5100E418B1 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		6BDEBF282575394000E418B1 /* ActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewModel.swift; sourceTree = "<group>"; };
 		6CF7F15324DAD6D30049175F /* AccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF7F15624DAD6D30049175F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF7F15824DAD6D30049175F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				6B849042255A651300309ED7 /* SpendTypeViewController.swift */,
 				6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */,
 				6B849045255A6BBC00309ED7 /* SpendType.storyboard */,
+				6BDEBF282575394000E418B1 /* ActionViewModel.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -135,11 +144,30 @@
 		6BB527A2255526DD0029DCEB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6BB527A3255527160029DCEB /* Commons.swift */,
-				6BAF7082256AA33D001EFEE6 /* AlertViewController.swift */,
-				6BAF7086256AA413001EFEE6 /* AlertView.storyboard */,
+				6BDEBF1D25752B7F00E418B1 /* ConfirmAlert */,
+				6BDEBF1C25752B6800E418B1 /* DatePicker */,
+				6BB527A3255527160029DCEB /* Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		6BDEBF1C25752B6800E418B1 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				6BAF7082256AA33D001EFEE6 /* DatePickerViewController.swift */,
+				6BAF7086256AA413001EFEE6 /* DatePickerView.storyboard */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		6BDEBF1D25752B7F00E418B1 /* ConfirmAlert */ = {
+			isa = PBXGroup;
+			children = (
+				6BDEBF1E25752BCF00E418B1 /* TrasientAlertViewController.swift */,
+				6BDEBF2225752BEA00E418B1 /* AlertViewController.swift */,
+				6BDEBF2525752C5100E418B1 /* AlertView.swift */,
+			);
+			path = ConfirmAlert;
 			sourceTree = "<group>";
 		};
 		6CF7F14A24DAD6D30049175F = {
@@ -258,7 +286,7 @@
 			files = (
 				6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */,
 				6CF7F16324DAD6D50049175F /* LaunchScreen.storyboard in Resources */,
-				6BAF7087256AA413001EFEE6 /* AlertView.storyboard in Resources */,
+				6BAF7087256AA413001EFEE6 /* DatePickerView.storyboard in Resources */,
 				6CF7F16024DAD6D50049175F /* Assets.xcassets in Resources */,
 				6B849046255A6BBC00309ED7 /* SpendType.storyboard in Resources */,
 				6CF7F15E24DAD6D30049175F /* Main.storyboard in Resources */,
@@ -314,11 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB527A4255527160029DCEB /* Commons.swift in Sources */,
+				6BB527A4255527160029DCEB /* Extension.swift in Sources */,
+				6BDEBF2325752BEA00E418B1 /* AlertViewController.swift in Sources */,
 				6CF7F17024DADC7D0049175F /* TransactionDailyGroup.swift in Sources */,
+				6BDEBF2625752C5100E418B1 /* AlertView.swift in Sources */,
 				6CF7F17224DADF360049175F /* Storage.swift in Sources */,
 				6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */,
-				6BAF7083256AA33D001EFEE6 /* AlertViewController.swift in Sources */,
+				6BAF7083256AA33D001EFEE6 /* DatePickerViewController.swift in Sources */,
 				6CF7F15B24DAD6D30049175F /* CustomTabBarController.swift in Sources */,
 				6BD5386E2562AEBA001BC6A0 /* VersionDetailViewController.swift in Sources */,
 				6B849049255A6C6F00309ED7 /* SpendTypeCell.swift in Sources */,
@@ -329,6 +359,8 @@
 				6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */,
 				6BD5382B2560F47E001BC6A0 /* SettingTableViewCell.swift in Sources */,
 				6B0658DC25494BC7004A89A9 /* SettingViewController.swift in Sources */,
+				6BDEBF1F25752BCF00E418B1 /* TrasientAlertViewController.swift in Sources */,
+				6BDEBF292575394000E418B1 /* ActionViewModel.swift in Sources */,
 				6B0658DF25494C08004A89A9 /* ActionViewController.swift in Sources */,
 				6CF7F16C24DAD7AB0049175F /* Transaction.swift in Sources */,
 				6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */,

@@ -59,18 +59,28 @@ extension SettingViewController {
             let alertAction = UIAlertController(title: "알림", message: "예산을 변경하면 기존에 입력된 데이터는 지워집니다.", preferredStyle: .alert)
             alertAction.addTextField(configurationHandler: { myTextField in
                 myTextField.delegate = self
-                myTextField.placeholder = "예산을 입력해주세요."
+                myTextField.placeholder = "예산을 입력해주세요.(최대 100만)"
             })
             let cancelButton = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             let okButton = UIAlertAction(title: "변경", style: .default, handler: { _ in
                 
                 guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
-    
-                // update account
-                UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
                 
-                // remove coredata
-                Storage.shared.deleteData()
+                if account.count > 7 {
+                    let vc = TransientAlertViewController()
+                    vc.titleMessage = "한도를 초과하였습니다.😀"
+                    self.presentPanModal(vc)
+                } else {
+                    // update account
+                    UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
+                    
+                    // remove coredata
+                    Storage.shared.deleteData()
+                    
+                    let vc = TransientAlertViewController()
+                    vc.titleMessage = "예산을 변경하였습니다.😀"
+                    self.presentPanModal(vc)
+                }
             })
             
             alertAction.addAction(cancelButton)
