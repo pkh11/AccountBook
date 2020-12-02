@@ -13,8 +13,7 @@ import RxGesture
 import PanModal
 
 class ActionViewController: UIViewController {
-    
-    var storage = Storage.shared
+
     @IBOutlet weak var spendTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountOfMoney: UITextField!
@@ -24,6 +23,7 @@ class ActionViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     let actionViewModel = ActionViewModel()
+    var storage = Storage.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +34,17 @@ class ActionViewController: UIViewController {
         // rx.text.subscrbe
         // rx.observe 차이
         // rx로 validation check
+        // 순환참조, weak self
 
-        uiBinding()
+        bindUI()
         tabGestureBinding()
     }
     
-    func uiBinding() {
+    func bindUI() {
+        
+        amountOfMoney.placeholder = "금액을 입력하세요."
         amountOfMoney.rx.text.orEmpty.bind(to: actionViewModel.account).disposed(by: disposeBag)
-        memo.rx.text.orEmpty.bind(to: actionViewModel.memo).disposed(by: disposeBag)
+        memo.rx.text.orEmpty.filter({ $0.count <= 10 }).bind(to: actionViewModel.memo).disposed(by: disposeBag)
         
         // input validation
         actionViewModel.isValidate().subscribe(onNext: { result in
@@ -129,34 +132,6 @@ class ActionViewController: UIViewController {
     @IBAction func closeModal(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func saveButtonClick(_ sender: Any) {
-        
-//        guard let money = amountOfMoney.text?.replacingOccurrences(of: ",", with: ""),
-//              let memo = memo.text,
-//              let type = spendTypeLabel.text,
-//              let amount = Float(money),
-//              let date = dateLabel.text
-//               else {
-//            return
-//        }
-//        
-//
-//        if money.isEmpty || memo.isEmpty {
-//            print("필수값 입력")
-//            return
-//        }
-//        
-//        storage.saveData(amount, date.toDate(date), type, memo, completion: { success in
-//            if success {
-//                self.dismiss(animated: true, completion: nil)
-//            } else {
-//                print("입력 오류")
-//            }
-//        })
-    }
-    
-    
 }
 
 extension ActionViewController: PanModalPresentable {
