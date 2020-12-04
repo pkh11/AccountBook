@@ -41,8 +41,4 @@ class ExpenditureTableHeaderView: UIView {
     @IBAction func changeValue(_ sender: Any) {
         print("\(slider.value)")
     }
-    
-    func data() {
-        
-    }
 }

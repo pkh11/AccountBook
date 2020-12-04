@@ -33,7 +33,7 @@ class ActionViewController: UIViewController {
         
         // rx.text.subscrbe
         // rx.observe 차이
-        // rx로 validation check
+        // rx로 validation check 
         // 순환참조, weak self
 
         bindUI()
