@@ -19,4 +19,14 @@ enum Settings: CaseIterable {
         case .appVersion: return "버전 정보"
         }
     }
+    
+    var info: String? {
+        guard let dictionary = Bundle.main.infoDictionary,
+              let version = dictionary["CFBundleShortVersionString"] as? String,
+              let build = dictionary["CFBundleVersion"] as? String else {
+            return nil
+        }
+        return "\(version)"
+    }
 }
+

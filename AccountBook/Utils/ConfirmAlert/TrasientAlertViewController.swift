@@ -16,7 +16,6 @@ class TransientAlertViewController: AlertViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        alertView.titleLabel.text = "예산이 변경되었습니다.😀"
         alertView.titleLabel.text = titleMessage ?? "알림"
         updateMessage()
     }

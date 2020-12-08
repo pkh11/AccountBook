@@ -12,11 +12,15 @@ class SettingViewController: UITableViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
     
+    let actionViewModel = ActionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        
+        
 
     }
 }
@@ -66,7 +70,7 @@ extension SettingViewController {
                 
                 guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
                 
-                if account.count > 7 {
+                if account.count > self.actionViewModel.amountLimit {
                     let vc = TransientAlertViewController()
                     vc.titleMessage = "한도를 초과하였습니다.😀"
                     self.presentPanModal(vc)

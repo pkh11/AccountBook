@@ -24,6 +24,8 @@ class SettingTableViewCell: UITableViewCell {
             detail.isHidden = false
         } else {
             detail.isHidden = true
+            print("///// version : \(Settings.appVersion.info)")
+            detail.text = Settings.appVersion.info
         }
     }
 }

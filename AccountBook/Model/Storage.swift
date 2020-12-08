@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import CoreData
 
+
+
 struct Storage {
+    
+    public typealias StorageCompletion = (Result<String, Error>) -> Void
     
     let modelName = "Transaction"
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -60,7 +64,6 @@ struct Storage {
                 
                 transactions.append(Account(amount: amount, date: date, type: type, text: text))
             }
-//            print(transactions)
             transactions = transactions.sorted(by: { $0.date > $1.date })
             trasactionDailyGroup.transactions = transactions
             completion(transactions)
@@ -70,7 +73,18 @@ struct Storage {
         }
     }
     
-    mutating func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping ((Bool)->Void)) {
+    mutating func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping StorageCompletion) {
+        
+        // TODO : - 예산 초과 했을 경우
+        let money = trasactionDailyGroup.totalToInt
+        let expenditureMoney = Int(amount)
+        
+        if let account = UserDefaults.standard.value(forKey: "myAccount") as? Int {
+            if account - money < expenditureMoney {
+                completion(.failure(StorageErrors.overAccount))
+                return
+            }
+        }
         
         if let entity = entity {
             let transaction = NSManagedObject(entity: entity, insertInto: context)
@@ -80,12 +94,17 @@ struct Storage {
             transaction.setValue(memo, forKey: "text")
 
             do {
-                try context.save()
-                completion(true)
+//                try context.save()
+                completion(.success(""))
             } catch {
                 print("\(error.localizedDescription)")
-                completion(false)
+                completion(.failure(StorageErrors.failedSaveData))
             }
         }
     }
+}
+
+enum StorageErrors: Error {
+    case failedSaveData
+    case overAccount
 }

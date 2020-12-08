@@ -15,8 +15,12 @@ class VersionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // accIconImage setting
-        // version setting
+        setVersionInfo()
     }
-
+    
+    func setVersionInfo() {
+        if let version = Settings.appVersion.info {
+            versionText.text = "현재 버전은 \(version) 입니다."
+        }
+    }
 }

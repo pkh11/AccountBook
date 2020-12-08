@@ -34,7 +34,7 @@ class ActionViewModel {
     }
     
     func checkMyAccount() -> Bool {
-        guard UserDefaults.standard.value(forKey: "myAccount") != nil else {
+        guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int, myAccount != 0 else {
             return false
         }
         return true
@@ -51,8 +51,13 @@ class ActionViewModel {
         let typeValue = type.value
         let dateValue = date.value
     
-        storage.saveData(amount, dateValue.toDate(dateValue), typeValue, memoValue, completion: { success in
-            result = success
+        storage.saveData(amount, dateValue.toDate(dateValue), typeValue, memoValue, completion: { resultType in
+            switch resultType {
+            case .success(_):
+                result = true
+            case .failure(let error):
+                result = false
+            }
         })
         return result
     }

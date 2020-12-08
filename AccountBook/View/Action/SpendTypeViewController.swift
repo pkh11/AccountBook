@@ -23,17 +23,16 @@ class SpendTypeViewController: UIViewController, PanModalPresentable {
     }
 
     var shortFormHeight: PanModalHeight {
-        return .contentHeight(300)
+        return .contentHeight(350)
     }
     
-    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.물건구입)", "\(SpendType.보험)", "\(SpendType.술자리)", "\(SpendType.커피)", "\(SpendType.기타)"]
+    let types: [String] = ["\(SpendType.대중교통)", "\(SpendType.식사)", "\(SpendType.물건구입)", "\(SpendType.보험)", "\(SpendType.술자리)", "\(SpendType.커피)", "\(SpendType.기타)"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-    
     }
     
 }

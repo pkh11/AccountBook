@@ -24,6 +24,8 @@ class SpendTypeCell: UITableViewCell {
         switch str {
         case "대중교통":
             iconImageView.image = "🚌".image()
+        case "식사":
+            iconImageView.image = "🍚".image()
         case "술자리":
             iconImageView.image = "🍻".image()
         case "물건구입":

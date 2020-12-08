@@ -14,7 +14,6 @@ struct TransactionDailyGroup {
     var date: Date
     
     var total: Float {
-        // TODO: total이 그룹화된거에서 보여질거에요, 총 사용 금액
         let totalSum = Storage.shared.transactions.map{ Int($0.amount) }.reduce(0){ $0 + $1 }
         return Float(totalSum)
     }

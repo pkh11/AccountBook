@@ -28,14 +28,6 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        amountOfMoney.delegate = self
-        amountOfMoneySelected.isHidden = true
-        
-        // rx.text.subscrbe
-        // rx.observe 차이
-        // rx로 validation check 
-        // 순환참조, weak self
-
         bindUI()
         tabGestureBinding()
     }
@@ -46,6 +38,40 @@ class ActionViewController: UIViewController {
         amountOfMoney.rx.text.orEmpty.bind(to: actionViewModel.account).disposed(by: disposeBag)
         memo.rx.text.orEmpty.filter({ $0.count <= 10 }).bind(to: actionViewModel.memo).disposed(by: disposeBag)
         
+        // 금액 입력 validation check in UI
+        amountOfMoney.rx.text.orEmpty.subscribe(onNext: { account in
+            let string = account.replacingOccurrences(of: ",", with: "")
+            
+            if string.count >= self.actionViewModel.amountLimit || string.isEmpty {
+                self.amountOfMoneySelected.isHidden = true
+            } else if string.count < self.actionViewModel.amountLimit {
+                self.amountOfMoneySelected.isHidden = false
+            }
+            
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal // 1,000,000
+            formatter.locale = Locale.current
+            formatter.maximumFractionDigits = 0 // 허용하는 소숫점 자리수
+            
+            if let formattedNumber = formatter.number(from: string) {
+                if let formattedString = formatter.string(from: formattedNumber) {
+                    self.amountOfMoney.text = formattedString
+                }
+            }
+        }).disposed(by: disposeBag)
+        
+        // 메모 입력 validation check in UI
+        memo.rx.text.orEmpty.scan("", accumulator: { (previous, new) -> String in
+            let memoLimit = self.actionViewModel.memoLimit
+            
+            if new.count > memoLimit {
+                return previous ?? String(new.prefix(memoLimit))
+            } else {
+                return new
+            }
+        }).subscribe(memo.rx.text).disposed(by: disposeBag)
+        
+        
         // input validation
         actionViewModel.isValidate().subscribe(onNext: { result in
             self.saveButton.isEnabled = result
@@ -53,15 +79,6 @@ class ActionViewController: UIViewController {
                 self.saveButton.backgroundColor = .customBlue1
             } else {
                 self.saveButton.backgroundColor = .customGray1
-            }
-        }).disposed(by: disposeBag)
-        
-        // 금액입력 blue line 처리
-        actionViewModel.account.subscribe(onNext: { str in
-            if str.isEmpty {
-                self.amountOfMoneySelected.isHidden = true
-            } else {
-                self.amountOfMoneySelected.isHidden = false
             }
         }).disposed(by: disposeBag)
         
@@ -115,8 +132,10 @@ class ActionViewController: UIViewController {
             strongSelf.presentPanModal(storyboard)
             
             storyboard.selectedCompletion = { time in
+            
                 let times = time.split(separator: " ")
                 let dates = times[0]
+                
                 strongSelf.dateLabel.text = String(dates)
                 strongSelf.dateLabel.textColor = UIColor.customBlack
                 strongSelf.actionViewModel.date.accept(String(dates))
@@ -158,7 +177,8 @@ extension ActionViewController: UITextFieldDelegate {
         if let removeAllSeprator = textField.text?.replacingOccurrences(of: formatter.groupingSeparator, with: ""){
             var beforeForemattedString = removeAllSeprator + string
             if formatter.number(from: string) != nil {
-                if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                if let formattedNumber = formatter.number(from: beforeForemattedString),
+                   let formattedString = formatter.string(from: formattedNumber){
                     textField.text = formattedString
                     return false
                 }
@@ -166,7 +186,8 @@ extension ActionViewController: UITextFieldDelegate {
                 if string == "" { // 백스페이스일때
                     let lastIndex = beforeForemattedString.index(beforeForemattedString.endIndex, offsetBy: -1)
                     beforeForemattedString = String(beforeForemattedString[..<lastIndex])
-                    if let formattedNumber = formatter.number(from: beforeForemattedString), let formattedString = formatter.string(from: formattedNumber){
+                    if let formattedNumber = formatter.number(from: beforeForemattedString),
+                       let formattedString = formatter.string(from: formattedNumber){
                         textField.text = formattedString
                         return false
                     }
@@ -174,9 +195,7 @@ extension ActionViewController: UITextFieldDelegate {
                     return false
                 }
             }
-
         }
-        
         return true
     }
 }
