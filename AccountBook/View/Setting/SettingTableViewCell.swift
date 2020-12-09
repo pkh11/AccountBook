@@ -11,7 +11,6 @@ import UIKit
 class SettingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var detail: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,14 +18,6 @@ class SettingTableViewCell: UITableViewCell {
     
     func updateUI(_ settings: Settings) {
         title.text = settings.rightText
-        
-        if settings.hashValue == Settings.appVersion.hashValue {
-            detail.isHidden = false
-        } else {
-            detail.isHidden = true
-            print("///// version : \(Settings.appVersion.info)")
-            detail.text = Settings.appVersion.info
-        }
     }
 }
 

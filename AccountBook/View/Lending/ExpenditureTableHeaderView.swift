@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VerticalSlider
 
 class ExpenditureTableHeaderView: UIView {
 
@@ -31,12 +32,13 @@ class ExpenditureTableHeaderView: UIView {
         }
     }
     
-    @IBOutlet weak var slider: UISlider! {
+    @IBOutlet weak var slider: VerticalSlider! {
         didSet {
             slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
-            slider.minimumValue = 0
+//            slider.minimumValue = 0
         }
     }
+    @IBOutlet weak var verticalSlider: VerticalSlider!
     
     @IBAction func changeValue(_ sender: Any) {
         print("\(slider.value)")

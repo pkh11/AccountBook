@@ -25,8 +25,16 @@ class DatePickerViewController: UIViewController, PanModalPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        datePicker.addTarget(self, action: #selector(changed), for: .valueChanged)
+    }
+    
+    @objc func changed(){
+        let selectedDate = datePicker.date
         let now = Date()
-        datePicker.maximumDate = now
+        
+        if selectedDate > now {
+            datePicker.date = now
+        }
     }
     
     @IBAction func closeModal(_ sender: Any) {

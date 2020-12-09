@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
             return
         }
         
-        headerView.slider.maximumValue = Float(myAccount)
+        headerView.verticalSlider.slider.maximumValue = Float(myAccount)
         headerView.maxBudget.text = String(myAccount.withComma)
     }
     
@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
                 UIView.animate(withDuration: 0.5,
                                delay: 0.0,
                                options: .curveEaseInOut,
-                               animations: { self.headerView.slider.setValue(Float(used), animated: true) },
+                               animations: { self.headerView.verticalSlider.slider.setValue(Float(used), animated: true) },
                                completion: nil)
             }
             

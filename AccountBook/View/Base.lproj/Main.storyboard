@@ -584,12 +584,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex9-1r-Aon">
-                                            <rect key="frame" x="343" y="22.5" width="21" height="20"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DU3-jc-RQS">
                                             <rect key="frame" x="374" y="24.5" width="20" height="16.5"/>
                                             <color key="tintColor" systemColor="systemGray3Color"/>
@@ -602,15 +596,11 @@
                                     <constraints>
                                         <constraint firstItem="DU3-jc-RQS" firstAttribute="centerY" secondItem="gfI-9k-f6U" secondAttribute="centerY" id="55n-AG-HKl"/>
                                         <constraint firstItem="23E-g3-cXc" firstAttribute="centerY" secondItem="gfI-9k-f6U" secondAttribute="centerY" id="AgB-Uz-ofr"/>
-                                        <constraint firstItem="ex9-1r-Aon" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="23E-g3-cXc" secondAttribute="trailing" constant="50" id="Qzb-eZ-RvF"/>
                                         <constraint firstItem="23E-g3-cXc" firstAttribute="leading" secondItem="gfI-9k-f6U" secondAttribute="leading" constant="20" id="Uzl-hi-8s8"/>
                                         <constraint firstItem="DU3-jc-RQS" firstAttribute="trailing" secondItem="gfI-9k-f6U" secondAttribute="trailingMargin" id="c1U-mY-w2i"/>
-                                        <constraint firstItem="ex9-1r-Aon" firstAttribute="centerY" secondItem="gfI-9k-f6U" secondAttribute="centerY" id="ffb-Xn-jDU"/>
-                                        <constraint firstItem="DU3-jc-RQS" firstAttribute="leading" secondItem="ex9-1r-Aon" secondAttribute="trailing" constant="10" id="siJ-gK-53a"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="detail" destination="ex9-1r-Aon" id="Oh2-Uq-Cqz"/>
                                     <outlet property="title" destination="23E-g3-cXc" id="qo7-qe-FQb"/>
                                 </connections>
                             </tableViewCell>

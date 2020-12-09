@@ -19,9 +19,6 @@ class SettingViewController: UITableViewController {
         
         settingTableView.delegate = self
         settingTableView.dataSource = self
-        
-        
-
     }
 }
 extension SettingViewController {
