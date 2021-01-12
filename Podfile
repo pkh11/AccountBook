@@ -14,5 +14,6 @@ target 'AccountBook' do
   pod 'VerticalSlider'
   pod 'PanModal'
   pod 'JGProgressHUD'
+  pod 'lottie-ios'
 
 end

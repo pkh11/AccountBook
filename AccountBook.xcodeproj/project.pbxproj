@@ -10,6 +10,8 @@
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
 		6B0658DC25494BC7004A89A9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DB25494BC7004A89A9 /* SettingViewController.swift */; };
 		6B0658DF25494C08004A89A9 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DE25494C08004A89A9 /* ActionViewController.swift */; };
+		6B5F785E25AD8650000709EA /* 6656-warning-sign.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B5F785D25AD8650000709EA /* 6656-warning-sign.json */; };
+		6B5F786225AD9106000709EA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5F786125AD9106000709EA /* HomeViewModel.swift */; };
 		6B78C230254E7C3900C6A287 /* ExpenditureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78C22F254E7C3900C6A287 /* ExpenditureTableViewCell.swift */; };
 		6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B78C233254E7E5400C6A287 /* ExpenditureTableHeaderView.swift */; };
 		6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B78C237254EF15000C6A287 /* ExpenditureTableHeaderView.xib */; };
@@ -43,6 +45,8 @@
 		6B0658D825494B9C004A89A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6B0658DB25494BC7004A89A9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6B0658DE25494C08004A89A9 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		6B5F785D25AD8650000709EA /* 6656-warning-sign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "6656-warning-sign.json"; sourceTree = "<group>"; };
+		6B5F786125AD9106000709EA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6B78C22F254E7C3900C6A287 /* ExpenditureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureTableViewCell.swift; sourceTree = "<group>"; };
 		6B78C233254E7E5400C6A287 /* ExpenditureTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureTableHeaderView.swift; sourceTree = "<group>"; };
 		6B78C237254EF15000C6A287 /* ExpenditureTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenditureTableHeaderView.xib; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				6B78C22F254E7C3900C6A287 /* ExpenditureTableViewCell.swift */,
 				6B78C233254E7E5400C6A287 /* ExpenditureTableHeaderView.swift */,
 				6B78C237254EF15000C6A287 /* ExpenditureTableHeaderView.xib */,
+				6B5F786125AD9106000709EA /* HomeViewModel.swift */,
 			);
 			path = Lending;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				6CF7F16124DAD6D50049175F /* LaunchScreen.storyboard */,
 				6CF7F16424DAD6D50049175F /* Info.plist */,
 				6BB527B225552DBF0029DCEB /* DataModel.xcdatamodeld */,
+				6B5F785D25AD8650000709EA /* 6656-warning-sign.json */,
 			);
 			path = AccountBook;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */,
 				6CF7F16324DAD6D50049175F /* LaunchScreen.storyboard in Resources */,
 				6BAF7087256AA413001EFEE6 /* DatePickerView.storyboard in Resources */,
+				6B5F785E25AD8650000709EA /* 6656-warning-sign.json in Resources */,
 				6CF7F16024DAD6D50049175F /* Assets.xcassets in Resources */,
 				6B849046255A6BBC00309ED7 /* SpendType.storyboard in Resources */,
 				6CF7F15E24DAD6D30049175F /* Main.storyboard in Resources */,
@@ -361,6 +368,7 @@
 				6B0658DC25494BC7004A89A9 /* SettingViewController.swift in Sources */,
 				6BDEBF1F25752BCF00E418B1 /* TrasientAlertViewController.swift in Sources */,
 				6BDEBF292575394000E418B1 /* ActionViewModel.swift in Sources */,
+				6B5F786225AD9106000709EA /* HomeViewModel.swift in Sources */,
 				6B0658DF25494C08004A89A9 /* ActionViewController.swift in Sources */,
 				6CF7F16C24DAD7AB0049175F /* Transaction.swift in Sources */,
 				6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */,

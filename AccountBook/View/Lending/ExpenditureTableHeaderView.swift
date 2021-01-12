@@ -8,6 +8,8 @@
 
 import UIKit
 import VerticalSlider
+import Lottie
+
 
 class ExpenditureTableHeaderView: UIView {
 
@@ -31,16 +33,14 @@ class ExpenditureTableHeaderView: UIView {
             minBudget.text = "0"
         }
     }
-    
-    @IBOutlet weak var slider: VerticalSlider! {
+   
+    @IBOutlet weak var verticalSlider: VerticalSlider!
+    @IBOutlet weak var warningAnimationView: AnimationView! {
         didSet {
-            slider.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))
-//            slider.minimumValue = 0
+            warningAnimationView.contentMode = .scaleAspectFit
+            warningAnimationView.loopMode = .loop
+            warningAnimationView.animationSpeed = 0.5
         }
     }
-    @IBOutlet weak var verticalSlider: VerticalSlider!
-    
-    @IBAction func changeValue(_ sender: Any) {
-        print("\(slider.value)")
-    }
+    @IBOutlet weak var warningView: UIView!
 }

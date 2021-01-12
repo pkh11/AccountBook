@@ -15,23 +15,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <slider hidden="YES" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="h3o-VG-ozq">
-                    <rect key="frame" x="18" y="50" width="378" height="401"/>
-                    <color key="tintColor" name="Customblue1"/>
-                    <connections>
-                        <action selector="changeValue:" destination="iN0-l3-epB" eventType="valueChanged" id="9S4-Aj-Tae"/>
-                    </connections>
-                </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aU-3S-TsZ">
                     <rect key="frame" x="40" y="50" width="48.5" height="17"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toZ-Ex-OHa">
                     <rect key="frame" x="40" y="77" width="114" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="24"/>
+                    <color key="textColor" name="Customblack"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irp-Bh-0sb">
@@ -50,6 +43,37 @@
                     <rect key="frame" x="290" y="40.5" width="74" height="419"/>
                     <color key="backgroundColor" name="Customgray3"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-F7-i9o">
+                    <rect key="frame" x="15" y="156" width="200" height="150"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLd-sk-Utw" customClass="AnimationView" customModule="Lottie">
+                            <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
+                            <color key="backgroundColor" name="Customgray3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Ir9-hI-eWz"/>
+                                <constraint firstAttribute="width" constant="50" id="gh5-Au-31R"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="6656-warning-sign"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alP-Ir-rkE">
+                            <rect key="frame" x="65" y="40" width="36.5" height="25.5"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
+                            <color key="textColor" name="Customblack"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="Customgray3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="9jy-HP-Asd"/>
+                        <constraint firstItem="zLd-sk-Utw" firstAttribute="centerY" secondItem="O3C-F7-i9o" secondAttribute="centerY" multiplier="0.7" id="Kfc-hD-zhg"/>
+                        <constraint firstItem="alP-Ir-rkE" firstAttribute="leading" secondItem="zLd-sk-Utw" secondAttribute="trailing" constant="15" id="PG6-FH-Bkn"/>
+                        <constraint firstItem="zLd-sk-Utw" firstAttribute="leading" secondItem="O3C-F7-i9o" secondAttribute="leading" id="cBz-wN-cz0"/>
+                        <constraint firstAttribute="width" constant="200" id="guh-OD-CAR"/>
+                        <constraint firstItem="alP-Ir-rkE" firstAttribute="centerY" secondItem="zLd-sk-Utw" secondAttribute="centerY" id="ud1-gL-BPp"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="mk8-qq-Pgp"/>
             <color key="backgroundColor" name="Customgray3"/>
@@ -58,13 +82,11 @@
                 <constraint firstItem="0aU-3S-TsZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="1dt-aA-irG"/>
                 <constraint firstAttribute="trailing" secondItem="Irp-Bh-0sb" secondAttribute="trailing" constant="10" id="3gu-Jt-uRY"/>
                 <constraint firstItem="0aU-3S-TsZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="4Tr-bo-QNf"/>
-                <constraint firstItem="h3o-VG-ozq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8UG-V2-FKl"/>
-                <constraint firstItem="h3o-VG-ozq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="8XQ-Br-p6N"/>
+                <constraint firstItem="O3C-F7-i9o" firstAttribute="leading" secondItem="mk8-qq-Pgp" secondAttribute="leading" constant="15" id="D2D-2i-6t1"/>
                 <constraint firstAttribute="bottom" secondItem="agU-oE-ILU" secondAttribute="bottom" constant="10" id="DI4-bd-Ncv"/>
-                <constraint firstAttribute="trailing" secondItem="h3o-VG-ozq" secondAttribute="trailing" constant="20" id="EQC-J9-jyO"/>
                 <constraint firstItem="agU-oE-ILU" firstAttribute="centerX" secondItem="2J7-Av-KVV" secondAttribute="centerX" id="Mbl-eF-bSD"/>
                 <constraint firstItem="agU-oE-ILU" firstAttribute="top" secondItem="2J7-Av-KVV" secondAttribute="bottom" constant="10" id="Xah-Nd-F20"/>
-                <constraint firstItem="h3o-VG-ozq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="ff1-rP-QBb"/>
+                <constraint firstItem="O3C-F7-i9o" firstAttribute="top" secondItem="toZ-Ex-OHa" secondAttribute="bottom" constant="50" id="ggh-zy-jpo"/>
                 <constraint firstAttribute="trailing" secondItem="2J7-Av-KVV" secondAttribute="trailing" constant="50" id="ihu-do-Tij"/>
                 <constraint firstItem="2J7-Av-KVV" firstAttribute="top" secondItem="Irp-Bh-0sb" secondAttribute="bottom" constant="10" id="kAZ-w1-eoR"/>
                 <constraint firstItem="toZ-Ex-OHa" firstAttribute="top" secondItem="0aU-3S-TsZ" secondAttribute="bottom" constant="10" id="lAl-w0-Pnx"/>
@@ -72,7 +94,6 @@
                 <constraint firstAttribute="trailing" secondItem="agU-oE-ILU" secondAttribute="trailing" constant="10" id="nWr-yX-Hzs"/>
                 <constraint firstItem="Irp-Bh-0sb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="p9K-uL-i0N"/>
                 <constraint firstItem="2J7-Av-KVV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="290" id="txO-QE-QRj"/>
-                <constraint firstAttribute="bottom" secondItem="h3o-VG-ozq" secondAttribute="bottom" constant="50" id="z3B-fU-60g"/>
                 <constraint firstItem="2J7-Av-KVV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="z4d-BH-n0j"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -80,15 +101,16 @@
                 <outlet property="expenditureCost" destination="toZ-Ex-OHa" id="FY2-Cb-UX5"/>
                 <outlet property="maxBudget" destination="Irp-Bh-0sb" id="hqO-SX-w8e"/>
                 <outlet property="minBudget" destination="agU-oE-ILU" id="Vzr-w3-CAz"/>
-                <outlet property="slider" destination="h3o-VG-ozq" id="A9d-yr-LVy"/>
                 <outlet property="verticalSlider" destination="2J7-Av-KVV" id="6Ev-y2-QeU"/>
+                <outlet property="warningAnimationView" destination="zLd-sk-Utw" id="ihH-nd-TDZ"/>
+                <outlet property="warningView" destination="O3C-F7-i9o" id="uvd-VN-14V"/>
             </connections>
             <point key="canvasLocation" x="40.579710144927539" y="121.875"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="Customblue1">
-            <color red="0.10499999672174454" green="0.48899999260902405" blue="0.99900001287460327" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Customblack">
+            <color red="0.067000001668930054" green="0.067000001668930054" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Customgray3">
             <color red="0.92100000381469727" green="0.92900002002716064" blue="0.94199997186660767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

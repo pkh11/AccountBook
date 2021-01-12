@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
+
         fetchData()
         // 최대 예산 설정
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
@@ -48,6 +48,7 @@ class HomeViewController: UIViewController {
         
         headerView.verticalSlider.slider.maximumValue = Float(myAccount)
         headerView.maxBudget.text = String(myAccount.withComma)
+        headerView.warningAnimationView.play()
     }
     
     func fetchData() {
