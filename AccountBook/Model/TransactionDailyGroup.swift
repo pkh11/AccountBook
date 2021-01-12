@@ -21,4 +21,22 @@ struct TransactionDailyGroup {
     var totalToInt: Int {
         return Int(total)
     }
+    
+    /// - TODO: 가장 많이 사용한 분류 출력
+    var mostUsedType: Int {
+        let transactions = Storage.shared.transactions
+        var map = [String : Float]()
+        for transaction in transactions {
+            if let amount = map[transaction.type] {
+                map[transaction.type]  = amount + transaction.amount
+            }
+            map[transaction.type] = transaction.amount
+        }
+        
+        guard let type = map.sorted(by: { $0.value > $1.value }).map{ Int($0.key) }.first else { return 0 }
+        // type
+        
+        return 0
+        
+    }
 }
