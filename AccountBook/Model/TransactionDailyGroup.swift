@@ -33,8 +33,10 @@ struct TransactionDailyGroup {
             map[transaction.type] = transaction.amount
         }
         
-        guard let type = map.sorted(by: { $0.value > $1.value }).map{ Int($0.key) }.first else { return 0 }
+        guard let type = map.sorted(by: { $0.value > $1.value }).first else { return 0 }
         // type
+        
+        print(type)
         
         return 0
         

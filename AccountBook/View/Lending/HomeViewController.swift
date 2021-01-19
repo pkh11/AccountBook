@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         transactions = storage.transactions
+        storage.trasactionDailyGroup.mostUsedType
 //        print("storage.deleteData : \(storage.deleteData())")
     }
     
