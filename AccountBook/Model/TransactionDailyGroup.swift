@@ -23,7 +23,7 @@ struct TransactionDailyGroup {
     }
     
     /// - TODO: 가장 많이 사용한 분류 출력
-    var mostUsedType: Int {
+    var mostUsedType: String {
         let transactions = Storage.shared.transactions
         var map = [String : Float]()
         for transaction in transactions {
@@ -33,12 +33,18 @@ struct TransactionDailyGroup {
             map[transaction.type] = transaction.amount
         }
         
-        guard let type = map.sorted(by: { $0.value > $1.value }).first else { return 0 }
-        // type
+        guard let type = map.sorted(by: { $0.value > $1.value }).first else { return "" }
+        guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Float else {
+            return ""
+        }
         
-        print(type)
+        let currentAmountOfMoney = total
+        let limit = myAccount * 0.8
+        if currentAmountOfMoney >= limit {
+            print(type)
+            return type.key
+        }
         
-        return 0
-        
+        return ""
     }
 }

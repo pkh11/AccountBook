@@ -32,9 +32,6 @@ class HomeViewController: UIViewController {
         tableView.tableHeaderView = headerView
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
-        
-        transactions = storage.transactions
-        storage.trasactionDailyGroup.mostUsedType
 //        print("storage.deleteData : \(storage.deleteData())")
     }
     
@@ -42,6 +39,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
 
         fetchData()
+        limitCheck()
         // 최대 예산 설정
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
             return
@@ -49,7 +47,19 @@ class HomeViewController: UIViewController {
         
         headerView.verticalSlider.slider.maximumValue = Float(myAccount)
         headerView.maxBudget.text = String(myAccount.withComma)
-        headerView.warningAnimationView.play()
+        
+    }
+    
+    func limitCheck() {
+        let mostUsedType = storage.trasactionDailyGroup.mostUsedType
+        
+        if !mostUsedType.isEmpty {
+            headerView.warningView.isHidden = false
+            headerView.warningAnimationView.play()
+            headerView.warningText.text = "가장 많이 사용한 유형은 '\(mostUsedType)' 입니다."
+        } else {
+            headerView.warningView.isHidden = true
+        }
     }
     
     func fetchData() {
@@ -57,8 +67,8 @@ class HomeViewController: UIViewController {
         storage.loadFromData(completion: { data in
             
             self.transactions = data
-            let used = self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1})
-            print("\(used)")
+            let used = self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1 })
+            
             self.headerView.expenditureCost.text = "\(used.withComma) 원"
             
             DispatchQueue.main.async {

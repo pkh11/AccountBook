@@ -58,10 +58,15 @@ class ActionViewController: UIViewController {
                     self.amountOfMoney.text = formattedString
                 }
             }
+            
         }).disposed(by: disposeBag)
         
         // 메모 입력 validation check in UI
         memo.rx.text.orEmpty.scan("", accumulator: { (previous, new) -> String in
+            
+            // saveButton height - keyboard height
+            self.saveButton.frame.origin.y -= 100
+            
             let memoLimit = self.actionViewModel.memoLimit
             
             if new.count > memoLimit {
@@ -69,6 +74,7 @@ class ActionViewController: UIViewController {
             } else {
                 return new
             }
+
         }).subscribe(memo.rx.text).disposed(by: disposeBag)
         
         
@@ -117,7 +123,7 @@ class ActionViewController: UIViewController {
             
             storyboard.selectedCompletion = { type in
                 strongSelf.spendTypeLabel.text = type.rawValue
-                strongSelf.spendTypeLabel.textColor = UIColor.customBlack
+                strongSelf.spendTypeLabel.textColor = .customBlack
                 strongSelf.actionViewModel.type.accept(type.rawValue)
             }
         }).disposed(by: disposeBag)
@@ -137,15 +143,11 @@ class ActionViewController: UIViewController {
                 let dates = times[0]
                 
                 strongSelf.dateLabel.text = String(dates)
-                strongSelf.dateLabel.textColor = UIColor.customBlack
+                strongSelf.dateLabel.textColor = .customBlack
                 strongSelf.actionViewModel.date.accept(String(dates))
             }
             
         }).disposed(by: disposeBag)
-    }
-    
-    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
 
     @IBAction func closeModal(_ sender: Any) {

@@ -94,7 +94,7 @@ struct Storage {
             transaction.setValue(memo, forKey: "text")
 
             do {
-//                try context.save()
+                try context.save()
                 completion(.success(""))
             } catch {
                 print("\(error.localizedDescription)")
