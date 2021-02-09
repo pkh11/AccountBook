@@ -13,7 +13,7 @@ import RxGesture
 import PanModal
 
 class ActionViewController: UIViewController {
-
+    
     @IBOutlet weak var spendTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountOfMoney: UITextField!
@@ -24,6 +24,7 @@ class ActionViewController: UIViewController {
     let disposeBag = DisposeBag()
     let actionViewModel = ActionViewModel()
     var storage = Storage.shared
+    var isKeyboardShow = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,7 @@ class ActionViewController: UIViewController {
     }
     
     func bindUI() {
-        
-        amountOfMoney.placeholder = "금액을 입력하세요."
+    
         amountOfMoney.rx.text.orEmpty.bind(to: actionViewModel.account).disposed(by: disposeBag)
         memo.rx.text.orEmpty.filter({ $0.count <= 10 }).bind(to: actionViewModel.memo).disposed(by: disposeBag)
         
@@ -63,10 +63,6 @@ class ActionViewController: UIViewController {
         
         // 메모 입력 validation check in UI
         memo.rx.text.orEmpty.scan("", accumulator: { (previous, new) -> String in
-            
-            // saveButton height - keyboard height
-            self.saveButton.frame.origin.y -= 100
-            
             let memoLimit = self.actionViewModel.memoLimit
             
             if new.count > memoLimit {
@@ -74,9 +70,7 @@ class ActionViewController: UIViewController {
             } else {
                 return new
             }
-
         }).subscribe(memo.rx.text).disposed(by: disposeBag)
-        
         
         // input validation
         actionViewModel.isValidate().subscribe(onNext: { result in
@@ -104,6 +98,16 @@ class ActionViewController: UIViewController {
                 vc.titleMessage = "예산을 설정해주세요.😀"
                 self.presentPanModal(vc)
             }
+        }).disposed(by: disposeBag)
+        
+        _ = keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { keyboardHeight in
+                UIView.animate(withDuration: 0.4) {
+                    if keyboardHeight > 0 {
+                        self.saveButton.transform = CGAffineTransform(translationX: 0, y:   -keyboardHeight+20)
+                    } else if keyboardHeight == 0 {
+                        self.saveButton.transform = CGAffineTransform.identity
+                    }
+                }
         }).disposed(by: disposeBag)
     }
     
@@ -138,7 +142,7 @@ class ActionViewController: UIViewController {
             strongSelf.presentPanModal(storyboard)
             
             storyboard.selectedCompletion = { time in
-            
+                
                 let times = time.split(separator: " ")
                 let dates = times[0]
                 
@@ -149,7 +153,22 @@ class ActionViewController: UIViewController {
             
         }).disposed(by: disposeBag)
     }
-
+    
+    func keyboardHeight() -> Observable<CGFloat> {
+        return Observable
+            .from([
+                NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+                    .map { notification -> CGFloat in
+                        (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0
+                    },
+                NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+                    .map { _ -> CGFloat in
+                        0
+                    }
+            ])
+            .merge()
+    }
+    
     @IBAction func closeModal(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -158,46 +177,5 @@ class ActionViewController: UIViewController {
 extension ActionViewController: PanModalPresentable {
     var panScrollable: UIScrollView? {
         return nil
-    }
-}
-
-extension ActionViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // replacementString : 방금 입력된 문자 하나, 붙여넣기 시에는 붙여넣어진 문자열 전체
-        // return -> 텍스트가 바뀌어야 한다면 true, 아니라면 false
-        // 이 메소드 내에서 textField.text는 현재 입력된 string이 붙기 전의 string
-        
-        amountOfMoneySelected.isHidden = false
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal // 1,000,000
-        formatter.locale = Locale.current
-        formatter.maximumFractionDigits = 0 // 허용하는 소숫점 자리수
-        
-        // formatter.groupingSeparator // .decimal -> ,
-        
-        if let removeAllSeprator = textField.text?.replacingOccurrences(of: formatter.groupingSeparator, with: ""){
-            var beforeForemattedString = removeAllSeprator + string
-            if formatter.number(from: string) != nil {
-                if let formattedNumber = formatter.number(from: beforeForemattedString),
-                   let formattedString = formatter.string(from: formattedNumber){
-                    textField.text = formattedString
-                    return false
-                }
-            }else{ // 숫자가 아닐 때
-                if string == "" { // 백스페이스일때
-                    let lastIndex = beforeForemattedString.index(beforeForemattedString.endIndex, offsetBy: -1)
-                    beforeForemattedString = String(beforeForemattedString[..<lastIndex])
-                    if let formattedNumber = formatter.number(from: beforeForemattedString),
-                       let formattedString = formatter.string(from: formattedNumber){
-                        textField.text = formattedString
-                        return false
-                    }
-                }else{ // 문자일 때
-                    return false
-                }
-            }
-        }
-        return true
     }
 }
