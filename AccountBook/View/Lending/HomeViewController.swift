@@ -8,6 +8,7 @@
 
 import UIKit
 import JGProgressHUD
+import RxSwift
 
 
 class HomeViewController: UIViewController {
@@ -23,6 +24,8 @@ class HomeViewController: UIViewController {
     
     var storage = Storage.shared
     var transactions: [Account] = []
+    var homeViewModel = HomeViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +54,26 @@ class HomeViewController: UIViewController {
     }
     
     func limitCheck() {
-        let mostUsedType = storage.trasactionDailyGroup.mostUsedType
-        
-        if !mostUsedType.isEmpty {
-            headerView.warningView.isHidden = false
-            headerView.warningAnimationView.play()
-            headerView.warningText.text = "가장 많이 사용한 유형은 '\(mostUsedType)' 입니다."
-        } else {
-            headerView.warningView.isHidden = true
-        }
+        homeViewModel.limitCheck().subscribe(onNext: { [weak self] text in
+            guard let strongSelf = self else { return }
+            
+            if text.isEmpty {
+                strongSelf.headerView.warningView.isHidden = true
+            } else {
+                strongSelf.headerView.warningView.isHidden = false
+                strongSelf.headerView.warningAnimationView.play()
+                strongSelf.headerView.warningText.text = text
+            }
+        }).disposed(by: disposeBag)
+//        let mostUsedType = storage.trasactionDailyGroup.mostUsedType
+//
+//        if !mostUsedType.isEmpty {
+//            headerView.warningView.isHidden = false
+//            headerView.warningAnimationView.play()
+//            headerView.warningText.text = "가장 많이 사용한 유형은 '\(mostUsedType)' 입니다."
+//        } else {
+//            headerView.warningView.isHidden = true
+//        }
     }
     
     func fetchData() {

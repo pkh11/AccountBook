@@ -39,6 +39,9 @@ struct Storage {
                 context.delete(object)
             }
         }
+        
+        transactions = []
+        
         do {
             try context.save()
         } catch {
@@ -76,6 +79,8 @@ struct Storage {
     mutating func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping StorageCompletion) {
         
         // TODO : - 예산 초과 했을 경우
+        print(transactions)
+//        print(trasactionDailyGroup.transactions)
         let money = trasactionDailyGroup.totalToInt
         let expenditureMoney = Int(amount)
         
