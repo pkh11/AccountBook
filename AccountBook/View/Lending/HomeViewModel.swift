@@ -16,4 +16,14 @@ class HomeViewModel {
         let type = storage.trasactionDailyGroup.mostUsedType
         return Observable.just(type)
     }
+    
+    func limitCheck() -> Observable<String> {
+        let mostUsedType = storage.trasactionDailyGroup.mostUsedType
+        var warningText = ""
+        
+        if !mostUsedType.isEmpty {
+            warningText = "가장 많이 사용한 유형은 '\(mostUsedType)' 입니다."
+        }
+        return Observable.just(warningText)
+    }
 }

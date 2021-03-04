@@ -24,8 +24,7 @@ class HomeViewController: UIViewController {
     
     var storage = Storage.shared
     var transactions: [Account] = []
-    
-    let homeViewModel = HomeViewModel()
+    var homeViewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
