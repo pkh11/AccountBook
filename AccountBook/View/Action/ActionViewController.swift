@@ -87,17 +87,24 @@ class ActionViewController: UIViewController {
             self.amountOfMoney.resignFirstResponder()
             self.memo.resignFirstResponder()
         }).subscribe(onNext: {
+            let vc = TransientAlertViewController()
+            
             if self.actionViewModel.checkMyAccount() {
-                if self.actionViewModel.saveData() {
+                
+                let message = self.actionViewModel.saveData()
+                
+                if message == "Success" {
                     self.dismiss(animated: true, completion: nil)
+                } else if message == "\(StorageErrors.overAccount)"{
+                    vc.titleMessage = "예산을 초과했습니다.😀"
                 } else {
-                    print("Error")
+                    vc.titleMessage = "오류가 발생했습니다.😀"
                 }
+                
             } else {
-                let vc = TransientAlertViewController()
                 vc.titleMessage = "예산을 설정해주세요.😀"
-                self.presentPanModal(vc)
             }
+            self.presentPanModal(vc)
         }).disposed(by: disposeBag)
         
         _ = keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { keyboardHeight in

@@ -11,7 +11,7 @@ import UIKit
 class TransientAlertViewController: AlertViewController {
 
     private weak var timer: Timer?
-    private var countdown: Int = 3
+    private var countdown: Int = 1
     var titleMessage: String? = ""
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class TransientAlertViewController: AlertViewController {
             dismiss(animated: true, completion: nil)
             return
         }
-        alertView.message.text = "이 메세지는 \(countdown)초 뒤에 사라집니다. :)"
+//        alertView.message.text = "이 메세지는 \(countdown)초 뒤에 사라집니다. :)"
     }
 
     func invalidateTimer() {

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import RxSwift
 
 class HomeViewModel {
     var storage = Storage.shared
     
-    func isEffectiveLimit() {
-        
+    func isEffectiveLimit() -> Observable<String> {
+        let type = storage.trasactionDailyGroup.mostUsedType
+        return Observable.just(type)
     }
 }

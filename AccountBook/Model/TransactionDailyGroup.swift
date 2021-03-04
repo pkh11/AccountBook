@@ -2,7 +2,7 @@
 //  TransactionDailyGroup.swift
 //  AccountBook
 //
-//  Created by James Kim on 8/5/20.
+//  Created by 박균호 on 8/5/20.
 //  Copyright © 2020 FastCampus. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 
 struct TransactionDailyGroup {
     // Transaction들을 day기준으로 모아놓은 것입니다.
-    var transactions: [Account]
+    var transactions: [Account] = Storage.shared.transactions
     var date: Date
     
     var total: Float {
@@ -25,6 +25,7 @@ struct TransactionDailyGroup {
     /// - TODO: 가장 많이 사용한 분류 출력
     var mostUsedType: String {
         let transactions = Storage.shared.transactions
+        let total = Float(transactions.map{ Int($0.amount) }.reduce(0){ $0 + $1 })
         var map = [String : Float]()
         for transaction in transactions {
             if let amount = map[transaction.type] {
@@ -38,9 +39,8 @@ struct TransactionDailyGroup {
             return ""
         }
         
-        let currentAmountOfMoney = total
         let limit = myAccount * 0.8
-        if currentAmountOfMoney >= limit {
+        if total >= limit {
             print(type)
             return type.key
         }

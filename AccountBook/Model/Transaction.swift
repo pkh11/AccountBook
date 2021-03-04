@@ -2,7 +2,7 @@
 //  Transaction.swift
 //  AccountBook
 //
-//  Created by James Kim on 8/5/20.
+//  Created by 박균호 on 8/5/20.
 //  Copyright © 2020 FastCampus. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  Storage.swift
 //  AccountBook
 //
-//  Created by PKH on 8/5/20.
+//  Created by 박균호 on 8/5/20.
 //  Copyright © 2020 FastCampus. All rights reserved.
 //
 
@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-
-
-struct Storage {
+class Storage {
     
     public typealias StorageCompletion = (Result<String, Error>) -> Void
     
@@ -26,12 +24,14 @@ struct Storage {
     var trasactionDailyGroup = TransactionDailyGroup(transactions: [], date: Date())
     
     init() {
-        loadFromData(completion: { success in
-            print(success)
+        loadFromData(completion: { [weak self] data in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.transactions = data
         })
     }
     
-    mutating func deleteData() {
+    func deleteData() {
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: modelName)
         if let results = try? context.fetch(fetchRequest) {
@@ -40,13 +40,14 @@ struct Storage {
             }
         }
         do {
+            transactions = []
             try context.save()
         } catch {
             print("fail save")
         }
     }
     
-    mutating func loadFromData(completion: @escaping (([Account])->Void)) {
+    func loadFromData(completion: @escaping (([Account])->Void)) {
         // Json 파일에서 읽어오도록 해주세요. 아니면 코어데이터를 이용해주세요.
         transactions = []
         let fetchRequest =
@@ -64,8 +65,9 @@ struct Storage {
                 
                 transactions.append(Account(amount: amount, date: date, type: type, text: text))
             }
+            
             transactions = transactions.sorted(by: { $0.date > $1.date })
-            trasactionDailyGroup.transactions = transactions
+            
             completion(transactions)
         } catch {
             print("could not fetch")
@@ -73,7 +75,7 @@ struct Storage {
         }
     }
     
-    mutating func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping StorageCompletion) {
+    func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping StorageCompletion) {
         
         // TODO : - 예산 초과 했을 경우
         let money = trasactionDailyGroup.totalToInt
@@ -95,7 +97,8 @@ struct Storage {
 
             do {
                 try context.save()
-                completion(.success(""))
+                loadFromData(completion: { success in print("\(success)") })
+                completion(.success("Success"))
             } catch {
                 print("\(error.localizedDescription)")
                 completion(.failure(StorageErrors.failedSaveData))

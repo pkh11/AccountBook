@@ -40,12 +40,12 @@ class ActionViewModel {
         return true
     }
     
-    func saveData() -> Bool {
-        var result = false
+    func saveData() -> String {
+        var resultMessage = ""
 
         let accountToReplacing = account.value.replacingOccurrences(of: ",", with: "")
         guard let amount = Float(accountToReplacing) else {
-            return result
+            return ""
         }
         let memoValue = memo.value
         let typeValue = type.value
@@ -53,12 +53,19 @@ class ActionViewModel {
     
         storage.saveData(amount, dateValue.toDate(dateValue), typeValue, memoValue, completion: { resultType in
             switch resultType {
-            case .success(_):
-                result = true
+            case .success(let message):
+                resultMessage = "Success"
             case .failure(let error):
-                result = false
+                
+                guard let _error = error as? StorageErrors else { return }
+                
+                if _error == StorageErrors.failedSaveData {
+                    resultMessage = "\(StorageErrors.failedSaveData)"
+                } else if _error == StorageErrors.overAccount {
+                    resultMessage = "\(StorageErrors.overAccount)"
+                }
             }
         })
-        return result
+        return resultMessage
     }
 }

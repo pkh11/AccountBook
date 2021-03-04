@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,10 +44,10 @@
                     <color key="backgroundColor" name="Customgray3"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-F7-i9o">
-                    <rect key="frame" x="0.0" y="156" width="270" height="80"/>
+                    <rect key="frame" x="0.0" y="156" width="270" height="100"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLd-sk-Utw" customClass="AnimationView" customModule="Lottie">
-                            <rect key="frame" x="40" y="3" width="50" height="50"/>
+                            <rect key="frame" x="40" y="10" width="50" height="50"/>
                             <color key="backgroundColor" name="CustomGray3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Ir9-hI-eWz"/>
@@ -58,13 +58,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alP-Ir-rkE">
-                            <rect key="frame" x="95" y="15.5" width="36.5" height="25.5"/>
+                            <rect key="frame" x="95" y="22.5" width="36.5" height="25.5"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
                             <color key="textColor" name="Customblack"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가장 많이 소비한 유형은 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnz-9I-g17">
-                            <rect key="frame" x="40" y="58" width="230" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가장 많이 소비한 유형은 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnz-9I-g17">
+                            <rect key="frame" x="40" y="65" width="230" height="18"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                     </subviews>
                     <color key="backgroundColor" name="CustomGray3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="9jy-HP-Asd"/>
+                        <constraint firstAttribute="height" constant="100" id="9jy-HP-Asd"/>
                         <constraint firstItem="zLd-sk-Utw" firstAttribute="centerY" secondItem="O3C-F7-i9o" secondAttribute="centerY" multiplier="0.7" id="Kfc-hD-zhg"/>
                         <constraint firstItem="mnz-9I-g17" firstAttribute="top" secondItem="zLd-sk-Utw" secondAttribute="bottom" constant="5" id="OsJ-g9-svV"/>
                         <constraint firstItem="alP-Ir-rkE" firstAttribute="leading" secondItem="zLd-sk-Utw" secondAttribute="trailing" constant="5" id="PG6-FH-Bkn"/>
