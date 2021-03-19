@@ -20,6 +20,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var memo: UITextField!
     @IBOutlet weak var amountOfMoneySelected: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let disposeBag = DisposeBag()
     let actionViewModel = ActionViewModel()
@@ -108,11 +109,13 @@ class ActionViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         _ = keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { keyboardHeight in
-                UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.4) {
                     if keyboardHeight > 0 {
                         self.saveButton.transform = CGAffineTransform(translationX: 0, y:   -keyboardHeight+20)
+                        self.scrollView.contentInset.bottom = keyboardHeight
                     } else if keyboardHeight == 0 {
                         self.saveButton.transform = CGAffineTransform.identity
+                        self.scrollView.contentInset = UIEdgeInsets.zero
                     }
                 }
         }).disposed(by: disposeBag)
@@ -157,6 +160,10 @@ class ActionViewController: UIViewController {
                 strongSelf.dateLabel.textColor = .customBlack
                 strongSelf.actionViewModel.date.accept(String(dates))
             }
+            
+        }).disposed(by: disposeBag)
+        
+        memo.rx.tapGesture().subscribe(onNext: { _ in
             
         }).disposed(by: disposeBag)
     }
