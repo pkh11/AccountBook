@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class SettingViewController: UITableViewController {
+class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     let actionViewModel = ActionViewModel()
     
@@ -19,23 +21,29 @@ class SettingViewController: UITableViewController {
         
         settingTableView.delegate = self
         settingTableView.dataSource = self
+        
+        bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
+        // release ca-app-pub-2942820178759316/8451822973
+        // test ca-app-pub-3940256099942544/2934735716
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 }
-extension SettingViewController {
+extension SettingViewController: UITableViewDelegate {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "데이터"
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Settings.allCases.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") as? SettingTableViewCell else {
             return UITableViewCell()
@@ -45,8 +53,10 @@ extension SettingViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+extension SettingViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cases = Settings.allCases[indexPath.row]
         
