@@ -25,10 +25,20 @@ class SettingViewController: UIViewController {
         bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
         // release ca-app-pub-2942820178759316/8451822973
         // test ca-app-pub-3940256099942544/2934735716
+        bannerView.translatesAutoresizingMaskIntoConstraints = false        
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        let request = GADRequest()
+        bannerView.delegate = self
+        bannerView.load(request)
     }
 }
+
+extension SettingViewController: GADBannerViewDelegate {
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print("error: \(error)")
+    }
+}
+
 extension SettingViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -140,3 +150,5 @@ extension SettingViewController: UITextFieldDelegate {
         return true
     }
 }
+
+

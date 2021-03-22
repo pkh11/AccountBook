@@ -15,6 +15,8 @@ target 'AccountBook' do
   pod 'PanModal'
   pod 'JGProgressHUD'
   pod 'lottie-ios'
-  pod 'Google-Mobile-Ads-SDK'
+#  pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/AdMob'
 
 end

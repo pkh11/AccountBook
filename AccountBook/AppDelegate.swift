@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
+import AppTrackingTransparency
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(1)
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["dc136b6797ad24da9194e3e802229a33"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["dc136b6797ad24da9194e3e802229a33"]
+        
+        FirebaseApp.configure()
+        
+        
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .authorized:
+                    print("auth")
+                case .denied:
+                    print("denied")
+                case .notDetermined:
+                    print("not determind")
+                case .restricted:
+                    print("restrict")
+                default:
+                    print("default")
+                }
+            }
+        }
         
         return true
     }
