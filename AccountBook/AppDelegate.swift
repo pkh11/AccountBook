@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(1)
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-//        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["dc136b6797ad24da9194e3e802229a33"]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["dc136b6797ad24da9194e3e802229a33"]
         
         return true
     }

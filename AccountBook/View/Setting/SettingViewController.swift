@@ -25,6 +25,7 @@ class SettingViewController: UIViewController {
         bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
         // release ca-app-pub-2942820178759316/8451822973
         // test ca-app-pub-3940256099942544/2934735716
+        
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
