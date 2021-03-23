@@ -15,6 +15,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var bannerView: GADBannerView!
     
     let actionViewModel = ActionViewModel()
+    let constants = Constants.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +23,10 @@ class SettingViewController: UIViewController {
         settingTableView.delegate = self
         settingTableView.dataSource = self
         
-        bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
-        // release ca-app-pub-2942820178759316/8451822973
-        // test ca-app-pub-3940256099942544/2934735716
+        bannerView.adUnitID = constants.admobUnitId
         bannerView.translatesAutoresizingMaskIntoConstraints = false        
         bannerView.rootViewController = self
-        let request = GADRequest()
-        bannerView.delegate = self
-        bannerView.load(request)
-    }
-}
-
-extension SettingViewController: GADBannerViewDelegate {
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print("error: \(error)")
+        bannerView.load(GADRequest())
     }
 }
 

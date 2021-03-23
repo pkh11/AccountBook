@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
-import AppTrackingTransparency
+import AppTrackingTransparency 
 import Firebase
 
 @UIApplicationMain
