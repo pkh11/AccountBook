@@ -143,8 +143,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyL-8u-EWx">
                                 <rect key="frame" x="20" y="44" width="374" height="761"/>
                                 <subviews>
+<<<<<<< HEAD
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0W-H8-qS2">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>
+=======
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0W-H8-qS2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="669"/>
+>>>>>>> 76e03fdbe59728f33a2f86d8150556b475f4454b
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-ks-Gdi">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>

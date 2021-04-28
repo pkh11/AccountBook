@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */; };
+		19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4B87C2609DF0A002B5614 /* Constants.swift */; };
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
 		6B0658DC25494BC7004A89A9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DB25494BC7004A89A9 /* SettingViewController.swift */; };
 		6B0658DF25494C08004A89A9 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DE25494C08004A89A9 /* ActionViewController.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		19F4B87C2609DF0A002B5614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6B0658D825494B9C004A89A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6B0658DB25494BC7004A89A9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6B0658DE25494C08004A89A9 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				6BDEBF1D25752B7F00E418B1 /* ConfirmAlert */,
 				6BDEBF1C25752B6800E418B1 /* DatePicker */,
 				6BB527A3255527160029DCEB /* Extension.swift */,
+				19F4B87C2609DF0A002B5614 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				6B78C243254F91B600C6A287 /* View */,
 				6CF7F16A24DAD7340049175F /* Model */,
 				6CF7F15624DAD6D30049175F /* AppDelegate.swift */,
+				19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */,
 				6CF7F15824DAD6D30049175F /* SceneDelegate.swift */,
 				6CF7F15F24DAD6D50049175F /* Assets.xcassets */,
 				6CF7F16124DAD6D50049175F /* LaunchScreen.storyboard */,
@@ -291,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B78C238254EF15000C6A287 /* ExpenditureTableHeaderView.xib in Resources */,
+				19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */,
 				6CF7F16324DAD6D50049175F /* LaunchScreen.storyboard in Resources */,
 				6BAF7087256AA413001EFEE6 /* DatePickerView.storyboard in Resources */,
 				6B5F785E25AD8650000709EA /* 6656-warning-sign.json in Resources */,
@@ -349,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */,
 				6BB527A4255527160029DCEB /* Extension.swift in Sources */,
 				6BDEBF2325752BEA00E418B1 /* AlertViewController.swift in Sources */,
 				6CF7F17024DADC7D0049175F /* TransactionDailyGroup.swift in Sources */,
@@ -519,7 +527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = RN5AZ948GK;
 				INFOPLIST_FILE = AccountBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -620,7 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = RN5AZ948GK;
 				INFOPLIST_FILE = AccountBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

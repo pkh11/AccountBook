@@ -51,7 +51,7 @@ class Storage {
     }
     
     func loadFromData(completion: @escaping (([Account])->Void)) {
-        // Json 파일에서 읽어오도록 해주세요. 아니면 코어데이터를 이용해주세요.
+        
         transactions = []
         let fetchRequest =
             NSFetchRequest<NSManagedObject>(entityName: modelName)
@@ -80,9 +80,6 @@ class Storage {
     
     func saveData(_ amount: Float, _ date: Date, _ type: String, _ memo: String, completion: @escaping StorageCompletion) {
         
-        // TODO : - 예산 초과 했을 경우
-        print(transactions)
-//        print(trasactionDailyGroup.transactions)
         let money = trasactionDailyGroup.totalToInt
         let expenditureMoney = Int(amount)
         

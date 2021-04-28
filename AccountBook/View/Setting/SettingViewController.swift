@@ -15,6 +15,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var bannerView: GADBannerView!
     
     let actionViewModel = ActionViewModel()
+    let constants = Constants.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +23,20 @@ class SettingViewController: UIViewController {
         settingTableView.delegate = self
         settingTableView.dataSource = self
         
+<<<<<<< HEAD
         bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
         // release ca-app-pub-2942820178759316/8451822973
         // test ca-app-pub-3940256099942544/2934735716
         
+=======
+        bannerView.adUnitID = constants.admobUnitId
+        bannerView.translatesAutoresizingMaskIntoConstraints = false        
+>>>>>>> 76e03fdbe59728f33a2f86d8150556b475f4454b
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
 }
+
 extension SettingViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -141,3 +148,5 @@ extension SettingViewController: UITextFieldDelegate {
         return true
     }
 }
+
+

@@ -53,7 +53,7 @@ class ActionViewModel {
     
         storage.saveData(amount, dateValue.toDate(dateValue), typeValue, memoValue, completion: { resultType in
             switch resultType {
-            case .success(let message):
+            case .success(let _):
                 resultMessage = "Success"
             case .failure(let error):
                 
