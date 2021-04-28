@@ -21,6 +21,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var amountOfMoneySelected: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     let disposeBag = DisposeBag()
     let actionViewModel = ActionViewModel()
@@ -108,16 +109,20 @@ class ActionViewController: UIViewController {
             self.presentPanModal(vc)
         }).disposed(by: disposeBag)
         
-        _ = keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { keyboardHeight in
-            UIView.animate(withDuration: 0.4) {
-                    if keyboardHeight > 0 {
-                        self.saveButton.transform = CGAffineTransform(translationX: 0, y:   -keyboardHeight+20)
-                        self.scrollView.contentInset.bottom = keyboardHeight
-                    } else if keyboardHeight == 0 {
-                        self.saveButton.transform = CGAffineTransform.identity
-                        self.scrollView.contentInset = UIEdgeInsets.zero
-                    }
-                }
+        _ = keyboardHeight().observe(on: MainScheduler.instance).subscribe(onNext: { keyboardHeight in
+        
+            if keyboardHeight > 0 {
+                self.bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom + 8
+                self.scrollView.contentInset.bottom = keyboardHeight / 2
+            } else if keyboardHeight == 0 {
+                self.bottomConstraint.constant = keyboardHeight + 8
+                self.scrollView.contentInset = UIEdgeInsets.zero
+            }
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+
         }).disposed(by: disposeBag)
     }
     
@@ -173,7 +178,7 @@ class ActionViewController: UIViewController {
             .from([
                 NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
                     .map { notification -> CGFloat in
-                        (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0
+                        (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
                     },
                 NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
                     .map { _ -> CGFloat in

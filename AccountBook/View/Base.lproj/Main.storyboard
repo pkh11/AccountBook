@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -142,13 +141,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyL-8u-EWx">
-                                <rect key="frame" x="20" y="44" width="374" height="769"/>
+                                <rect key="frame" x="20" y="44" width="374" height="761"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0W-H8-qS2">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-ks-Gdi">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kfp-cU-28V">
                                                         <rect key="frame" x="10" y="140" width="354" height="50"/>
@@ -438,7 +437,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alA-qP-lWq">
-                                        <rect key="frame" x="0.0" y="719" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="711" width="374" height="50"/>
                                         <color key="backgroundColor" name="Customblue1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WgB-Jg-eRw"/>
@@ -471,7 +470,7 @@
                         <constraints>
                             <constraint firstItem="01E-Dl-fZf" firstAttribute="trailing" secondItem="dyL-8u-EWx" secondAttribute="trailing" constant="20" id="3gV-44-mXJ"/>
                             <constraint firstItem="dyL-8u-EWx" firstAttribute="top" secondItem="01E-Dl-fZf" secondAttribute="top" id="HmG-fg-4Vk"/>
-                            <constraint firstItem="01E-Dl-fZf" firstAttribute="bottom" secondItem="dyL-8u-EWx" secondAttribute="bottom" id="dGu-AG-jNW"/>
+                            <constraint firstItem="01E-Dl-fZf" firstAttribute="bottom" secondItem="dyL-8u-EWx" secondAttribute="bottom" constant="8" id="dGu-AG-jNW"/>
                             <constraint firstItem="dyL-8u-EWx" firstAttribute="leading" secondItem="01E-Dl-fZf" secondAttribute="leading" constant="20" id="irg-Ub-TcZ"/>
                         </constraints>
                     </view>
@@ -484,6 +483,7 @@
                     <connections>
                         <outlet property="amountOfMoney" destination="cTv-ao-ZR8" id="Lsz-wC-rdM"/>
                         <outlet property="amountOfMoneySelected" destination="84U-K8-CgZ" id="YAE-4p-f5N"/>
+                        <outlet property="bottomConstraint" destination="dGu-AG-jNW" id="OW2-Zf-EDV"/>
                         <outlet property="dateLabel" destination="slw-WV-S7Q" id="btG-Kl-Sdl"/>
                         <outlet property="memo" destination="yRD-kI-bpV" id="gDn-EH-Iyw"/>
                         <outlet property="saveButton" destination="alA-qP-lWq" id="gne-Xy-BSk"/>
