@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["dc136b6797ad24da9194e3e802229a33"]
-<<<<<<< HEAD
-=======
         
         FirebaseApp.configure()
         
@@ -45,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
->>>>>>> 76e03fdbe59728f33a2f86d8150556b475f4454b
         
         return true
     }

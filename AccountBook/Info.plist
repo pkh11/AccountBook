@@ -73,7 +73,6 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-<<<<<<< HEAD
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-2942820178759316~2975300864</string>
 	<key>SKAdNetworkItems</key>
@@ -85,7 +84,5 @@
 	</array>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>앱이 광고에 접근하려고 합니다.</string>
-=======
->>>>>>> 76e03fdbe59728f33a2f86d8150556b475f4454b
 </dict>
 </plist>
