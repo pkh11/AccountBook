@@ -41,13 +41,14 @@ class ActionViewController: UIViewController {
         memo.rx.text.orEmpty.filter({ $0.count <= 10 }).bind(to: actionViewModel.memo).disposed(by: disposeBag)
         
         // 금액 입력 validation check in UI
-        amountOfMoney.rx.text.orEmpty.subscribe(onNext: { account in
+        amountOfMoney.rx.text.orEmpty.subscribe(onNext: { [weak self] account in
+            guard let strongSelf = self else { return }
             let string = account.replacingOccurrences(of: ",", with: "")
             
-            if string.count >= self.actionViewModel.amountLimit || string.isEmpty {
-                self.amountOfMoneySelected.isHidden = true
-            } else if string.count < self.actionViewModel.amountLimit {
-                self.amountOfMoneySelected.isHidden = false
+            if string.count >= strongSelf.actionViewModel.amountLimit || string.isEmpty {
+                strongSelf.amountOfMoneySelected.isHidden = true
+            } else if string.count < strongSelf.actionViewModel.amountLimit {
+                strongSelf.amountOfMoneySelected.isHidden = false
             }
             
             let formatter = NumberFormatter()
@@ -57,7 +58,7 @@ class ActionViewController: UIViewController {
             
             if let formattedNumber = formatter.number(from: string) {
                 if let formattedString = formatter.string(from: formattedNumber) {
-                    self.amountOfMoney.text = formattedString
+                    strongSelf.amountOfMoney.text = formattedString
                 }
             }
             
@@ -75,19 +76,23 @@ class ActionViewController: UIViewController {
         }).subscribe(memo.rx.text).disposed(by: disposeBag)
         
         // input validation
-        actionViewModel.isValidate().subscribe(onNext: { result in
-            self.saveButton.isEnabled = result
+        actionViewModel.isValidate().subscribe(onNext: { [weak self] result in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.saveButton.isEnabled = result
             if result {
-                self.saveButton.backgroundColor = .customBlue1
+                strongSelf.saveButton.backgroundColor = .customBlue1
             } else {
-                self.saveButton.backgroundColor = .customGray1
+                strongSelf.saveButton.backgroundColor = .customGray1
             }
         }).disposed(by: disposeBag)
         
         // 저장버튼 클릭
-        saveButton.rx.tap.do(onNext: { [unowned self] _ in
-            self.amountOfMoney.resignFirstResponder()
-            self.memo.resignFirstResponder()
+        saveButton.rx.tap.do(onNext: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.amountOfMoney.resignFirstResponder()
+            strongSelf.memo.resignFirstResponder()
         }).subscribe(onNext: {
             let vc = TransientAlertViewController()
             
@@ -109,18 +114,18 @@ class ActionViewController: UIViewController {
             self.presentPanModal(vc)
         }).disposed(by: disposeBag)
         
-        _ = keyboardHeight().observe(on: MainScheduler.instance).subscribe(onNext: { keyboardHeight in
-        
+        _ = keyboardHeight().observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] keyboardHeight in
+            guard let strongSelf = self else { return }
             if keyboardHeight > 0 {
-                self.bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom + 8
-                self.scrollView.contentInset.bottom = keyboardHeight / 2
+                strongSelf.bottomConstraint.constant = keyboardHeight - strongSelf.view.safeAreaInsets.bottom + 8
+                strongSelf.scrollView.contentInset.bottom = keyboardHeight / 2
             } else if keyboardHeight == 0 {
-                self.bottomConstraint.constant = keyboardHeight + 8
-                self.scrollView.contentInset = UIEdgeInsets.zero
+                strongSelf.bottomConstraint.constant = keyboardHeight + 8
+                strongSelf.scrollView.contentInset = UIEdgeInsets.zero
             }
             
             UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
+                strongSelf.view.layoutIfNeeded()
             }
 
         }).disposed(by: disposeBag)
