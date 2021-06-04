@@ -35,6 +35,7 @@ class ExpenditureTableHeaderView: UIView {
     }
    
     @IBOutlet weak var verticalSlider: VerticalSlider!
+    @IBOutlet weak var costView: UIView!
     @IBOutlet weak var warningAnimationView: AnimationView! {
         didSet {
             warningAnimationView.contentMode = .scaleAspectFit

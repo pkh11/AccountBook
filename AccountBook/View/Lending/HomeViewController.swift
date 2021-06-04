@@ -73,16 +73,24 @@ class HomeViewController: UIViewController {
         storage.loadFromData(completion: { data in
             
             self.transactions = data
-            let used = self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1 })
+            let used = self.transactions.map{ Float($0.amount) }.reduce(0, { $0 + $1 })
+            guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Float else {
+                return
+            }
             
-            self.headerView.expenditureCost.text = "\(used.withComma) 원"
+            self.headerView.expenditureCost.text = "\(Int(used).withComma) 원"
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                UIView.animate(withDuration: 0.5,
+                UIView.animate(withDuration: 0.7,
                                delay: 0.0,
                                options: .curveEaseInOut,
-                               animations: { self.headerView.verticalSlider.slider.setValue(Float(used), animated: true) },
+                               animations: {
+                                self.headerView.verticalSlider.slider.setValue(used, animated: true)
+                                self.headerView.costView.heightAnchor.constraint(equalTo: self.headerView.verticalSlider.heightAnchor, multiplier: CGFloat(used/myAccount), constant: 36).isActive = true
+                                self.headerView.layoutIfNeeded()
+                                
+                               },
                                completion: nil)
             }
             
