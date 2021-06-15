@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -116,6 +116,7 @@
                         <constraint firstItem="agU-oE-ILU" firstAttribute="centerX" secondItem="2J7-Av-KVV" secondAttribute="centerX" id="Yho-e3-amh"/>
                         <constraint firstItem="toZ-Ex-OHa" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="60" id="aiD-29-9mJ"/>
                         <constraint firstItem="Irp-Bh-0sb" firstAttribute="top" secondItem="HAb-CI-5VF" secondAttribute="top" constant="20" id="kfN-Oz-v36"/>
+                        <constraint firstAttribute="bottom" secondItem="2J7-Av-KVV" secondAttribute="bottom" constant="75" id="lQ3-et-94r"/>
                         <constraint firstItem="2J7-Av-KVV" firstAttribute="leading" secondItem="O3C-F7-i9o" secondAttribute="trailing" constant="20" id="md2-Qp-PdU"/>
                         <constraint firstItem="toZ-Ex-OHa" firstAttribute="top" secondItem="0aU-3S-TsZ" secondAttribute="bottom" constant="10" id="rPE-cg-Jb1"/>
                         <constraint firstItem="0aU-3S-TsZ" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="60" id="ujB-bc-KFI"/>
@@ -134,6 +135,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="constantToBottom" destination="lQ3-et-94r" id="fNj-EP-d75"/>
                 <outlet property="costView" destination="Kj5-73-hPx" id="8kV-65-txN"/>
                 <outlet property="expenditureCost" destination="toZ-Ex-OHa" id="FY2-Cb-UX5"/>
                 <outlet property="maxBudget" destination="Irp-Bh-0sb" id="hqO-SX-w8e"/>

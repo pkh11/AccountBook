@@ -75,6 +75,7 @@ class HomeViewController: UIViewController {
             self.transactions = data
             let used = self.transactions.map{ Float($0.amount) }.reduce(0, { $0 + $1 })
             guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Float else {
+                self.spinner.dismiss()
                 return
             }
             
@@ -87,9 +88,12 @@ class HomeViewController: UIViewController {
                                options: .curveEaseInOut,
                                animations: {
                                 self.headerView.verticalSlider.slider.setValue(used, animated: true)
-                                self.headerView.costView.heightAnchor.constraint(equalTo: self.headerView.verticalSlider.heightAnchor, multiplier: CGFloat(used/myAccount), constant: 36).isActive = true
-                                self.headerView.layoutIfNeeded()
                                 
+                                let heightAnchorOfcostView = self.headerView.costView.heightAnchor.constraint(equalTo: self.headerView.verticalSlider.heightAnchor, multiplier: CGFloat(used/myAccount), constant: self.headerView.constantToBottom.constant - 13)
+                                if used != 0 {
+                                    NSLayoutConstraint.activate([heightAnchorOfcostView])
+                                }
+                                self.headerView.layoutIfNeeded()
                                },
                                completion: nil)
             }
