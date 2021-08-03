@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenditureTableHeaderCell" rowHeight="71" id="fEy-yk-VCt" customClass="ExpenditureTableHeaderCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="71"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEy-yk-VCt" id="QUz-wx-WYE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -40,12 +40,13 @@
                                                 <constraint firstItem="1RZ-I6-sWS" firstAttribute="centerY" secondItem="QUz-wx-WYE" secondAttribute="centerY" id="wlb-8m-oau"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="remainCost" destination="1RZ-I6-sWS" id="tRX-4A-IJK"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenditureTableViewCell" id="Dgq-vv-qVA" customClass="ExpenditureTableViewCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="95.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dgq-vv-qVA" id="GQ8-W4-xly">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -80,6 +81,7 @@
                                                 <constraint firstItem="q8D-ff-AI7" firstAttribute="centerY" secondItem="GQ8-W4-xly" secondAttribute="centerY" id="zX0-1P-cnZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         <connections>
                                             <outlet property="cost" destination="q8D-ff-AI7" id="DJk-NJ-dTJ"/>
                                             <outlet property="date" destination="u3B-S2-atf" id="3Nz-fk-2Kx"/>
@@ -87,7 +89,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenditureTableEmptyCell" rowHeight="177" id="kzx-B2-jhZ" customClass="ExpenditureTableEmptyCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="143" width="414" height="177"/>
+                                        <rect key="frame" x="0.0" y="139.5" width="414" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kzx-B2-jhZ" id="Abz-al-OIo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
@@ -570,7 +572,7 @@
                         <color key="backgroundColor" red="0.93181818719999998" green="0.93193006519999999" blue="0.93178027870000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingTableViewCell" id="E7n-S8-W2d" customClass="SettingTableViewCell" customModule="AccountBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="65"/>
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E7n-S8-W2d" id="gfI-9k-f6U">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -629,7 +631,7 @@
                                 <color key="backgroundColor" name="CustomGray3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingTableViewCell" id="G3c-7S-82O" customClass="SettingTableViewCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G3c-7S-82O" id="1YN-hl-9jI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>

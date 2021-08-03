@@ -10,21 +10,16 @@ import UIKit
 import JGProgressHUD
 import RxSwift
 
-
 class HomeViewController: UIViewController {
    
+    @IBOutlet weak var tableView: UITableView!
     private let spinner = JGProgressHUD(style: .dark)
-    
     var headerView: ExpenditureTableHeaderView = {
         let nib = UINib(nibName: "ExpenditureTableHeaderView", bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as! ExpenditureTableHeaderView
     }()
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    var storage = Storage.shared
-    var transactions: [Account] = []
-    var homeViewModel = HomeViewModel()
+    let homeViewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,8 +28,9 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = headerView
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
+        
+        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,14 +38,16 @@ class HomeViewController: UIViewController {
 
         fetchData()
         limitCheck()
-        // 최대 예산 설정
+        setHeaderView()
+    }
+    
+    func setHeaderView() {
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
             return
         }
         
         headerView.verticalSlider.slider.maximumValue = Float(myAccount)
         headerView.maxBudget.text = String(myAccount.withComma)
-        
     }
     
     func limitCheck() {
@@ -70,12 +68,11 @@ class HomeViewController: UIViewController {
     
     func fetchData() {
         self.spinner.show(in: view)
-        storage.loadFromData(completion: { data in
+        
+        homeViewModel.fetchDatas()
+        homeViewModel.reloadTableViewClosure = { used in
             
-            self.transactions = data
-            let used = self.transactions.map{ Float($0.amount) }.reduce(0, { $0 + $1 })
             guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Float else {
-                self.spinner.dismiss()
                 return
             }
             
@@ -89,72 +86,63 @@ class HomeViewController: UIViewController {
                                animations: {
                                 self.headerView.verticalSlider.slider.setValue(used, animated: true)
                                 
-                                let heightAnchorOfcostView = self.headerView.costView.heightAnchor.constraint(equalTo: self.headerView.verticalSlider.heightAnchor, multiplier: CGFloat(used/myAccount), constant: self.headerView.constantToBottom.constant - 13)
                                 if used != 0 {
-                                    NSLayoutConstraint.activate([heightAnchorOfcostView])
+                                    self.headerView.costViewHeight.constant = self.headerView.verticalSlider.bounds.height * CGFloat(used/myAccount) + 85 - 11
+                                } else {
+                                    self.headerView.costViewHeight.constant = 0
                                 }
+                                
                                 self.headerView.layoutIfNeeded()
                                },
                                completion: nil)
+                self.spinner.dismiss()
             }
-            
-            self.spinner.dismiss()
-        })
+        }
     }
 }
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         guard let headerCell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableHeaderCell") as? ExpenditureTableHeaderCell else {
             return UITableViewCell()
         }
         
-        if let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int {
-            let remainCost = myAccount - self.transactions.map{ Int($0.amount) }.reduce(0, { $0 + $1})
-            headerCell.updateUI(remainCost.withComma)
-        }
+        let cost = homeViewModel.getRemainCost()
+        headerCell.updateUI(cost.withComma)
 
         return headerCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if transactions.isEmpty {
+        let count = homeViewModel.numberOfDatas()
+        if count == 0 {
             return 1
-        } else {
-            let dataCount = transactions.count
-            return dataCount
         }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if transactions.isEmpty {
+        let count = homeViewModel.numberOfDatas()
+        if count == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableEmptyCell") as? ExpenditureTableEmptyCell else {
                 return UITableViewCell()
             }
+            
             tableView.separatorStyle = .none
             cell.selectionStyle = .none
+            
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ExpenditureTableViewCell") as? ExpenditureTableViewCell else {
                 return UITableViewCell()
             }
-            cell.updateUI(transactions[indexPath.row])
+            
+            let transaction = homeViewModel.getData(indexPath.row)
+            cell.updateUI(transaction)
+            
             return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
 }

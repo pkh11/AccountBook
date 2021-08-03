@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -17,13 +17,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAb-CI-5VF">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                     <subviews>
-                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj5-73-hPx">
-                            <rect key="frame" x="0.0" y="500" width="414" height="0.0"/>
-                            <color key="backgroundColor" name="Customblue1"/>
-                            <constraints>
-                                <constraint firstAttribute="height" priority="750" id="5kR-7E-bYl"/>
-                            </constraints>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aU-3S-TsZ">
                             <rect key="frame" x="60" y="60" width="48.666666666666657" height="17"/>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
@@ -36,19 +29,33 @@
                             <color key="textColor" name="Customblack"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kj5-73-hPx">
+                            <rect key="frame" x="0.0" y="500" width="414" height="0.0"/>
+                            <viewLayoutGuide key="safeArea" id="n0m-Uz-3sS"/>
+                            <color key="backgroundColor" name="Customblue1"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="750" id="OJr-FC-QES"/>
+                            </constraints>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irp-Bh-0sb">
                             <rect key="frame" x="270" y="20" width="124" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="JCD-wC-xZ2"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agU-oE-ILU">
                             <rect key="frame" x="270" y="435" width="124" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="lkK-ZO-825"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-Av-KVV" customClass="VerticalSlider" customModule="VerticalSlider">
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-Av-KVV" customClass="VerticalSlider" customModule="VerticalSlider">
                             <rect key="frame" x="310" y="75" width="44" height="350"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="350" id="9jZ-QJ-7H7"/>
@@ -100,28 +107,28 @@
                     <color key="backgroundColor" name="Customgray3"/>
                     <constraints>
                         <constraint firstItem="O3C-F7-i9o" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="20" id="1NJ-zM-2SK"/>
+                        <constraint firstAttribute="bottom" secondItem="Kj5-73-hPx" secondAttribute="bottom" id="4HE-JV-A03"/>
                         <constraint firstItem="2J7-Av-KVV" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="310" id="5He-rW-0wj"/>
                         <constraint firstItem="O3C-F7-i9o" firstAttribute="top" secondItem="toZ-Ex-OHa" secondAttribute="bottom" constant="50" id="5hg-GB-DcD"/>
-                        <constraint firstAttribute="bottom" secondItem="Kj5-73-hPx" secondAttribute="bottom" id="5tp-Ba-4Ga"/>
                         <constraint firstItem="agU-oE-ILU" firstAttribute="top" secondItem="2J7-Av-KVV" secondAttribute="bottom" constant="10" id="B6p-9r-l52"/>
                         <constraint firstAttribute="bottom" secondItem="agU-oE-ILU" secondAttribute="bottom" constant="20" id="E5B-pA-iDY"/>
-                        <constraint firstAttribute="trailing" secondItem="Kj5-73-hPx" secondAttribute="trailing" id="J18-B3-zy5"/>
                         <constraint firstAttribute="trailing" secondItem="2J7-Av-KVV" secondAttribute="trailing" constant="60" id="Otc-sE-KxL"/>
                         <constraint firstAttribute="trailing" secondItem="agU-oE-ILU" secondAttribute="trailing" constant="20" id="TAU-iE-zvN"/>
                         <constraint firstItem="0aU-3S-TsZ" firstAttribute="top" secondItem="HAb-CI-5VF" secondAttribute="top" constant="60" id="Tig-Di-mHZ"/>
                         <constraint firstItem="2J7-Av-KVV" firstAttribute="top" secondItem="Irp-Bh-0sb" secondAttribute="bottom" constant="10" id="V0Q-Po-4Wa"/>
                         <constraint firstItem="Irp-Bh-0sb" firstAttribute="centerX" secondItem="2J7-Av-KVV" secondAttribute="centerX" id="VfU-wx-PBc"/>
-                        <constraint firstItem="Kj5-73-hPx" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" id="W1g-sx-2Gb"/>
                         <constraint firstAttribute="trailing" secondItem="Irp-Bh-0sb" secondAttribute="trailing" constant="20" id="Xdp-W9-d8V"/>
                         <constraint firstItem="agU-oE-ILU" firstAttribute="centerX" secondItem="2J7-Av-KVV" secondAttribute="centerX" id="Yho-e3-amh"/>
                         <constraint firstItem="toZ-Ex-OHa" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="60" id="aiD-29-9mJ"/>
+                        <constraint firstItem="Kj5-73-hPx" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" id="ePF-RE-tVK"/>
                         <constraint firstItem="Irp-Bh-0sb" firstAttribute="top" secondItem="HAb-CI-5VF" secondAttribute="top" constant="20" id="kfN-Oz-v36"/>
                         <constraint firstAttribute="bottom" secondItem="2J7-Av-KVV" secondAttribute="bottom" constant="75" id="lQ3-et-94r"/>
                         <constraint firstItem="2J7-Av-KVV" firstAttribute="leading" secondItem="O3C-F7-i9o" secondAttribute="trailing" constant="20" id="md2-Qp-PdU"/>
+                        <constraint firstAttribute="trailing" secondItem="Kj5-73-hPx" secondAttribute="trailing" id="p1y-xO-1cf"/>
                         <constraint firstItem="toZ-Ex-OHa" firstAttribute="top" secondItem="0aU-3S-TsZ" secondAttribute="bottom" constant="10" id="rPE-cg-Jb1"/>
+                        <constraint firstItem="2J7-Av-KVV" firstAttribute="top" secondItem="HAb-CI-5VF" secondAttribute="top" constant="75" id="tc3-Cr-GQm"/>
                         <constraint firstItem="0aU-3S-TsZ" firstAttribute="leading" secondItem="HAb-CI-5VF" secondAttribute="leading" constant="60" id="ujB-bc-KFI"/>
                         <constraint firstItem="2J7-Av-KVV" firstAttribute="centerY" secondItem="HAb-CI-5VF" secondAttribute="centerY" id="wDE-Ld-h0u"/>
-                        <constraint firstItem="Kj5-73-hPx" firstAttribute="top" relation="lessThanOrEqual" secondItem="Irp-Bh-0sb" secondAttribute="bottom" constant="459.5" id="wPC-v9-Po2"/>
                     </constraints>
                 </view>
             </subviews>
@@ -135,8 +142,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="constantToBottom" destination="lQ3-et-94r" id="fNj-EP-d75"/>
                 <outlet property="costView" destination="Kj5-73-hPx" id="8kV-65-txN"/>
+                <outlet property="costViewHeight" destination="OJr-FC-QES" id="uIa-rS-ZPC"/>
                 <outlet property="expenditureCost" destination="toZ-Ex-OHa" id="FY2-Cb-UX5"/>
                 <outlet property="maxBudget" destination="Irp-Bh-0sb" id="hqO-SX-w8e"/>
                 <outlet property="minBudget" destination="agU-oE-ILU" id="Vzr-w3-CAz"/>
@@ -145,7 +152,7 @@
                 <outlet property="warningText" destination="mnz-9I-g17" id="v9O-s7-dg3"/>
                 <outlet property="warningView" destination="O3C-F7-i9o" id="uvd-VN-14V"/>
             </connections>
-            <point key="canvasLocation" x="40.579710144927539" y="121.875"/>
+            <point key="canvasLocation" x="39.252336448598129" y="121.81425485961124"/>
         </view>
     </objects>
     <designables>

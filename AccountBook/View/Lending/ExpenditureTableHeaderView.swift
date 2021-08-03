@@ -45,5 +45,5 @@ class ExpenditureTableHeaderView: UIView {
     }
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var warningText: UILabel!
-    @IBOutlet weak var constantToBottom: NSLayoutConstraint!
+    @IBOutlet weak var costViewHeight: NSLayoutConstraint!
 }
