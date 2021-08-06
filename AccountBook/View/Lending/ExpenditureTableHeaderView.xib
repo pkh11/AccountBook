@@ -34,7 +34,7 @@
                             <viewLayoutGuide key="safeArea" id="n0m-Uz-3sS"/>
                             <color key="backgroundColor" name="Customblue1"/>
                             <constraints>
-                                <constraint firstAttribute="height" priority="750" id="OJr-FC-QES"/>
+                                <constraint firstAttribute="height" id="OJr-FC-QES"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irp-Bh-0sb">

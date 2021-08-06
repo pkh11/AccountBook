@@ -93,11 +93,12 @@ class HomeViewController: UIViewController {
                                 }
                                 
                                 self.headerView.layoutIfNeeded()
+                                
                                },
                                completion: nil)
-                self.spinner.dismiss()
             }
         }
+        self.spinner.dismiss()
     }
 }
 
