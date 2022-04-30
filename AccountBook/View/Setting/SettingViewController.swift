@@ -3,106 +3,84 @@
 //  AccountBook
 //
 //  Created by 박균호 on 2020/10/28.
-//  Copyright © 2020 FastCampus. All rights reserved.
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import SnapKit
 import GoogleMobileAds
 
 class SettingViewController: UIViewController {
-
-    @IBOutlet weak var settingTableView: UITableView!
-    @IBOutlet weak var bannerView: GADBannerView!
-    
+    let disposeBag = DisposeBag()
     let actionViewModel = ActionViewModel()
-    let constants = Constants.sharedInstance
+    let settingViewModel = SettingViewModel()
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    let bannerView = GADBannerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        settingTableView.delegate = self
-        settingTableView.dataSource = self
-        
+        configureADBanner()
+        bind(settingViewModel)
+        attribute()
+        layer()
+    }
+}
+
+// MARK: Configure init
+extension SettingViewController {
+    private func configureADBanner() {
         bannerView.adUnitID = "ca-app-pub-2942820178759316/8451822973"
         // release ca-app-pub-2942820178759316/8451822973
         // test ca-app-pub-3940256099942544/2934735716
         
-        bannerView.adUnitID = constants.admobUnitId
-        bannerView.translatesAutoresizingMaskIntoConstraints = false        
+        bannerView.adUnitID = Constants.sharedInstance.admobUnitId
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
-}
-
-extension SettingViewController: UITableViewDelegate {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "데이터"
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func bind(_ viewModel: SettingViewModel) {
+        // tableview cell data
+        viewModel.settingDatas
+            .drive(tableView.rx.items) { tv, row, data in
+                let cell = tv.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: IndexPath(row: row, section: 0)) as! SettingTableViewCell
+                cell.setData(data)
+                return cell
+            }
+            .disposed(by: disposeBag)
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") as? SettingTableViewCell else {
-            return UITableViewCell()
+        viewModel.showDetail
+            .emit(to: self.rx.showDetail)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .map { $0.row }
+            .bind(to: viewModel.itemSelected)
+            .disposed(by: disposeBag)
+    }
+    
+    private func attribute() {
+        tableView.backgroundColor = .customGray3
+        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: "SettingTableViewCell")
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
+    }
+    
+    private func layer() {
+        [tableView, bannerView].forEach {
+            view.addSubview($0)
         }
-        let settings = Settings.allCases
-        cell.updateUI(settings[indexPath.row])
         
-        return cell
-    }
-}
-
-extension SettingViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        bannerView.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
         
-        let cases = Settings.allCases[indexPath.row]
-        
-        if cases == Settings.appVersion {
-            
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "VersionDetailViewController") as? VersionDetailViewController else { return }
-            navigationController?.pushViewController(vc, animated: true)
-            
-        } else if cases == Settings.limit {
-            
-            let alertAction = UIAlertController(title: "알림", message: "예산을 변경하면 기존에 입력된 데이터는 지워집니다.", preferredStyle: .alert)
-            alertAction.addTextField(configurationHandler: { myTextField in
-                myTextField.delegate = self
-                myTextField.placeholder = "예산을 입력해주세요.(최대 100만)"
-            })
-            let cancelButton = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-            let okButton = UIAlertAction(title: "변경", style: .default, handler: { _ in
-                
-                guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
-                
-                if account.count > self.actionViewModel.amountLimit {
-                    let vc = TransientAlertViewController()
-                    vc.titleMessage = "한도를 초과하였습니다.😀"
-                    self.presentPanModal(vc)
-                } else {
-                    // update account
-                    UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
-                    
-                    // remove coredata
-                    Storage.shared.deleteData()
-                    
-                    let vc = TransientAlertViewController()
-                    vc.titleMessage = "예산을 변경하였습니다.😀"
-                    self.presentPanModal(vc)
-                }
-            })
-            
-            alertAction.addAction(cancelButton)
-            alertAction.addAction(okButton)
-            
-            self.present(alertAction, animated: true, completion: nil)
+        tableView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(bannerView.snp.top)
         }
     }
 }
@@ -146,4 +124,49 @@ extension SettingViewController: UITextFieldDelegate {
     }
 }
 
-
+// MARK: Reactive Extension
+extension Reactive where Base: SettingViewController {
+    var showDetail: Binder<Settings> {
+        return Binder(base) { base, data in
+            switch data{
+            case .limit:
+                let alertAction = UIAlertController(title: "알림", message: "예산을 변경하면 기존에 입력된 데이터는 지워집니다.", preferredStyle: .alert)
+                alertAction.addTextField(configurationHandler: { myTextField in
+                    myTextField.delegate = base
+                    myTextField.placeholder = "예산을 입력해주세요.(최대 100만)"
+                })
+                let cancelButton = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                let okButton = UIAlertAction(title: "변경", style: .default, handler: { _ in
+                    
+                    guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
+                    
+                    if account.count > base.actionViewModel.amountLimit {
+                        let vc = TransientAlertViewController()
+                        vc.titleMessage = "한도를 초과하였습니다.😀"
+                        base.presentPanModal(vc)
+                    } else {
+                        // update account
+                        UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
+                        
+                        // remove coredata
+                        Storage.shared.deleteData()
+                        
+                        let vc = TransientAlertViewController()
+                        vc.titleMessage = "예산을 변경하였습니다.😀"
+                        base.presentPanModal(vc)
+                    }
+                })
+                
+                alertAction.addAction(cancelButton)
+                alertAction.addAction(okButton)
+                
+                base.present(alertAction, animated: true, completion: nil)
+                break
+            case .appVersion:
+                guard let vc = base.storyboard?.instantiateViewController(identifier: "VersionDetailViewController") as? VersionDetailViewController else { return }
+                base.navigationController?.pushViewController(vc, animated: true)
+                break
+            }
+        }
+    }
+}
