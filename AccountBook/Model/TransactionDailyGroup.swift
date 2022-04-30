@@ -3,7 +3,6 @@
 //  AccountBook
 //
 //  Created by 박균호 on 8/5/20.
-//  Copyright © 2020 FastCampus. All rights reserved.
 //
 
 import Foundation
