@@ -22,13 +22,18 @@ class CustomTabBarController: UITabBarController {
 }
 extension CustomTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if tabBarController.tabBar.selectedItem?.tag == 1 {
-            if let storyboard = storyboard?.instantiateViewController(identifier: "ActionViewController")  {
-                storyboard.modalPresentationStyle = .fullScreen
-                self.present(storyboard, animated: true, completion: nil)
-                return false
-            }
+        let tag = tabBarController.tabBar.selectedItem?.tag
+        
+        switch tag {
+        case 0, 2:
+            return true
+        case 1:
+            guard let actionViewController = storyboard?.instantiateViewController(withIdentifier: "ActionViewController") else { return true }
+            actionViewController.modalPresentationStyle = .fullScreen
+            self.present(actionViewController, animated: true, completion: nil)
+            return false
+        default:
+            return true
         }
-        return true
     }
 }
