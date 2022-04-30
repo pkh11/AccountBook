@@ -11,6 +11,7 @@ target 'AccountBook' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxGesture'
+  pod 'SnapKit'
   pod 'VerticalSlider'
   pod 'PanModal'
   pod 'JGProgressHUD'

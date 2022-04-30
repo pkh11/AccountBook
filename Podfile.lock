@@ -108,6 +108,7 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - SnapKit (5.6.0)
   - VerticalSlider (2.0.0)
 
 DEPENDENCIES:
@@ -119,6 +120,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxGesture
   - RxSwift
+  - SnapKit
   - VerticalSlider
 
 SPEC REPOS:
@@ -142,6 +144,7 @@ SPEC REPOS:
     - RxGesture
     - RxRelay
     - RxSwift
+    - SnapKit
     - VerticalSlider
 
 SPEC CHECKSUMS:
@@ -164,8 +167,9 @@ SPEC CHECKSUMS:
   RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
 
-PODFILE CHECKSUM: 8d3db484061d4ae7c7ce202237ac3515be9c9af1
+PODFILE CHECKSUM: 73aafba67115ce2ef866bb49ff47fb95983282a2
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.3
