@@ -163,8 +163,8 @@ extension Reactive where Base: SettingViewController {
                 base.present(alertAction, animated: true, completion: nil)
                 break
             case .appVersion:
-                guard let vc = base.storyboard?.instantiateViewController(identifier: "VersionDetailViewController") as? VersionDetailViewController else { return }
-                base.navigationController?.pushViewController(vc, animated: true)
+                let versionDetailViewController = VersionDetailViewController()
+                base.navigationController?.pushViewController(versionDetailViewController, animated: true)
                 break
             }
         }
