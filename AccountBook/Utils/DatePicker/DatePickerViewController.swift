@@ -38,7 +38,11 @@ class DatePickerViewController: UIViewController, PanModalPresentable {
     }
     
     @IBAction func closeModal(_ sender: Any) {
-        selectedCompletion?("\(datePicker.date)")
+        let datePickerDate = "\(datePicker.date)"
+        let times = datePickerDate.split(separator: " ")
+        let date = times[0]
+        
+        selectedCompletion?("\(date)")
         self.dismiss(animated: true, completion: nil)
     }
 }
