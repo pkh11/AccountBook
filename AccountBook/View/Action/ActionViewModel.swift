@@ -10,27 +10,74 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ActionViewModel {
+struct ActionViewModel {
     
-    let amountLimit = 7
-    let memoLimit = 10
+    static let amountLimit = 7
+    static let memoLimit = 10
     
     var storage = Storage.shared
     
+    // View -> ViewModel
     var account = BehaviorRelay(value: "")
+    var account2 = PublishRelay<String>()
     var date = BehaviorRelay(value: "")
+    var date2 = PublishRelay<String>()
     var type = BehaviorRelay(value: "")
+    var type2 = PublishRelay<String>()
     var memo = BehaviorRelay(value: "")
+    let memo2 = PublishRelay<String>()
     
-    func isValidate() -> Observable<Bool> {
-        return Observable
-            .combineLatest(account, memo, date, type)
-            .map{ $0.0.replacingOccurrences(of: ",", with: "").count < self.amountLimit
-                && !$0.0.isEmpty
-                && $0.1.count < self.memoLimit
-                && !$0.1.isEmpty
-                && !$0.2.isEmpty
-                && !$0.3.isEmpty}
+    // ViewModel -> View
+    var isValidate: Driver<Bool>
+    var keyboardHeight: Driver<CGFloat>
+    
+    init() {
+        let consumptionAmount = account2
+            .map {
+                $0.replacingOccurrences(of: ",", with: "")
+            }
+        
+        let isValidateAmount = consumptionAmount
+            .map {
+                !$0.isEmpty
+            }.startWith(false)
+        
+        // "2022-05-10 14:09:56 +0000"
+        let consumptionDate = date2
+        let isValidateDate = consumptionDate
+            .map {
+                !$0.isEmpty
+            }.startWith(false)
+        let consumptionType = type2
+        let isValidateType = consumptionType
+            .map {
+                !$0.isEmpty
+            }.startWith(false)
+        let consumptionMemo = memo2
+        let isValidateMemo = consumptionMemo
+            .map {
+                $0.count < ActionViewModel.memoLimit && !$0.isEmpty
+            }.startWith(false)
+        
+        isValidate = Observable.combineLatest(
+            isValidateAmount,
+            isValidateDate,
+            isValidateType,
+            isValidateMemo
+        ).map {
+            $0.0 && $0.1 && $0.2 && $0.3
+        }.asDriver(onErrorJustReturn: false)
+        
+        keyboardHeight = Observable.from([
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+                .map { notification -> CGFloat in
+                    (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+                },
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+                .map { _ -> CGFloat in
+                    0
+                }
+        ]).merge().asDriver(onErrorDriveWith: .empty())
     }
     
     func checkMyAccount() -> Bool {
@@ -42,7 +89,7 @@ class ActionViewModel {
     
     func saveData() -> String {
         var resultMessage = ""
-
+        
         let accountToReplacing = account.value.replacingOccurrences(of: ",", with: "")
         guard let amount = Float(accountToReplacing) else {
             return ""

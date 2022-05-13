@@ -31,62 +31,86 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindUI()
+        bindUI(actionViewModel)
         tabGestureBinding()
     }
     
-    func bindUI() {
-    
-        amountOfMoney.rx.text.orEmpty.bind(to: actionViewModel.account).disposed(by: disposeBag)
-        memo.rx.text.orEmpty.filter({ $0.count <= 10 }).bind(to: actionViewModel.memo).disposed(by: disposeBag)
+    func bindUI(_ viewModel: ActionViewModel) {
         
-        // 금액 입력 validation check in UI
-        amountOfMoney.rx.text.orEmpty.subscribe(onNext: { [weak self] account in
-            guard let strongSelf = self else { return }
-            let string = account.replacingOccurrences(of: ",", with: "")
-            
-            if string.count >= strongSelf.actionViewModel.amountLimit || string.isEmpty {
-                strongSelf.amountOfMoneySelected.isHidden = true
-            } else if string.count < strongSelf.actionViewModel.amountLimit {
-                strongSelf.amountOfMoneySelected.isHidden = false
-            }
-            
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal // 1,000,000
-            formatter.locale = Locale.current
-            formatter.maximumFractionDigits = 0 // 허용하는 소숫점 자리수
-            
-            if let formattedNumber = formatter.number(from: string) {
-                if let formattedString = formatter.string(from: formattedNumber) {
-                    strongSelf.amountOfMoney.text = formattedString
+        amountOfMoney.rx.text
+            .orEmpty
+            .bind(to: viewModel.account2)
+            .disposed(by: disposeBag)
+        
+        memo.rx.text
+            .orEmpty
+            .filter({ $0.count <= ActionViewModel.memoLimit })
+            .bind(to: viewModel.memo2)
+            .disposed(by: disposeBag)
+        
+        // account bind
+        amountOfMoney.rx.text
+            .orEmpty
+            .subscribe(onNext: { [weak self] string in
+                let replacing = string.replacingOccurrences(of: ",", with: "")
+                
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                formatter.locale = Locale.current
+                formatter.maximumFractionDigits = 0
+                
+                if let formattedNumber = formatter.number(from: replacing),
+                   let formattedString = formatter.string(from: formattedNumber) {
+                    self?.amountOfMoney.text = formattedString
                 }
-            }
-            
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
-        // 메모 입력 validation check in UI
-        memo.rx.text.orEmpty.scan("", accumulator: { (previous, new) -> String in
-            let memoLimit = self.actionViewModel.memoLimit
-            
-            if new.count > memoLimit {
-                return previous ?? String(new.prefix(memoLimit))
-            } else {
-                return new
-            }
-        }).subscribe(memo.rx.text).disposed(by: disposeBag)
+        // memo bind
+        memo.rx.text
+            .orEmpty
+            .scan("", accumulator: { (previous, new) -> String in
+                let memoLimit = ActionViewModel.memoLimit
+                
+                if new.count > memoLimit {
+                    return previous ?? String(new.prefix(memoLimit))
+                } else {
+                    return new
+                }
+            })
+            .subscribe(memo.rx.text)
+            .disposed(by: disposeBag)
         
-        // input validation
-        actionViewModel.isValidate().subscribe(onNext: { [weak self] result in
-            
-            guard let strongSelf = self else { return }
-            
-            strongSelf.saveButton.isEnabled = result
-            if result {
-                strongSelf.saveButton.backgroundColor = .customBlue1
-            } else {
-                strongSelf.saveButton.backgroundColor = .customGray1
-            }
+        // type bind
+        viewModel.type2
+            .bind(to: self.spendTypeLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        // date bind
+        viewModel.date2
+            .bind(to: self.dateLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        // button bind
+        viewModel.isValidate
+            .drive(self.rx.isValid)
+            .disposed(by: disposeBag)
+        
+        viewModel.keyboardHeight
+            .drive(onNext: { [weak self] height in
+                guard let strongSelf = self else { return }
+                if height > 0 {
+                    strongSelf.bottomConstraint.constant = height - strongSelf.view.safeAreaInsets.bottom + 8
+                    strongSelf.scrollView.contentInset.bottom = height / 2
+                } else if height == 0 {
+                    strongSelf.bottomConstraint.constant = height + 8
+                    strongSelf.scrollView.contentInset = UIEdgeInsets.zero
+                }
+    
+                UIView.animate(withDuration: 0.5) {
+                    strongSelf.view.layoutIfNeeded()
+                }
         }).disposed(by: disposeBag)
+            
         
         // 저장버튼 클릭
         saveButton.rx.tap.do(onNext: { [weak self] _ in
@@ -96,9 +120,9 @@ class ActionViewController: UIViewController {
         }).subscribe(onNext: {
             let vc = TransientAlertViewController()
             
-            if self.actionViewModel.checkMyAccount() {
+            if viewModel.checkMyAccount() {
                 
-                let message = self.actionViewModel.saveData()
+                let message = viewModel.saveData()
                 
                 if message == "Success" {
                     self.dismiss(animated: true, completion: nil)
@@ -113,23 +137,8 @@ class ActionViewController: UIViewController {
             }
             self.presentPanModal(vc)
         }).disposed(by: disposeBag)
-        
-        _ = keyboardHeight().observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] keyboardHeight in
-            guard let strongSelf = self else { return }
-            if keyboardHeight > 0 {
-                strongSelf.bottomConstraint.constant = keyboardHeight - strongSelf.view.safeAreaInsets.bottom + 8
-                strongSelf.scrollView.contentInset.bottom = keyboardHeight / 2
-            } else if keyboardHeight == 0 {
-                strongSelf.bottomConstraint.constant = keyboardHeight + 8
-                strongSelf.scrollView.contentInset = UIEdgeInsets.zero
-            }
-            
-            UIView.animate(withDuration: 0.5) {
-                strongSelf.view.layoutIfNeeded()
-            }
-
-        }).disposed(by: disposeBag)
     }
+
     
     func tabGestureBinding() {
         // tapGesuter binding
@@ -146,9 +155,7 @@ class ActionViewController: UIViewController {
             strongSelf.presentPanModal(storyboard)
             
             storyboard.selectedCompletion = { type in
-                strongSelf.spendTypeLabel.text = type.rawValue
-                strongSelf.spendTypeLabel.textColor = .customBlack
-                strongSelf.actionViewModel.type.accept(type.rawValue)
+                strongSelf.actionViewModel.type2.accept(type.rawValue)
             }
         }).disposed(by: disposeBag)
         
@@ -160,37 +167,11 @@ class ActionViewController: UIViewController {
             }
             
             strongSelf.presentPanModal(storyboard)
-            
             storyboard.selectedCompletion = { time in
-                
-                let times = time.split(separator: " ")
-                let dates = times[0]
-                
-                strongSelf.dateLabel.text = String(dates)
-                strongSelf.dateLabel.textColor = .customBlack
-                strongSelf.actionViewModel.date.accept(String(dates))
+                strongSelf.actionViewModel.date2.accept(time)
             }
             
         }).disposed(by: disposeBag)
-        
-        memo.rx.tapGesture().subscribe(onNext: { _ in
-            
-        }).disposed(by: disposeBag)
-    }
-    
-    func keyboardHeight() -> Observable<CGFloat> {
-        return Observable
-            .from([
-                NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
-                    .map { notification -> CGFloat in
-                        (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
-                    },
-                NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
-                    .map { _ -> CGFloat in
-                        0
-                    }
-            ])
-            .merge()
     }
     
     @IBAction func closeModal(_ sender: Any) {
@@ -201,5 +182,18 @@ class ActionViewController: UIViewController {
 extension ActionViewController: PanModalPresentable {
     var panScrollable: UIScrollView? {
         return nil
+    }
+}
+
+extension Reactive where Base: ActionViewController {
+    var isValid: Binder<Bool> {
+        return Binder(base) { base, valid in
+            base.saveButton.isEnabled = valid
+            if valid {
+                base.saveButton.backgroundColor = .customBlue1
+            } else {
+                base.saveButton.backgroundColor = .customGray1
+            }
+        }
     }
 }
