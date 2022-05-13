@@ -140,7 +140,7 @@ extension Reactive where Base: SettingViewController {
                     
                     guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
                     
-                    if account.count > base.actionViewModel.amountLimit {
+                    if account.count > ActionViewModel.amountLimit {
                         let vc = TransientAlertViewController()
                         vc.titleMessage = "한도를 초과하였습니다.😀"
                         base.presentPanModal(vc)
