@@ -8,10 +8,7 @@ target 'AccountBook' do
   # Pods for AccountBook
   
 
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'RxGesture'
-  pod 'SnapKit'
   pod 'VerticalSlider'
   pod 'PanModal'
   pod 'JGProgressHUD'

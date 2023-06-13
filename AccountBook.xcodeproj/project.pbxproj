@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		19093AB5281D083000DD5EDD /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19093AB4281D083000DD5EDD /* SettingViewModel.swift */; };
+		196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EF92A3832C000A6D13D /* ReactorKit */; };
+		196A4EFD2A3832D100A6D13D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFC2A3832D100A6D13D /* Then */; };
+		196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFF2A3832FB00A6D13D /* SnapKit */; };
 		19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */; };
 		19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4B87C2609DF0A002B5614 /* Constants.swift */; };
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
@@ -91,6 +94,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */,
+				196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */,
+				196A4EFD2A3832D100A6D13D /* Then in Frameworks */,
 				96FE89FBB58236A384FDF1A6 /* Pods_AccountBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +263,11 @@
 			dependencies = (
 			);
 			name = AccountBook;
+			packageProductDependencies = (
+				196A4EF92A3832C000A6D13D /* ReactorKit */,
+				196A4EFC2A3832D100A6D13D /* Then */,
+				196A4EFF2A3832FB00A6D13D /* SnapKit */,
+			);
 			productName = AccountBook;
 			productReference = 6CF7F15324DAD6D30049175F /* AccountBook.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +296,11 @@
 				Base,
 			);
 			mainGroup = 6CF7F14A24DAD6D30049175F;
+			packageReferences = (
+				196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */,
+				196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 6CF7F15424DAD6D30049175F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -748,6 +764,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		196A4EF92A3832C000A6D13D /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		196A4EFC2A3832D100A6D13D /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		196A4EFF2A3832FB00A6D13D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		6BB527B225552DBF0029DCEB /* DataModel.xcdatamodeld */ = {
