@@ -11,6 +11,12 @@
 		196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EF92A3832C000A6D13D /* ReactorKit */; };
 		196A4EFD2A3832D100A6D13D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFC2A3832D100A6D13D /* Then */; };
 		196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFF2A3832FB00A6D13D /* SnapKit */; };
+		196A4F032A3838C700A6D13D /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F022A3838C700A6D13D /* Differentiator */; };
+		196A4F052A3838C700A6D13D /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F042A3838C700A6D13D /* RxDataSources */; };
+		196A4F082A3838E000A6D13D /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F072A3838E000A6D13D /* Reusable */; };
+		196A4F0C2A38392100A6D13D /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */; };
+		196A4F0E2A383A1D00A6D13D /* NewSettingsReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */; };
+		196A4F102A383BD200A6D13D /* NewSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */; };
 		19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */; };
 		19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4B87C2609DF0A002B5614 /* Constants.swift */; };
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
@@ -49,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		19093AB4281D083000DD5EDD /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
+		196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsReactor.swift; sourceTree = "<group>"; };
+		196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19F4B87C2609DF0A002B5614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6B0658D825494B9C004A89A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +104,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */,
+				196A4F082A3838E000A6D13D /* Reusable in Frameworks */,
+				196A4F032A3838C700A6D13D /* Differentiator in Frameworks */,
 				196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */,
+				196A4F052A3838C700A6D13D /* RxDataSources in Frameworks */,
 				196A4EFD2A3832D100A6D13D /* Then in Frameworks */,
 				96FE89FBB58236A384FDF1A6 /* Pods_AccountBook.framework in Frameworks */,
 			);
@@ -104,6 +116,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196A4F092A3838F700A6D13D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				196A4F0A2A38390B00A6D13D /* Settings */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		196A4F0A2A38390B00A6D13D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */,
+				196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */,
+				196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		5F78EF91545DCA506DF753AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +242,7 @@
 			children = (
 				6BB527A2255526DD0029DCEB /* Utils */,
 				6B78C243254F91B600C6A287 /* View */,
+				196A4F092A3838F700A6D13D /* ViewController */,
 				6CF7F16A24DAD7340049175F /* Model */,
 				6CF7F15624DAD6D30049175F /* AppDelegate.swift */,
 				19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */,
@@ -267,6 +298,9 @@
 				196A4EF92A3832C000A6D13D /* ReactorKit */,
 				196A4EFC2A3832D100A6D13D /* Then */,
 				196A4EFF2A3832FB00A6D13D /* SnapKit */,
+				196A4F022A3838C700A6D13D /* Differentiator */,
+				196A4F042A3838C700A6D13D /* RxDataSources */,
+				196A4F072A3838E000A6D13D /* Reusable */,
 			);
 			productName = AccountBook;
 			productReference = 6CF7F15324DAD6D30049175F /* AccountBook.app */;
@@ -300,6 +334,8 @@
 				196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */,
 				196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			productRefGroup = 6CF7F15424DAD6D30049175F /* Products */;
 			projectDirPath = "";
@@ -380,6 +416,7 @@
 				6BDEBF2325752BEA00E418B1 /* AlertViewController.swift in Sources */,
 				19093AB5281D083000DD5EDD /* SettingViewModel.swift in Sources */,
 				6CF7F17024DADC7D0049175F /* TransactionDailyGroup.swift in Sources */,
+				196A4F102A383BD200A6D13D /* NewSettingsTableViewCell.swift in Sources */,
 				6BDEBF2625752C5100E418B1 /* AlertView.swift in Sources */,
 				6CF7F17224DADF360049175F /* Storage.swift in Sources */,
 				6B849043255A651300309ED7 /* SpendTypeViewController.swift in Sources */,
@@ -391,6 +428,7 @@
 				6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */,
 				6CF7F15724DAD6D30049175F /* AppDelegate.swift in Sources */,
 				6B78C230254E7C3900C6A287 /* ExpenditureTableViewCell.swift in Sources */,
+				196A4F0C2A38392100A6D13D /* NewSettingsViewController.swift in Sources */,
 				6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */,
 				6BD5382B2560F47E001BC6A0 /* SettingTableViewCell.swift in Sources */,
 				6B0658DC25494BC7004A89A9 /* SettingViewController.swift in Sources */,
@@ -400,6 +438,7 @@
 				6B0658DF25494C08004A89A9 /* ActionViewController.swift in Sources */,
 				6CF7F16C24DAD7AB0049175F /* Transaction.swift in Sources */,
 				6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */,
+				196A4F0E2A383A1D00A6D13D /* NewSettingsReactor.swift in Sources */,
 				6CF7F16E24DADBFB0049175F /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +829,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -807,6 +862,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		196A4F022A3838C700A6D13D /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		196A4F042A3838C700A6D13D /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+		196A4F072A3838E000A6D13D /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
 		};
 /* End XCSwiftPackageProductDependency section */
 
