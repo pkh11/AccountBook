@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		19093AB5281D083000DD5EDD /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19093AB4281D083000DD5EDD /* SettingViewModel.swift */; };
-		196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EF92A3832C000A6D13D /* ReactorKit */; };
+		1921C8B32A39771E00A05A96 /* NewSettingsCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1921C8B22A39771E00A05A96 /* NewSettingsCellReactor.swift */; };
 		196A4EFD2A3832D100A6D13D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFC2A3832D100A6D13D /* Then */; };
 		196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4EFF2A3832FB00A6D13D /* SnapKit */; };
-		196A4F032A3838C700A6D13D /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F022A3838C700A6D13D /* Differentiator */; };
-		196A4F052A3838C700A6D13D /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F042A3838C700A6D13D /* RxDataSources */; };
-		196A4F082A3838E000A6D13D /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 196A4F072A3838E000A6D13D /* Reusable */; };
 		196A4F0C2A38392100A6D13D /* NewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */; };
 		196A4F0E2A383A1D00A6D13D /* NewSettingsReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */; };
 		196A4F102A383BD200A6D13D /* NewSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */; };
@@ -55,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		19093AB4281D083000DD5EDD /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		1921C8B22A39771E00A05A96 /* NewSettingsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsCellReactor.swift; sourceTree = "<group>"; };
 		196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsViewController.swift; sourceTree = "<group>"; };
 		196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsReactor.swift; sourceTree = "<group>"; };
 		196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,11 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				196A4EFA2A3832C000A6D13D /* ReactorKit in Frameworks */,
-				196A4F082A3838E000A6D13D /* Reusable in Frameworks */,
-				196A4F032A3838C700A6D13D /* Differentiator in Frameworks */,
 				196A4F002A3832FB00A6D13D /* SnapKit in Frameworks */,
-				196A4F052A3838C700A6D13D /* RxDataSources in Frameworks */,
 				196A4EFD2A3832D100A6D13D /* Then in Frameworks */,
 				96FE89FBB58236A384FDF1A6 /* Pods_AccountBook.framework in Frameworks */,
 			);
@@ -130,6 +124,7 @@
 				196A4F0B2A38392100A6D13D /* NewSettingsViewController.swift */,
 				196A4F0D2A383A1D00A6D13D /* NewSettingsReactor.swift */,
 				196A4F0F2A383BD200A6D13D /* NewSettingsTableViewCell.swift */,
+				1921C8B22A39771E00A05A96 /* NewSettingsCellReactor.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -295,12 +290,8 @@
 			);
 			name = AccountBook;
 			packageProductDependencies = (
-				196A4EF92A3832C000A6D13D /* ReactorKit */,
 				196A4EFC2A3832D100A6D13D /* Then */,
 				196A4EFF2A3832FB00A6D13D /* SnapKit */,
-				196A4F022A3838C700A6D13D /* Differentiator */,
-				196A4F042A3838C700A6D13D /* RxDataSources */,
-				196A4F072A3838E000A6D13D /* Reusable */,
 			);
 			productName = AccountBook;
 			productReference = 6CF7F15324DAD6D30049175F /* AccountBook.app */;
@@ -331,11 +322,8 @@
 			);
 			mainGroup = 6CF7F14A24DAD6D30049175F;
 			packageReferences = (
-				196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */,
 				196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */,
-				196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */,
-				196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			productRefGroup = 6CF7F15424DAD6D30049175F /* Products */;
 			projectDirPath = "";
@@ -439,6 +427,7 @@
 				6CF7F16C24DAD7AB0049175F /* Transaction.swift in Sources */,
 				6CF7F15924DAD6D30049175F /* SceneDelegate.swift in Sources */,
 				196A4F0E2A383A1D00A6D13D /* NewSettingsReactor.swift in Sources */,
+				1921C8B32A39771E00A05A96 /* NewSettingsCellReactor.swift in Sources */,
 				6CF7F16E24DADBFB0049175F /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,20 +794,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -829,30 +810,9 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/Reusable";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		196A4EF92A3832C000A6D13D /* ReactorKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 196A4EF82A3832C000A6D13D /* XCRemoteSwiftPackageReference "ReactorKit" */;
-			productName = ReactorKit;
-		};
 		196A4EFC2A3832D100A6D13D /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 196A4EFB2A3832D100A6D13D /* XCRemoteSwiftPackageReference "Then" */;
@@ -862,21 +822,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 196A4EFE2A3832FB00A6D13D /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		196A4F022A3838C700A6D13D /* Differentiator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = Differentiator;
-		};
-		196A4F042A3838C700A6D13D /* RxDataSources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 196A4F012A3838C700A6D13D /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
-		};
-		196A4F072A3838E000A6D13D /* Reusable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 196A4F062A3838E000A6D13D /* XCRemoteSwiftPackageReference "Reusable" */;
-			productName = Reusable;
 		};
 /* End XCSwiftPackageProductDependency section */
 

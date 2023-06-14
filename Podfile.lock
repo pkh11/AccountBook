@@ -1,4 +1,5 @@
 PODS:
+  - Differentiator (5.0.0)
   - Firebase/AdMob (7.11.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.66)
@@ -99,17 +100,27 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PanModal (1.2.7)
   - PromisesObjC (1.2.12)
-  - RxCocoa (6.1.0):
-    - RxRelay (= 6.1.0)
-    - RxSwift (= 6.1.0)
+  - ReactorKit (3.2.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
+  - ReusableKit (3.0.0):
+    - ReusableKit/Core (= 3.0.0)
+  - ReusableKit/Core (3.0.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxGesture (4.0.2):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
-  - RxRelay (6.1.0):
-    - RxSwift (= 6.1.0)
-  - RxSwift (6.1.0)
-  - SnapKit (5.6.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - VerticalSlider (2.0.0)
+  - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
   - Firebase/AdMob
@@ -117,14 +128,17 @@ DEPENDENCIES:
   - JGProgressHUD
   - lottie-ios
   - PanModal
+  - ReactorKit
+  - ReusableKit
   - RxCocoa
+  - RxDataSources
   - RxGesture
   - RxSwift
-  - SnapKit
   - VerticalSlider
 
 SPEC REPOS:
   trunk:
+    - Differentiator
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -140,14 +154,18 @@ SPEC REPOS:
     - nanopb
     - PanModal
     - PromisesObjC
+    - ReactorKit
+    - ReusableKit
     - RxCocoa
+    - RxDataSources
     - RxGesture
     - RxRelay
     - RxSwift
-    - SnapKit
     - VerticalSlider
+    - WeakMapTable
 
 SPEC CHECKSUMS:
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -163,13 +181,16 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
+  ReusableKit: e5f853ad4652e411f96b6119b2488afa12929be6
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
-  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
-  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
-  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   VerticalSlider: 655f2bc3ed062bac13e21c174f5ff93b8308571d
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 73aafba67115ce2ef866bb49ff47fb95983282a2
+PODFILE CHECKSUM: 582e82c0b19a6215eb4fb104130303965cd2b68e
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

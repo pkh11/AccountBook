@@ -1,42 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "reactorkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactorKit/ReactorKit",
-      "state" : {
-        "revision" : "8fa33f09c6f6621a2aa536d739956d53b84dd139",
-        "version" : "3.2.0"
-      }
-    },
-    {
-      "identity" : "reusable",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AliSoftware/Reusable",
-      "state" : {
-        "revision" : "18674709421360e210c2ecd4e8e08b217d4ea61d",
-        "version" : "4.1.2"
-      }
-    },
-    {
-      "identity" : "rxdatasources",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RxSwiftCommunity/RxDataSources",
-      "state" : {
-        "revision" : "90c29b48b628479097fe775ed1966d75ac374518",
-        "version" : "5.0.2"
-      }
-    },
-    {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift.git",
-      "state" : {
-        "revision" : "9dcaa4b333db437b0fbfaf453fad29069044a8b4",
-        "version" : "6.6.0"
-      }
-    },
-    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",
@@ -50,17 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/devxoul/Then",
       "state" : {
-        "branch" : "master",
-        "revision" : "d41ef523faef0f911369f79c0b96815d9dbb6d7a"
-      }
-    },
-    {
-      "identity" : "weakmaptable",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactorKit/WeakMapTable.git",
-      "state" : {
-        "revision" : "cb05d64cef2bbf51e85c53adee937df46540a74e",
-        "version" : "1.2.1"
+        "revision" : "d41ef523faef0f911369f79c0b96815d9dbb6d7a",
+        "version" : "3.0.0"
       }
     }
   ],
