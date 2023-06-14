@@ -9,7 +9,7 @@
 import ReactorKit
 import RxSwift
 
-internal final class NewSettingsCellReactor: Reactor {
+internal final class VersionInfoCellReactor: Reactor {
     enum Action {
         case none
     }
@@ -19,13 +19,13 @@ internal final class NewSettingsCellReactor: Reactor {
     }
     
     struct State {
-        var test: Bool?
+        var model: Settings
     }
     
     internal var initialState: State
     
-    init() {
-        self.initialState = State()
+    init(model: Settings) {
+        self.initialState = State(model: model)
     }
         
     func mutate(action: Action) -> Observable<Mutation> {
@@ -36,7 +36,6 @@ internal final class NewSettingsCellReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.test = nil
         
         switch mutation {
         case .none: break

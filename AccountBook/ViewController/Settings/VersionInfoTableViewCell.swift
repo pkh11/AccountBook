@@ -8,13 +8,21 @@
 
 import UIKit
 import RxSwift
+import SnapKit
+import Then
 
-internal final class NewSettingsTableViewCell: UITableViewCell {
+internal final class VersionInfoTableViewCell: UITableViewCell {
     
-    // MARK: VARIABLES
+    // MARK: - UI
+    private lazy var titleLbl = UILabel().then {
+        $0.text = ""
+        $0.font = .systemFont(ofSize: 16, weight: .regular)
+    }
+    
+    // MARK: - VARIABLES
     private var disposeBag: DisposeBag = DisposeBag()
     
-    // MARK: SYSTEM FUNC
+    // MARK: - SYSTEM FUNC
     override func awakeFromNib() {
         super.awakeFromNib()
         self.makeUI()
@@ -34,6 +42,18 @@ internal final class NewSettingsTableViewCell: UITableViewCell {
     }
     
     private func makeUI() {
+        self.contentView.snp.makeConstraints {
+            $0.height.equalTo(55)
+        }
+
+        self.contentView.addSubview(titleLbl)
+        titleLbl.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(18)
+        }
+    }
+    
+    internal func bind(reactor: versionInfoCellReactor) {
         
     }
 }

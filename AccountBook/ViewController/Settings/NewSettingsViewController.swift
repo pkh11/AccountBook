@@ -17,19 +17,35 @@ import ReusableKit
 internal final class NewSettingsViewController: UIViewController, StoryboardView {
     typealias DataSource = RxTableViewSectionedReloadDataSource<SettingsSectionModel>
     
-    // MARK: UI
+    // MARK: - UI
     private enum Reusable {
-        static let newSettingsTableViewCell = ReusableCell<NewSettingsTableViewCell>()
+        static let budgetTableViewCell = ReusableCell<BudgetTableViewCell>()
+        static let versionInfoTableViewCell = ReusableCell<VersionInfoTableViewCell>()
     }
     
-    private var tableView = UITableView().then {
+    private var tableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = true
         $0.contentInset = .zero
-        $0.register(Reusable.newSettingsTableViewCell)
+        $0.register(Reusable.budgetTableViewCell)
+        $0.register(Reusable.versionInfoTableViewCell)
         $0.estimatedRowHeight = UITableView.automaticDimension
     }
+    
+    private var dataSource = DataSource(configureCell: { dataSource, tableView, indexPath, item in
+        switch item {
+        case .budget(reactor: let reactor):
+            let cell = tableView.dequeue(Reusable.budgetTableViewCell, for: indexPath)
+            cell.bind(reactor: reactor)
+            return cell
+            
+        case .versionInfo(reactor: let reactor):
+            let cell = tableView.dequeue(Reusable.versionInfoTableViewCell, for: indexPath)
+            cell.bind(reactor: reactor)
+            return cell
+        }
+    })
     
     // MARK: - VARIABLES
     internal var disposeBag: DisposeBag = DisposeBag()
@@ -48,9 +64,31 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
         super.viewDidLoad()
     }
     
-    // MARK: Reactorkit
+    // MARK: - Reactorkit
     func bind(reactor: NewSettingsReactor) {
+        Observable.just(NewSettingsReactor.Action.loadSettingsItems)
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
         
+        reactor.state.compactMap { $0.sections }
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: self.disposeBag)
+        
+        tableView.rx.itemSelected
+            .asDriver()
+            .drive(with: self) { owner, indexPath in
+                let item = Settings.allCases[indexPath.row]
+                
+                switch item {
+                case .limit: break
+                    
+                case .appVersion:
+                    let versionDetailViewController = VersionDetailViewController()
+                    self.navigationController?.pushViewController(versionDetailViewController, animated: true)
+                    
+                }
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -59,7 +97,8 @@ enum SettingsSectionModel {
 }
 
 enum SettingsItem {
-    case settings(reactor: NewSettingsCellReactor)
+    case budget(reactor: BudgetCellReactor)
+    case versionInfo(reactor: VersionInfoCellReactor)
 }
 
 extension SettingsSectionModel: SectionModelType {

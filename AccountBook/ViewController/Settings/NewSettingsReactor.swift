@@ -9,15 +9,15 @@ import ReactorKit
 
 internal final class NewSettingsReactor: Reactor {
     enum Action {
-        case none
+        case loadSettingsItems
     }
     
     enum Mutation {
-        case none
+        case loadSettingsItems
     }
     
     struct State {
-        var test: Bool?
+        var sections = [SettingsSectionModel]()
     }
     
     internal var initialState: State
@@ -28,16 +28,31 @@ internal final class NewSettingsReactor: Reactor {
         
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .none: return .empty()
+        case .loadSettingsItems:
+            return .just(.loadSettingsItems)
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        newState.test = nil
         
         switch mutation {
-        case .none: break
+        case .loadSettingsItems:
+            var items = [SettingsItem]()
+            
+            for item in Settings.allCases {
+                switch item {
+                case .limit:
+                    let reactor = BudgetCellReactor(model: item)
+                    items.append(.budget(reactor: reactor))
+                    
+                case .appVersion:
+                    let reactor = VersionInfoCellReactor(model: item)
+                    items.append(.versionInfo(reactor: reactor))
+                }
+            }
+
+            newState.sections = [.settings(items: items)]
                                                     
         }
         
