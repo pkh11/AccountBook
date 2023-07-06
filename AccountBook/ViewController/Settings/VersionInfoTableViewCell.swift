@@ -42,6 +42,10 @@ internal final class VersionInfoTableViewCell: UITableViewCell {
     }
     
     private func makeUI() {
+        self.backgroundColor = .white
+        self.selectionStyle = .none
+        self.accessoryType = .disclosureIndicator
+        
         self.contentView.snp.makeConstraints {
             $0.height.equalTo(55)
         }
@@ -53,7 +57,7 @@ internal final class VersionInfoTableViewCell: UITableViewCell {
         }
     }
     
-    internal func bind(reactor: versionInfoCellReactor) {
-        
+    internal func bind(reactor: VersionInfoCellReactor) {
+        titleLbl.text = "버전 정보"
     }
 }

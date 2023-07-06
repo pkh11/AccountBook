@@ -42,6 +42,10 @@ internal final class BudgetTableViewCell: UITableViewCell {
     }
     
     private func makeUI() {
+        self.backgroundColor = .white
+        self.selectionStyle = .none
+        self.accessoryType = .disclosureIndicator
+        
         self.contentView.snp.makeConstraints {
             $0.height.equalTo(55)
         }
@@ -54,6 +58,6 @@ internal final class BudgetTableViewCell: UITableViewCell {
     }
     
     internal func bind(reactor: BudgetCellReactor) {
-        
+        titleLbl.text = "예산"
     }
 }

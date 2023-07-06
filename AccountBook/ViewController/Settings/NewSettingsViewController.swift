@@ -54,6 +54,8 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
     override func loadView() {
         super.loadView()
         
+        self.view.backgroundColor = .systemBackground
+        
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
