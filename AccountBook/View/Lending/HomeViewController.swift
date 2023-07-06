@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     private let spinner = JGProgressHUD(style: .dark)
     var headerView: ExpenditureTableHeaderView = {
         let nib = UINib(nibName: "ExpenditureTableHeaderView", bundle: nil)
-        return nib.instantiate(withOwner: self, options: nil).first as! ExpenditureTableHeaderView
+        return nib.instantiate(withOwner: HomeViewController.self, options: nil).first as! ExpenditureTableHeaderView
     }()
     
     let homeViewModel = HomeViewModel()
