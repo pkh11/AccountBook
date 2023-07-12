@@ -1,5 +1,5 @@
 //
-//  ActionViewController.swift
+//  WriteBudgetViewController.swift
 //  AccountBook
 //
 //  Created by 박균호 on 2020/10/28.
@@ -12,7 +12,7 @@ import RxCocoa
 import RxGesture
 import PanModal
 
-class ActionViewController: UIViewController {
+class WriteBudgetViewController: UIViewController {
     
     @IBOutlet weak var spendTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -179,13 +179,13 @@ class ActionViewController: UIViewController {
     }
 }
 
-extension ActionViewController: PanModalPresentable {
+extension WriteBudgetViewController: PanModalPresentable {
     var panScrollable: UIScrollView? {
         return nil
     }
 }
 
-extension Reactive where Base: ActionViewController {
+extension Reactive where Base: WriteBudgetViewController {
     var isValid: Binder<Bool> {
         return Binder(base) { base, valid in
             base.saveButton.isEnabled = valid

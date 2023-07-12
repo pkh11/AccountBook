@@ -135,10 +135,10 @@
             </objects>
             <point key="canvasLocation" x="-1536.2318840579712" y="1433.7053571428571"/>
         </scene>
-        <!--Action View Controller-->
+        <!--Write Budget View Controller-->
         <scene sceneID="Ksb-mm-tKi">
             <objects>
-                <viewController storyboardIdentifier="ActionViewController" id="H5O-YJ-u1b" customClass="ActionViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteBudgetViewController" id="H5O-YJ-u1b" customClass="WriteBudgetViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NfN-EE-a96">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -510,8 +510,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="yAM-WE-ZnK"/>
-                        <segue destination="H5O-YJ-u1b" kind="relationship" relationship="viewControllers" id="vry-GI-0LD"/>
                         <segue destination="dbk-LR-jxS" kind="relationship" relationship="viewControllers" id="7Ly-2S-mUp"/>
+                        <segue destination="H5O-YJ-u1b" kind="relationship" relationship="viewControllers" id="3Q6-7F-1gP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wk2-W1-vNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
