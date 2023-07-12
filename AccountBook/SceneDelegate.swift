@@ -19,29 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        // MARK: 홈 화면
-        let actionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ActionViewController")
-        let actionNavigationViewcon = UINavigationController(rootViewController: actionViewController)
-        
-        // MARK: 설정화면
-        let reactor = NewSettingsReactor()
-        let viewcon = NewSettingsViewController()
-        viewcon.bind(reactor: reactor)
-        let settingsNavigationViewcon = UINavigationController(rootViewController: viewcon)
-        
-
-        // tab bar Item 설정
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([actionNavigationViewcon, settingsNavigationViewcon], animated: false)
-
-        if let tabBarItems = tabBarController.tabBar.items {
-            tabBarItems[0].image = UIImage(named: "home_icon")
-            tabBarItems[0].selectedImage = UIImage(named: "home_icon")
-            
-            tabBarItems[1].image = UIImage(named: "setting_icon")
-            tabBarItems[1].selectedImage = UIImage(named: "setting_icon")
-        }
-
+        let tabBarController = NewTabBarController()
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()
         self.window = window
