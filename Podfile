@@ -7,15 +7,17 @@ target 'AccountBook' do
 
   # Pods for AccountBook
   
-
+  pod 'ReactorKit'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
+  pod 'ReusableKit'
   pod 'RxGesture'
-  pod 'SnapKit'
   pod 'VerticalSlider'
   pod 'PanModal'
   pod 'JGProgressHUD'
   pod 'lottie-ios'
+  
 #  pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'

@@ -12,7 +12,7 @@ class CustomTabBarController: UITabBarController {
     
     var homeViewController: HomeViewController!
     var actionViewController: ActionViewController!
-    var settingViewController: SettingViewController!
+    var settingViewController: NewSettingsViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

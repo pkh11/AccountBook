@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BGA-fm-BFF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-qL-ae8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenditureTableHeaderCell" rowHeight="71" id="fEy-yk-VCt" customClass="ExpenditureTableHeaderCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="71"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEy-yk-VCt" id="QUz-wx-WYE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -47,7 +47,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenditureTableViewCell" id="Dgq-vv-qVA" customClass="ExpenditureTableViewCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="115.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="121" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dgq-vv-qVA" id="GQ8-W4-xly">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -90,7 +90,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExpenditureTableEmptyCell" rowHeight="177" id="kzx-B2-jhZ" customClass="ExpenditureTableEmptyCell" customModule="AccountBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="159.5" width="414" height="177"/>
+                                        <rect key="frame" x="0.0" y="165" width="414" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kzx-B2-jhZ" id="Abz-al-OIo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
@@ -135,22 +135,22 @@
             </objects>
             <point key="canvasLocation" x="-1536.2318840579712" y="1433.7053571428571"/>
         </scene>
-        <!--Action View Controller-->
+        <!--Write Budget View Controller-->
         <scene sceneID="Ksb-mm-tKi">
             <objects>
-                <viewController storyboardIdentifier="ActionViewController" id="H5O-YJ-u1b" customClass="ActionViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteBudgetViewController" id="H5O-YJ-u1b" customClass="WriteBudgetViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NfN-EE-a96">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyL-8u-EWx">
-                                <rect key="frame" x="20" y="44" width="374" height="761"/>
+                                <rect key="frame" x="20" y="48" width="374" height="757"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0W-H8-qS2">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="657"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-ks-Gdi">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="661"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="657"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kfp-cU-28V">
                                                         <rect key="frame" x="10" y="140" width="354" height="50"/>
@@ -440,7 +440,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alA-qP-lWq">
-                                        <rect key="frame" x="0.0" y="711" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="707" width="374" height="50"/>
                                         <color key="backgroundColor" name="Customblue1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="WgB-Jg-eRw"/>
@@ -510,8 +510,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="yAM-WE-ZnK"/>
-                        <segue destination="H5O-YJ-u1b" kind="relationship" relationship="viewControllers" id="vry-GI-0LD"/>
                         <segue destination="dbk-LR-jxS" kind="relationship" relationship="viewControllers" id="7Ly-2S-mUp"/>
+                        <segue destination="H5O-YJ-u1b" kind="relationship" relationship="viewControllers" id="3Q6-7F-1gP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wk2-W1-vNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -521,7 +521,7 @@
         <!--설정-->
         <scene sceneID="psx-ym-8pP">
             <objects>
-                <viewController id="bf6-YE-d6k" customClass="SettingViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bf6-YE-d6k" customClass="NewSettingsViewController" customModule="AccountBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xmc-S8-pe9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -554,7 +554,7 @@
                 <navigationController id="dbk-LR-jxS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="" image="setting_icon" selectedImage="setting_icon" id="4fh-vz-f81"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="683-6g-R14">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
