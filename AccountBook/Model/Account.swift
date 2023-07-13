@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct Account {
     var amount: Float
     var date: Date
