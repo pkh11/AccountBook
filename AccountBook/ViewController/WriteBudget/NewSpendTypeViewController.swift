@@ -2,22 +2,32 @@
 //  SpendTypeViewController.swift
 //  AccountBook
 //
-//  Created by 박균호 on 2020/11/10.
-//  Copyright © 2020 FastCampus. All rights reserved.
+//  Created by Kyoon Ho Park on 2023/07/13
 //
-
+        
 import UIKit
+import SnapKit
+import Then
 import PanModal
+import ReusableKit
 
-internal final class SpendTypeViewController: UIViewController, PanModalPresentable {
-
-    @IBOutlet var tableView: UITableView!
+internal final class NewSpendTypeViewController: UIViewController, PanModalPresentable {
     
-    internal var selectedCompletion: ((SpendType) -> Void)?
+    
+    private enum Reusable {
+        static let spendTypeCell = ReusableCell<SpendTypeCell>()
+    }
+    
+    // MARK: - UI
+    private var tableView = UITableView().then {
+        $0.register(Reusable.spendTypeCell)
+    }
+    
+    // MARK: - VARIABLES
     private var spendTypes: [SpendType] = SpendType.allCases
+    internal var selectedCompletion: ((SpendType) -> Void)?
     
     // MARK: - Pan Modal Presentable
-
     var panScrollable: UIScrollView? {
         return tableView
     }
@@ -25,7 +35,17 @@ internal final class SpendTypeViewController: UIViewController, PanModalPresenta
     var shortFormHeight: PanModalHeight {
         return .contentHeight(350)
     }
-
+    
+    // MARK: - SYSTEM FUNC
+    override func loadView() {
+        super.loadView()
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,15 +55,13 @@ internal final class SpendTypeViewController: UIViewController, PanModalPresenta
 }
 
 // MARK: - UITableView Delegate, DataSource
-extension SpendTypeViewController: UITableViewDelegate, UITableViewDataSource {
+extension NewSpendTypeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return spendTypes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpendTypeTableViewCell", for: indexPath) as? SpendTypeCell
-            else { return UITableViewCell() }
-
+        guard let cell = tableView.dequeue(Reusable.spendTypeCell) else { return UITableViewCell() }
         cell.configure(spendTypes[indexPath.row])
         return cell
     }
@@ -53,5 +71,3 @@ extension SpendTypeViewController: UITableViewDelegate, UITableViewDataSource {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-
