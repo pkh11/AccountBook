@@ -111,67 +111,65 @@ class WriteBudgetViewController: UIViewController {
                 }
         }).disposed(by: disposeBag)
             
-        
         // 저장버튼 클릭
-        saveButton.rx.tap.do(onNext: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.amountOfMoney.resignFirstResponder()
-            strongSelf.memo.resignFirstResponder()
-        }).subscribe(onNext: {
-            let vc = TransientAlertViewController()
-            
-            if viewModel.checkMyAccount() {
+        saveButton.rx.tap
+            .do(onNext: { [weak self] _ in
+                self?.amountOfMoney.resignFirstResponder()
+                self?.memo.resignFirstResponder()
+            })
+            .subscribe(with: self) { owner, _ in
+                let vc = TransientAlertViewController()
                 
-                let message = viewModel.saveData()
-                
-                if message == "Success" {
-                    self.dismiss(animated: true, completion: nil)
-                } else if message == "\(StorageErrors.overAccount)"{
-                    vc.titleMessage = "예산을 초과했습니다.😀"
+                if viewModel.checkMyAccount() {
+                    let message = viewModel.saveData()
+                    if message == "Success" {
+                        owner.dismiss(animated: true, completion: nil)
+                    } else if message == "\(StorageErrors.overAccount)"{
+                        vc.titleMessage = "예산을 초과했습니다.😀"
+                    } else {
+                        vc.titleMessage = "오류가 발생했습니다.😀"
+                    }
+                    
                 } else {
-                    vc.titleMessage = "오류가 발생했습니다.😀"
+                    vc.titleMessage = "예산을 설정해주세요.😀"
                 }
-                
-            } else {
-                vc.titleMessage = "예산을 설정해주세요.😀"
+                owner.presentPanModal(vc)
             }
-            self.presentPanModal(vc)
-        }).disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
 
     
     func tabGestureBinding() {
         // tapGesuter binding
-        view.rx.tapGesture().subscribe(onNext: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.view.endEditing(true)
-        }).disposed(by: disposeBag)
+        view.rx.tapGesture()
+            .subscribe(with: self) { owner, _ in
+                owner.view.endEditing(true)
+            }
+            .disposed(by: disposeBag)
         
-        spendTypeLabel.rx.tapGesture().subscribe(onNext: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            guard let storyboard = UIStoryboard(name: "SpendType", bundle: nil).instantiateViewController(identifier: "SpendTypeViewController") as? SpendTypeViewController else {
-                return
+        spendTypeLabel.rx
+            .tapGesture()
+            .subscribe(with: self) { owner, _ in
+                let viewcon = NewSpendTypeViewController()
+                owner.presentPanModal(viewcon)
+                viewcon.selectedCompletion = { type in
+                    owner.actionViewModel.type2.accept(type.labelMessage)
+                }
             }
-            strongSelf.presentPanModal(storyboard)
-            
-            storyboard.selectedCompletion = { type in
-                strongSelf.actionViewModel.type2.accept(type.rawValue)
-            }
-        }).disposed(by: disposeBag)
+            .disposed(by: disposeBag)
         
-        dateLabel.rx.tapGesture().subscribe(onNext: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            
-            guard let storyboard = UIStoryboard(name: "DatePickerView", bundle: nil).instantiateViewController(identifier: "DatePickerViewController") as? DatePickerViewController else {
-                return
+        dateLabel.rx.tapGesture()
+            .subscribe(with: self) { owner, _ in
+                guard let viewcon = UIStoryboard(name: "DatePickerView", bundle: nil).instantiateViewController(identifier: "DatePickerViewController") as? DatePickerViewController else {
+                    return
+                }
+                
+                owner.presentPanModal(viewcon)
+                viewcon.selectedCompletion = { time in
+                    owner.actionViewModel.date2.accept(time)
+                }
             }
-            
-            strongSelf.presentPanModal(storyboard)
-            storyboard.selectedCompletion = { time in
-                strongSelf.actionViewModel.date2.accept(time)
-            }
-            
-        }).disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
     
     @IBAction func closeModal(_ sender: Any) {
