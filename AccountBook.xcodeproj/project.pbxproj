@@ -23,6 +23,7 @@
 		1971B8352A56B30F00055BE3 /* NewTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971B8342A56B30F00055BE3 /* NewTabBarController.swift */; };
 		1971B83A2A5E7AAD00055BE3 /* VersionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971B8392A5E7AAD00055BE3 /* VersionDetailViewController.swift */; };
 		19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */; };
+		19A9A0FE2A9C7E51008AC33C /* SpendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A0FD2A9C7E51008AC33C /* SpendInfo.swift */; };
 		19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4B87C2609DF0A002B5614 /* Constants.swift */; };
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
 		6B0658DF25494C08004A89A9 /* WriteBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DE25494C08004A89A9 /* WriteBudgetViewController.swift */; };
@@ -65,6 +66,7 @@
 		1971B8342A56B30F00055BE3 /* NewTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabBarController.swift; sourceTree = "<group>"; };
 		1971B8392A5E7AAD00055BE3 /* VersionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetailViewController.swift; sourceTree = "<group>"; };
 		19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		19A9A0FD2A9C7E51008AC33C /* SpendInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendInfo.swift; sourceTree = "<group>"; };
 		19F4B87C2609DF0A002B5614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		25C796D0B60F66F60A95DB06 /* Pods-AccountBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountBook.release.xcconfig"; path = "Target Support Files/Pods-AccountBook/Pods-AccountBook.release.xcconfig"; sourceTree = "<group>"; };
 		3D8A774B5B9AA066733E105C /* Pods_AccountBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +265,7 @@
 				6CF7F17124DADF360049175F /* Storage.swift */,
 				6CF7F16D24DADBFB0049175F /* Settings.swift */,
 				191F9F282A5FBABD00E35FC3 /* SpendType.swift */,
+				19A9A0FD2A9C7E51008AC33C /* SpendInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				6BB527B425552DBF0029DCEB /* DataModel.xcdatamodeld in Sources */,
 				6CF7F15724DAD6D30049175F /* AppDelegate.swift in Sources */,
 				6B78C230254E7C3900C6A287 /* ExpenditureTableViewCell.swift in Sources */,
+				19A9A0FE2A9C7E51008AC33C /* SpendInfo.swift in Sources */,
 				196A4F0C2A38392100A6D13D /* NewSettingsViewController.swift in Sources */,
 				1921C8B82A39A0FC00A05A96 /* BudgetTableViewCell.swift in Sources */,
 				6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */,
