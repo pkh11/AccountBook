@@ -10,11 +10,12 @@ import Foundation
 import RealmSwift
 
 protocol DBAPI: AnyObject {
-    func read()
-    func write()
+    func read<T: Object>(_ mode: T.Type) -> Results<T>?
+    func write<T: Object>(_ model: T)
 }
 
 internal final class DatabaseWorker: DBAPI {
+    
     private var realm: Realm?
     private var database: Realm {
         get throws {
@@ -31,12 +32,22 @@ internal final class DatabaseWorker: DBAPI {
         }
     }
 
-    func read() {
-        
+    internal func read<T: Object>(_ model: T.Type) -> Results<T>? {
+        do {
+            return try database.objects(model)
+        } catch {
+            return nil
+        }
     }
 
-    func write() {
-
+    internal func write<T: Object>(_ model: T) {
+        do {
+            try database.write({
+                try database.add(model, update: .modified)
+            })
+        } catch let error {
+            print(error)
+        }
     }
 }
 
