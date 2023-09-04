@@ -24,6 +24,8 @@
 		1971B83A2A5E7AAD00055BE3 /* VersionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971B8392A5E7AAD00055BE3 /* VersionDetailViewController.swift */; };
 		19928C8026087FE900ECC2E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */; };
 		19A9A0FE2A9C7E51008AC33C /* SpendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A0FD2A9C7E51008AC33C /* SpendInfo.swift */; };
+		19CAD41B2AA56BD000A9B1D3 /* NewWriteBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CAD41A2AA56BD000A9B1D3 /* NewWriteBudgetViewController.swift */; };
+		19CAD41D2AA56C3C00A9B1D3 /* NewWriteBudgetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CAD41C2AA56C3C00A9B1D3 /* NewWriteBudgetReactor.swift */; };
 		19F4B87D2609DF0A002B5614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4B87C2609DF0A002B5614 /* Constants.swift */; };
 		6B0658D925494B9C004A89A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658D825494B9C004A89A9 /* HomeViewController.swift */; };
 		6B0658DF25494C08004A89A9 /* WriteBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0658DE25494C08004A89A9 /* WriteBudgetViewController.swift */; };
@@ -67,6 +69,8 @@
 		1971B8392A5E7AAD00055BE3 /* VersionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionDetailViewController.swift; sourceTree = "<group>"; };
 		19928C7F26087FE900ECC2E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19A9A0FD2A9C7E51008AC33C /* SpendInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendInfo.swift; sourceTree = "<group>"; };
+		19CAD41A2AA56BD000A9B1D3 /* NewWriteBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWriteBudgetViewController.swift; sourceTree = "<group>"; };
+		19CAD41C2AA56C3C00A9B1D3 /* NewWriteBudgetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWriteBudgetReactor.swift; sourceTree = "<group>"; };
 		19F4B87C2609DF0A002B5614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		25C796D0B60F66F60A95DB06 /* Pods-AccountBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AccountBook.release.xcconfig"; path = "Target Support Files/Pods-AccountBook/Pods-AccountBook.release.xcconfig"; sourceTree = "<group>"; };
 		3D8A774B5B9AA066733E105C /* Pods_AccountBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AccountBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +189,8 @@
 				191F9F2A2A5FBFF200E35FC3 /* NewSpendTypeViewController.swift */,
 				6B849048255A6C6F00309ED7 /* SpendTypeCell.swift */,
 				6BDEBF282575394000E418B1 /* ActionViewModel.swift */,
+				19CAD41A2AA56BD000A9B1D3 /* NewWriteBudgetViewController.swift */,
+				19CAD41C2AA56C3C00A9B1D3 /* NewWriteBudgetReactor.swift */,
 			);
 			path = WriteBudget;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				6BDEBF2325752BEA00E418B1 /* AlertViewController.swift in Sources */,
 				6CF7F17024DADC7D0049175F /* TransactionDailyGroup.swift in Sources */,
 				196A4F102A383BD200A6D13D /* VersionInfoTableViewCell.swift in Sources */,
+				19CAD41B2AA56BD000A9B1D3 /* NewWriteBudgetViewController.swift in Sources */,
 				6BDEBF2625752C5100E418B1 /* AlertView.swift in Sources */,
 				6CF7F17224DADF360049175F /* Storage.swift in Sources */,
 				6BAF7083256AA33D001EFEE6 /* DatePickerViewController.swift in Sources */,
@@ -438,6 +445,7 @@
 				1921C8B82A39A0FC00A05A96 /* BudgetTableViewCell.swift in Sources */,
 				6B78C234254E7E5400C6A287 /* ExpenditureTableHeaderView.swift in Sources */,
 				1921C8B62A39A06600A05A96 /* BudgetCellReactor.swift in Sources */,
+				19CAD41D2AA56C3C00A9B1D3 /* NewWriteBudgetReactor.swift in Sources */,
 				6BDEBF1F25752BCF00E418B1 /* TrasientAlertViewController.swift in Sources */,
 				6BDEBF292575394000E418B1 /* ActionViewModel.swift in Sources */,
 				1971B83A2A5E7AAD00055BE3 /* VersionDetailViewController.swift in Sources */,

@@ -50,8 +50,8 @@ internal final class NewTabBarController: UITabBarController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
         
-        // MARK: 작성화면
-        let actionViewController = storyBoard.instantiateViewController(withIdentifier: "WriteBudgetViewController")
+        // MARK: 작성화면(화면구색을 위한 임시 화면)
+        let viewController = UIViewController()
         
         // MARK: 설정화면
         let reactor = NewSettingsReactor()
@@ -59,8 +59,7 @@ internal final class NewTabBarController: UITabBarController {
         viewcon.bind(reactor: reactor)
         let settingsNavigationViewcon = UINavigationController(rootViewController: viewcon)
         
-        self.setViewControllers([homeViewController, actionViewController, settingsNavigationViewcon], animated: true)
-        
+        self.setViewControllers([homeViewController, viewController, settingsNavigationViewcon], animated: true)
         
         if let tabBarItems = self.tabBar.items {
             for screenType in ScreenType.allCases {
@@ -78,9 +77,11 @@ extension NewTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard tabBarController.tabBar.selectedItem?.tag == ScreenType.action.index else { return true }
         
-        let actionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WriteBudgetViewController")
-        actionViewController.modalPresentationStyle = .fullScreen
-        self.present(actionViewController, animated: true, completion: nil)
+        let writeBudgetReactor = NewWriteBudgetReactor()
+        let writeBudgetViewCon = NewWriteBudgetViewController()
+        writeBudgetViewCon.modalPresentationStyle = .fullScreen
+        writeBudgetViewCon.bind(reactor: writeBudgetReactor)
+        self.present(writeBudgetViewCon, animated: true)
         
         return false
     }
