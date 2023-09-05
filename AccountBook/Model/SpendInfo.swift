@@ -20,10 +20,10 @@ internal final class SpendInfo: Object {
         return Int(amount)
     }
     
-    convenience init(_ amount: Float, _ date: Date, _ type: String, _ text: String) {
+    convenience init(_ amount: String, _ date: String, _ type: String, _ text: String) {
         self.init()
-        self.amount = amount
-        self.date = date
+        self.amount = amount.replacingOccurrences(of: ",", with: "").toFloat()
+        self.date = date.toDate(date)
         self.type = type
         self.text = text
     }
