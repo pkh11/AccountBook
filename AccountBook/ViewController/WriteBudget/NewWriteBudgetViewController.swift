@@ -530,5 +530,37 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.isLoading }
+            .asDriver(onErrorJustReturn: false)
+            .drive(with: self) { owner, isLoading in
+                if isLoading {
+                    owner.spinner.show(in: owner.view)
+                } else {
+                    owner.spinner.dismiss()
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.from([
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+                .map { notification -> CGFloat in
+                    (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
+                },
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+                .map { _ -> CGFloat in 0 }
+            ])
+            .merge()
+            .asDriver(onErrorDriveWith: .empty())
+            .drive(with: self) { owner, height in
+                owner.saveBtn.snp.updateConstraints {
+                    $0.bottom.equalToSuperview().offset(height > 0 ? -(height - owner.view.safeAreaInsets.bottom + 8) : 0)
+                }
+                
+                UIView.animate(withDuration: 0.5) { [weak owner] in
+                    owner?.view.layoutIfNeeded()
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
