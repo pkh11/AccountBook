@@ -185,10 +185,11 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
         $0.layer.cornerCurve = .circular
     }
     
+    private let spinner = JGProgressHUD(style: .dark)
+    
     // MARK: - VARIABLES
     internal var disposeBag: DisposeBag = DisposeBag()
-    
-    
+    private var keyboardHeight: CGFloat = 0
     
     // MARK: - SYSTEM FUNC
     deinit {
@@ -440,6 +441,22 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
             .bind(to: amountTextField.rx.text)
             .disposed(by: disposeBag)
         
+        reactor.state.compactMap { $0.accountResult }
+            .map { accountResult -> String in
+                switch accountResult {
+                case .success: return ""
+                case .failure(let error): return error.message
+                }
+            }
+            .filter { !$0.isEmpty }
+            .asDriver(onErrorJustReturn: "")
+            .drive(with: self) { owner, message in
+                let vc = TransientAlertViewController()
+                vc.titleMessage = message
+                owner.presentPanModal(vc)
+            }
+            .disposed(by: disposeBag)
+        
         dateBtn.rx.tap
             .asDriver()
             .drive(with: self) { owner, _ in
@@ -487,7 +504,16 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
         
         memoTextLbl.rx.text
             .orEmpty
-            .map { memo in NewWriteBudgetReactor.Action.inputMemo(memo) }
+            .scan("", accumulator: { (previous, new) -> String in
+                let memoLimit = NewWriteBudgetReactor.memoLimit
+                
+                if new.count > memoLimit {
+                    return previous
+                } else {
+                    return new
+                }
+            })
+            .map { memo in NewWriteBudgetReactor.Action.setMemo(memo) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -500,12 +526,6 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
             .disposed(by: disposeBag)
         
         saveBtn.rx.tap
-            .filter({ _ in
-                guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int, myAccount != 0 else {
-                    return false
-                }
-                return true
-            })
             .map({ _ in NewWriteBudgetReactor.Action.saveBtnTapped })
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -521,6 +541,14 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
             .asDriver()
             .drive(with: self) { owner, _ in
                 owner.view.endEditing(true)
+            }
+            .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.isCompleted }
+            .filter { $0 }
+            .asDriver(onErrorJustReturn: false)
+            .drive(with: self) { owner, isCompleted in
+                owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
         

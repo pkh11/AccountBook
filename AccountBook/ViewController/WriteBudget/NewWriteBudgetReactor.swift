@@ -34,13 +34,18 @@ internal final class NewWriteBudgetReactor: Reactor {
         var date: String = ""
         var type: String = ""
         var memo: String = ""
+        var accountResult: AccountResult?
         var isCompleted: Bool?
         var isValid: Bool?
+        var isLoading: Bool?
     }
     
     internal var initialState: State
     private var paramModel: SpendInfo = SpendInfo()
     private let dataBaseWorker: DatabaseWorker = DatabaseWorker()
+    
+    static let amountLimit: Int = 7
+    static let memoLimit: Int = 10
     
     init() {
         self.initialState = State()
@@ -126,5 +131,37 @@ internal final class NewWriteBudgetReactor: Reactor {
         
         return newState
     }
+    
+    private func checkMyAccount(_ amount: String) -> AccountResult {
+        guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int, myAccount != 0 else {
+            return AccountResult.failure(AccountError.accountNotSet)
+        }
+        
+        let totalAmount = dataBaseWorker.read(SpendInfo.self)?
+            .map({ $0.amountFloatToInt })
+            .reduce(0) { $0 + $1 } ?? 0
 
+        if myAccount - totalAmount < amount.replacingOccurrences(of: ",", with: "").toInt() {
+            return AccountResult.failure(AccountError.overAccount)
+        }
+        
+        return AccountResult.success
+    }
+}
+
+enum AccountResult {
+    case success
+    case failure(AccountError)
+}
+
+enum AccountError: Error {
+    case overAccount
+    case accountNotSet
+    
+    var message: String {
+        switch self {
+        case .overAccount: return "예산을 초과했습니다.😀"
+        case .accountNotSet: return "예산을 설정해주세요.😀"
+        }
+    }
 }
