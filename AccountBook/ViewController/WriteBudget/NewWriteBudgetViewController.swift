@@ -13,6 +13,7 @@ import ReactorKit
 import SnapKit
 import Then
 import PanModal
+import JGProgressHUD
 
 internal final class NewWriteBudgetViewController: UIViewController, StoryboardView {
     
@@ -427,11 +428,11 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     func bind(reactor: NewWriteBudgetReactor) {
         amountTextField.rx.text
             .orEmpty
-            .map({ amount in NewWriteBudgetReactor.Action.inputAmount(amount) })
+            .map({ amount in NewWriteBudgetReactor.Action.setAmount(amount) })
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
@@ -448,7 +449,7 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
                 
                 owner.presentPanModal(viewcon)
                 viewcon.selectedCompletion = { time in
-                    Observable.just(NewWriteBudgetReactor.Action.inputDate(time))
+                    Observable.just(NewWriteBudgetReactor.Action.setDate(time))
                         .bind(to: reactor.action)
                         .disposed(by: owner.disposeBag)
                 }
@@ -469,7 +470,7 @@ internal final class NewWriteBudgetViewController: UIViewController, StoryboardV
                 let viewcon = NewSpendTypeViewController()
                 owner.presentPanModal(viewcon)
                 viewcon.selectedCompletion = { type in
-                    Observable.just(NewWriteBudgetReactor.Action.inputType(type.labelMessage))
+                    Observable.just(NewWriteBudgetReactor.Action.setType(type.labelMessage))
                         .bind(to: reactor.action)
                         .disposed(by: owner.disposeBag)
                 }

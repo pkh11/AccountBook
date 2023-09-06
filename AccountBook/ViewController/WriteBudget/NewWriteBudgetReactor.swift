@@ -12,18 +12,19 @@ import ReactorKit
 
 internal final class NewWriteBudgetReactor: Reactor {
     enum Action {
-        case inputAmount(String)
-        case inputDate(String)
-        case inputType(String)
-        case inputMemo(String)
+        case setAmount(String)
+        case setDate(String)
+        case setType(String)
+        case setMemo(String)
         case saveBtnTapped
     }
     
     enum Mutation {
-        case inputAmount(String)
-        case inputDate(String)
-        case inputType(String)
-        case inputMemo(String)
+        case setAmount(String)
+        case setDate(String)
+        case setType(String)
+        case setMemo(String)
+        case setLoading(Bool)
         case isValid
         case saveBtnTapped
     }
@@ -47,32 +48,36 @@ internal final class NewWriteBudgetReactor: Reactor {
         
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .inputAmount(let amount):
+        case .setAmount(let amount):
             return .concat([
-                .just(.inputAmount(amount)),
+                .just(.setAmount(amount)),
                 .just(.isValid)
             ])
             
-        case .inputDate(let date):
+        case .setDate(let date):
             return .concat([
-                .just(.inputDate(date)),
+                .just(.setDate(date)),
                 .just(.isValid)
             ])
             
-        case .inputType(let type):
+        case .setType(let type):
             return .concat([
-                .just(.inputType(type)),
+                .just(.setType(type)),
                 .just(.isValid)
             ])
 
-        case .inputMemo(let memo):
+        case .setMemo(let memo):
             return .concat([
-                .just(.inputMemo(memo)),
+                .just(.setMemo(memo)),
                 .just(.isValid)
             ])
             
         case .saveBtnTapped:
-            return .just(.saveBtnTapped)
+            return .concat([
+                .just(.setLoading(true)),
+                .just(.saveBtnTapped).delay(.milliseconds(500), scheduler: MainScheduler.instance),
+                .just(.setLoading(false))
+            ])
             
         }
     }
@@ -80,25 +85,34 @@ internal final class NewWriteBudgetReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         newState.isCompleted = nil
+        newState.isLoading = nil
+        newState.isValid = nil
+        newState.accountResult = nil
         
         switch mutation {
-        case .inputAmount(let amount):
+        case .setAmount(let amount):
             newState.amount = amount.convertToComma()
+            newState.accountResult = checkMyAccount(amount)
             
-        case .inputDate(let date):
+        case .setDate(let date):
             newState.date = date
             
-        case .inputType(let type):
+        case .setType(let type):
             newState.type = type
             
-        case .inputMemo(let memo):
+        case .setMemo(let memo):
             newState.memo = memo
+            
+        case .setLoading(let isLoading):
+            newState.isLoading = isLoading
             
         case .isValid:
             newState.isValid = !self.currentState.amount.isEmpty &&
-                                !self.currentState.date.isEmpty &&
-                                !self.currentState.type.isEmpty &&
-                                !self.currentState.memo.isEmpty
+            self.currentState.amount.count <= NewWriteBudgetReactor.amountLimit &&
+            !self.currentState.date.isEmpty &&
+            !self.currentState.type.isEmpty &&
+            !self.currentState.memo.isEmpty &&
+            self.currentState.memo.count <= NewWriteBudgetReactor.memoLimit
             
         case .saveBtnTapped:
             paramModel = SpendInfo(self.currentState.amount,
