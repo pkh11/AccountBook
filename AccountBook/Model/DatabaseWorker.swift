@@ -49,6 +49,17 @@ internal final class DatabaseWorker: DBAPI {
             print(error)
         }
     }
+    
+    internal func deleteAll<T: Object>(_ model: T.Type) {
+        do {
+            let items = try database.objects(model)
+            try database.write({
+                try database.delete(items)
+            })
+        } catch let error {
+            print(error)
+        }
+    }
 }
 
 enum DatabaseError: Error {

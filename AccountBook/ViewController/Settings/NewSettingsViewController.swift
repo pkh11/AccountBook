@@ -107,7 +107,7 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
                             UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
                             
                             // remove coredata
-                            Storage.shared.deleteData()
+                            Storage.shared.deleteAllData()
                             
                             let vc = TransientAlertViewController()
                             vc.titleMessage = "예산을 변경하였습니다.😀"
