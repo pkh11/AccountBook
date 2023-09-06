@@ -62,6 +62,9 @@ internal final class NewTabBarController: UITabBarController {
         self.setViewControllers([homeViewController, viewController, settingsNavigationViewcon], animated: true)
         
         if let tabBarItems = self.tabBar.items {
+            tabBarItems.forEach {
+                $0.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+            }
             for screenType in ScreenType.allCases {
                 tabBarItems[screenType.index].image = screenType.defaultIconImg
                 tabBarItems[screenType.index].selectedImage = screenType.selectedIconImg
