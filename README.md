@@ -6,7 +6,7 @@
 
 
 1. 활용기술
-- Swift, ReactorKit, RxSwift/RxCocoa/RxDatasource, RealmSw, MVVM 패턴
+- Swift, ReactorKit, RxSwift/RxCocoa/RxDatasource, RealmSwift, MVVM 패턴
 
 2. 스크린샷
 
