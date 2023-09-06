@@ -98,7 +98,7 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
                         
                         guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
                         
-                        if account.count > ActionViewModel.amountLimit {
+                        if account.count > NewWriteBudgetReactor.amountLimit {
                             let vc = TransientAlertViewController()
                             vc.titleMessage = "한도를 초과하였습니다.😀"
                             owner.presentPanModal(vc)
