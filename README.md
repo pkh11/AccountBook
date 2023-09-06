@@ -1,12 +1,12 @@
 # AccountBook
-나만의 가계부 어플
+나만의 가계부 어플(유지보수 진행중)
 
 예산을 설정하고, 설정한 예산안에서 소비내역을 입력하여 나의 소비내역을 한 눈에 볼 수 있는 iOS 전용 Application입니다. <br>
 👉 [앱스토어 바로가기](https://apps.apple.com/kr/app/accountbook-예산안에서-소비하자/id1542974472)
 
 
 1. 활용기술
-- Swift, RxSwift/RxCocoa/RxGesture, CoreData, MVVM 패턴
+- Swift, ReactorKit, RxSwift/RxCocoa/RxDatasource, RealmSw, MVVM 패턴
 
 2. 스크린샷
 
