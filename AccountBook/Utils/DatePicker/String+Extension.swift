@@ -69,4 +69,9 @@ extension String {
         guard let floatData = Float(self) else { return 0.0 }
         return floatData
     }
+    
+    func toInt() -> Int {
+        guard let intData = Int(self) else { return 0 }
+        return intData
+    }
 }
