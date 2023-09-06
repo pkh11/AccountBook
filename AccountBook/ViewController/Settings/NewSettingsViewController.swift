@@ -98,7 +98,7 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
                         
                         guard let account = alertAction.textFields?[0].text?.replacingOccurrences(of: ",", with: "") else { return }
                         
-                        if account.count > ActionViewModel.amountLimit {
+                        if account.count > NewWriteBudgetReactor.amountLimit {
                             let vc = TransientAlertViewController()
                             vc.titleMessage = "한도를 초과하였습니다.😀"
                             owner.presentPanModal(vc)
@@ -107,7 +107,7 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
                             UserDefaults.standard.setValue(Int(account), forKey: "myAccount")
                             
                             // remove coredata
-                            Storage.shared.deleteData()
+                            Storage.shared.deleteAllData()
                             
                             let vc = TransientAlertViewController()
                             vc.titleMessage = "예산을 변경하였습니다.😀"

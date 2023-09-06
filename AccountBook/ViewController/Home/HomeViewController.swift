@@ -140,8 +140,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            let transaction = homeViewModel.getData(indexPath.row)
-            cell.updateUI(transaction)
+            let spendInfo = homeViewModel.getData(indexPath.row)
+            cell.updateUI(spendInfo)
             
             return cell
         }

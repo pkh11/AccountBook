@@ -9,23 +9,24 @@
 import Foundation
 import RxSwift
 
-class HomeViewModel {
-    
-    private var datas: [Account] = [] {
+internal final class HomeViewModel {
+
+    private var spendInfos: [SpendInfo] = [] {
         didSet {
-            let used = self.datas.map{ $0.amount }.reduce(0) { $0 + $1 }
+            let used = self.spendInfos.map { $0.amount }.reduce(0) { $0 + $1 }
             self.reloadTableViewClosure?(used)
         }
     }
+
     private var storage = Storage.shared
-    var reloadTableViewClosure: ((Float) -> ())?
+    internal var reloadTableViewClosure: ((Float) -> ())?
     
-    func isEffectiveLimit() -> Observable<String> {
+    internal func isEffectiveLimit() -> Observable<String> {
         let type = storage.trasactionDailyGroup.mostUsedType
         return Observable.just(type)
     }
     
-    func limitCheck() -> Observable<String> {
+    internal func limitCheck() -> Observable<String> {
         let mostUsedType = storage.trasactionDailyGroup.mostUsedType
         var warningText = ""
         
@@ -35,25 +36,25 @@ class HomeViewModel {
         return Observable.just(warningText)
     }
     
-    func numberOfDatas() -> Int {
-        return self.datas.count
+    internal func numberOfDatas() -> Int {
+        return self.spendInfos.count
     }
     
-    func getData(_ index: Int) -> Account {
-        return self.datas[index]
+    internal func getData(_ index: Int) -> SpendInfo {
+        return self.spendInfos[index]
     }
     
-    func fetchDatas() {
-        storage.loadFromData(completion: { [weak self] data in
-            self?.datas = data
-        })
+    internal func fetchDatas() {
+        storage.fetchData { [weak self] spendInfos in
+            self?.spendInfos = spendInfos
+        }
     }
     
-    func getRemainCost() -> Int {
+    internal func getRemainCost() -> Int {
         guard let myAccount = UserDefaults.standard.value(forKey: "myAccount") as? Int else {
             return 0
         }
         
-        return myAccount - self.datas.map{ Int($0.amount) }.reduce(0, { $0 + $1})
+        return myAccount - self.spendInfos.map{ $0.amountFloatToInt }.reduce(0, { $0 + $1})
     }
 }

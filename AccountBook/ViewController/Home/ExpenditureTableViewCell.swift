@@ -19,12 +19,10 @@ class ExpenditureTableViewCell: UITableViewCell {
         
     }
     
-    func updateUI(_ transaction: Account?) {
-        if let _transaction = transaction {
-            cost.text = String("- \(_transaction.amountFloatToInt) 원")
-            expenditureContents.text = _transaction.text
-            date.text = _transaction.date.toString()
-        }
+    func updateUI(_ spendInfo: SpendInfo) {
+        cost.text = String("- \(spendInfo.amountFloatToInt) 원")
+        expenditureContents.text = spendInfo.text
+        date.text = spendInfo.date.toString()
     }
 }
 
