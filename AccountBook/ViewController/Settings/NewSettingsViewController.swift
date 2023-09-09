@@ -12,6 +12,7 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 import ReusableKit
+import GoogleMobileAds
 
 internal final class NewSettingsViewController: UIViewController, StoryboardView {
     typealias DataSource = RxTableViewSectionedReloadDataSource<SettingsSectionModel>
@@ -30,6 +31,10 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
         $0.register(Reusable.budgetTableViewCell)
         $0.register(Reusable.versionInfoTableViewCell)
         $0.estimatedRowHeight = UITableView.automaticDimension
+    }
+    
+    private var bannerView = GADBannerView().then {
+        $0.adUnitID = Constants.sharedInstance.admobUnitId
     }
     
     private var dataSource = DataSource(configureCell: { dataSource, tableView, indexPath, item in
@@ -65,6 +70,16 @@ internal final class NewSettingsViewController: UIViewController, StoryboardView
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        view.addSubview(bannerView)
+        bannerView.snp.makeConstraints {
+            $0.height.equalTo(50)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 
     override func viewDidLoad() {
