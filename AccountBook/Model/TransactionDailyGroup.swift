@@ -7,30 +7,26 @@
 
 import Foundation
 
-struct TransactionDailyGroup {
-    // Transaction들을 day기준으로 모아놓은 것입니다.
-    var transactions: [Account] = Storage.shared.transactions
-    var date: Date
-    
-    var total: Float {
-        let totalSum = Storage.shared.transactions.map{ Int($0.amount) }.reduce(0){ $0 + $1 }
+// TODO: 리팩토링
+internal struct TransactionDailyGroup {
+    private var total: Float {
+        let totalSum = Storage.shared.spendInfos.map{ Int($0.amount) }.reduce(0){ $0 + $1 }
         return Float(totalSum)
     }
     
-    var totalToInt: Int {
+    internal var totalToInt: Int {
         return Int(total)
     }
     
-    /// - TODO: 가장 많이 사용한 분류 출력
-    var mostUsedType: String {
-        let transactions = Storage.shared.transactions
-        let total = Float(transactions.map{ Int($0.amount) }.reduce(0){ $0 + $1 })
+    internal var mostUsedType: String {
+        let spendInfos = Storage.shared.spendInfos
+        let total = Float(spendInfos.map{ Int($0.amount) }.reduce(0){ $0 + $1 })
         var map = [String : Float]()
-        for transaction in transactions {
-            if let amount = map[transaction.type] {
-                map[transaction.type]  = amount + transaction.amount
+        for spendInfo in spendInfos {
+            if let amount = map[spendInfo.type] {
+                map[spendInfo.type]  = amount + spendInfo.amount
             }
-            map[transaction.type] = transaction.amount
+            map[spendInfo.type] = spendInfo.amount
         }
         
         guard let type = map.sorted(by: { $0.value > $1.value }).first else { return "" }
